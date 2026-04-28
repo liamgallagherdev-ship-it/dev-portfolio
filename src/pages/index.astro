@@ -1,0 +1,317 @@
+
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Frontend Developer Portfolio">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="greeting">Hello, I'm</p>
+      <h1 class="name">Your Name</h1>
+      <p class="tagline">Frontend Developer crafting beautiful digital experiences</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <p>
+          I'm a passionate frontend developer with a keen eye for design and a love for creating 
+          seamless user experiences. With expertise in modern JavaScript frameworks and a 
+          strong foundation in web technologies, I build responsive, accessible, and performant 
+          web applications.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <div class="container">
+      <h2 class="section-title">Skills & Technologies</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Frontend</h3>
+          <ul>
+            <li>React / Vue</li>
+            <li>TypeScript</li>
+            <li>HTML5 / CSS3</li>
+            <li>Tailwind CSS</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Tools & DevOps</h3>
+          <ul>
+            <li>Git / GitHub</li>
+            <li>VS Code</li>
+            <li>Chrome DevTools</li>
+            <li>npm / yarn</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Design</h3>
+          <ul>
+            <li>Figma</li>
+            <li>UI/UX Principles</li>
+            <li>Responsive Design</li>
+            <li>Accessibility</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+        <article class="project-card">
+          <h3>Project One</h3>
+          <p>A brief description of the project and the technologies used.</p>
+          <div class="project-tags">
+            <span>React</span>
+            <span>TypeScript</span>
+          </div>
+        </article>
+        <article class="project-card">
+          <h3>Project Two</h3>
+          <p>A brief description of the project and the technologies used.</p>
+          <div class="project-tags">
+            <span>Vue</span>
+            <span>CSS</span>
+          </div>
+        </article>
+        <article class="project-card">
+          <h3>Project Three</h3>
+          <p>A brief description of the project and the technologies used.</p>
+          <div class="project-tags">
+            <span>Astro</span>
+            <span>Tailwind</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="contact-text">
+        I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+      </p>
+      <a href="mailto:your.email@example.com" class="btn btn-primary">Send Me an Email</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+  }
+
+  .greeting {
+    font-size: 1.125rem;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .name {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--color-text) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .tagline {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary {
+    background: var(--color-accent);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: var(--color-accent-hover);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-text);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  section {
+    padding: 6rem 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  /* About Section */
+  .about-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about-content p {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+  }
+
+  /* Skills Section */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+  }
+
+  .skill-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: var(--color-accent);
+  }
+
+  .skill-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .skill-card li {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+
+  /* Projects Section */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-accent);
+  }
+
+  .project-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-card p {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .project-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .project-tags span {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Contact Section */
+  .contact {
+    text-align: center;
+  }
+
+  .contact-text {
+    color: var(--color-text-muted);
+    max-width: 500px;
+    margin: 0 auto 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .name {
+      font-size: 2.5rem;
+    }
+
+    .hero-cta {
+      flex-direction: column;
+    }
+
+    .btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>

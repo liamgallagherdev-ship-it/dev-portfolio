@@ -1,0 +1,285 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import DemoCard from '../components/css-showcase/DemoCard.vue';
+import AnimatedGradient from '../components/css-showcase/AnimatedGradient.vue';
+import GlowingButton from '../components/css-showcase/GlowingButton.vue';
+import CardTilt from '../components/css-showcase/CardTilt.vue';
+import CustomSpinner from '../components/css-showcase/CustomSpinner.vue';
+import TextReveal from '../components/css-showcase/TextReveal.vue';
+import GlassMorphism from '../components/css-showcase/GlassMorphism.vue';
+import AnimatedUnderline from '../components/css-showcase/AnimatedUnderline.vue';
+import PulseAnimation from '../components/css-showcase/PulseAnimation.vue';
+
+const demos = [
+  {
+    component: AnimatedGradient,
+    category: "effects",
+    code: `.gradient-animated {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}`
+  },
+  {
+    component: GlowingButton,
+    category: "ui",
+    code: `.glow-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background: #0f0f0f;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.glow-btn:hover {
+  box-shadow: 0 0 20px #6366f1, 0 0 40px #6366f1;
+}`
+  },
+  {
+    component: CardTilt,
+    category: "effects",
+    code: `.card-tilt {
+  perspective: 1000px;
+}
+
+.card-tilt:hover {
+  transform: rotateY(15deg) rotateX(10deg);
+  transition: transform 0.3s ease;
+}`
+  },
+  {
+    component: CustomSpinner,
+    category: "animation",
+    code: `.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #27272a;
+  border-top-color: #6366f1;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}`
+  },
+  {
+    component: TextReveal,
+    category: "animation",
+    code: `.text-reveal {
+  background: linear-gradient(90deg, #6366f1, #818cf8);
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  transition: 0.5s;
+}
+
+.text-reveal:hover {
+  background-position: right;
+}`
+  },
+  {
+    component: GlassMorphism,
+    category: "effects",
+    code: `.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+}`
+  },
+  {
+    component: AnimatedUnderline,
+    category: "ui",
+    code: `.underline-link {
+  position: relative;
+}
+
+.underline-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #6366f1;
+  transition: 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.underline-link:hover::after {
+  width: 100%;
+}`
+  },
+  {
+    component: PulseAnimation,
+    category: "animation",
+    code: `.pulse-dot {
+  width: 20px;
+  height: 20px;
+  background: #6366f1;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7); }
+  70% { box-shadow: 0 0 0 20px rgba(99, 102, 241, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+}`
+  }
+];
+---
+
+<BaseLayout title="CSS Showcase | Ideas & Experiments">
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="title">CSS Showcase</h1>
+      <p class="subtitle">A collection of CSS ideas, experiments, and techniques</p>
+    </div>
+  </section>
+
+  <section class="showcase">
+    <div class="container">
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="animation">Animations</button>
+        <button class="filter-btn" data-filter="layout">Layout</button>
+        <button class="filter-btn" data-filter="effects">Effects</button>
+        <button class="filter-btn" data-filter="ui">UI Components</button>
+      </div>
+
+      <div class="showcase-grid">
+        {demos.map((demo) => (
+          <DemoCard category={demo.category}>
+            <demo.component code={demo.code} />
+          </DemoCard>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="add-new">
+    <div class="container">
+      <h2>Add Your Own</h2>
+      <p>Create a new Vue component in <code>src/components/css-showcase/</code> and add it to the demos array</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 8rem 2rem 4rem;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle {
+    color: var(--color-text-muted);
+    font-size: 1.125rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .filters {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 2rem;
+    background: transparent;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: white;
+  }
+
+  .showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .add-new {
+    padding: 4rem 0;
+    text-align: center;
+    border-top: 1px solid var(--color-border);
+    margin-top: 4rem;
+  }
+
+  .add-new h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .add-new p {
+    color: var(--color-text-muted);
+  }
+
+  .add-new code {
+    background: var(--color-card);
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2rem;
+    }
+
+    .showcase-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  // Filter functionality
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.demo-card').forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          (card as HTMLElement).style.display = 'block';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
