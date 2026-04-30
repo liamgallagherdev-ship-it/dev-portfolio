@@ -19,6 +19,8 @@ const { title, description = "Frontend Developer Portfolio" } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
   </head>
   <body>
     <header class="site-header">
@@ -30,8 +32,41 @@ const { title, description = "Frontend Developer Portfolio" } = Astro.props;
           <li><a href="#projects">Projects</a></li>
           <li><a href="/css-showcase">CSS Showcase</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li>
+            <div class="theme-toggle-container">
+              <div class="theme-toggle-wrapper">
+                <div class="theme-toggle-btn btn-pill" id="theme-toggle-btn">
+                  <input type="checkbox" class="theme-toggle-checkbox" id="theme-toggle" />
+                  <div class="theme-toggle-knob"></div>
+                  <div class="theme-toggle-bg"></div>
+                </div>
+              </div>
+            </div>
+          </li>
         </ul>
       </nav>
+      <script>
+        // Check for saved theme preference or default to light
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        const checkbox = document.getElementById('theme-toggle');
+        
+        // Apply saved theme on page load
+        if (savedTheme === 'dark') {
+          document.body.classList.add('dark-theme');
+          checkbox.checked = true;
+        }
+
+        // Toggle theme on checkbox change
+        checkbox.addEventListener('change', function() {
+          if (this.checked) {
+            document.body.classList.add('dark-theme');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            document.body.classList.remove('dark-theme');
+            localStorage.setItem('theme', 'light');
+          }
+        });
+      </script>
     </header>
     
     <main>
@@ -46,13 +81,13 @@ const { title, description = "Frontend Developer Portfolio" } = Astro.props;
 
 <style is:global>
   :root {
-    --color-bg: #0f0f0f;
-    --color-text: #e4e4e7;
-    --color-text-muted: #a1a1aa;
+    --color-bg: #ffffff;
+    --color-text: #1f2937;
+    --color-text-muted: #6b7280;
     --color-accent: #6366f1;
     --color-accent-hover: #818cf8;
-    --color-card: #18181b;
-    --color-border: #27272a;
+    --color-card: #f9fafb;
+    --color-border: #e5e7eb;
     --font-sans: 'Inter', system-ui, sans-serif;
   }
 
@@ -71,6 +106,16 @@ const { title, description = "Frontend Developer Portfolio" } = Astro.props;
     background-color: var(--color-bg);
     color: var(--color-text);
     line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Dark theme */
+  body.dark-theme {
+    --color-bg: #0f0f0f;
+    --color-text: #e4e4e7;
+    --color-text-muted: #a1a1aa;
+    --color-card: #18181b;
+    --color-border: #27272a;
   }
 
   a {
@@ -140,4 +185,128 @@ const { title, description = "Frontend Developer Portfolio" } = Astro.props;
       display: none;
     }
   }
+
+  /* Toggle Button Styles */
+  .theme-toggle-container {
+    position: relative;
+    width: 74px;
+    height: 36px;
+  }
+
+  .theme-toggle-wrapper {
+    position: relative;
+    height: 36px;
+    background-color: #fff;
+    border-radius: 100px;
+  }
+
+  .theme-toggle-knob,
+  .theme-toggle-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .theme-toggle-btn {
+    position: relative;
+    width: 74px;
+    height: 36px;
+    overflow: hidden;
+  }
+
+  .theme-toggle-btn.btn-pill,
+  .theme-toggle-btn.btn-pill > .theme-toggle-bg {
+
+     outline: 2px solid  #ffffff;;
+  
+   
+  }
+
+  .theme-toggle-checkbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+  }
+
+  .theme-toggle-knob {
+    z-index: 2;
+  }
+
+  .theme-toggle-bg {
+    width: 100%;
+    background-color: #ebf7fc;
+    transition: 0.3s ease all;
+    z-index: 1;
+  }
+
+  /* Theme Toggle Button */
+  #theme-toggle-btn .theme-toggle-knob:before {
+    content: "☀️";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 50%;
+    height: 100%;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    line-height: 35px;
+    background-color: #4899be;
+    outline: 2px solid  #ffffff;;
+   
+   
+    transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+  }
+
+  #theme-toggle-btn .theme-toggle-checkbox:active + .theme-toggle-knob:before {
+    width: 50%;
+  
+  }
+
+  #theme-toggle-btn .theme-toggle-checkbox:checked:active + .theme-toggle-knob:before {
+    margin-left: -26px;
+  }
+
+  #theme-toggle-btn .theme-toggle-checkbox:checked + .theme-toggle-knob:before {
+    content: "🌙";
+    left: 50%;
+    background-color: #30ee00;
+  }
+
+  #theme-toggle-btn .theme-toggle-checkbox:checked ~ .theme-toggle-bg {
+   
+  }
+
+  /* Dark theme toggle adjustments */
+  body.dark-theme .theme-toggle-wrapper {
+    background-color: #e61919;
+  }
+
+  body.dark-theme .theme-toggle-bg {
+    background-color: #2d2d2d;
+  }
+
+  body.dark-theme #theme-toggle-btn .theme-toggle-knob:before {
+    background-color: #6366f1;
+  }
+
+  body.dark-theme #theme-toggle-btn .theme-toggle-checkbox:checked + .theme-toggle-knob:before {
+    background-color: #818cf8;
+  }
+
+.material-icons {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
 </style>
