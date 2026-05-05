@@ -1,26 +1,33 @@
 
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import LinkButton from '../components/LinkButton.vue';
 ---
 
 <BaseLayout title="Frontend Developer Portfolio">
   <!-- Hero Section -->
   <section class="hero">
+
     <div class="hero-content">
-      <p class="greeting">Hello, I'm</p>
-      <h1 class="name">Liam Gallagher</h1>
-      <p class="tagline">Frontend Developer crafting beautiful digital experiences</p>
+    <div>
+      <p class="greeting ">Hi, I’m Liam</p>
+    <h1 class="header"> <div class="">Creative </div> <div> Frontend Developer </div></h1>
+      <p class="tagline">I build fast, intuitive interfaces with a focus on performance, usability, and detail.</p>
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary">View My Work</a>
-        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        <LinkButton url="#contact" label="Get In Touch" />
+</div>
+           
       </div>
+        <img class="avatar" src="/images/logos/Avatar-c.png" alt="Figma Project" width="50" height="50" />
     </div>
   </section>
 
   <!-- About Section -->
+ 
   <section id="about" class="about">
     <div class="container">
-      <h2 class="section-title">About Me</h2>
+      <h2 class="section-title bungee-shade-regular">About Me</h2>
       <div class="about-content">
         <p>
           I'm a passionate frontend developer with a keen eye for design and a love for creating 
@@ -32,10 +39,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
+ <div class="skills-projects">
   <!-- Skills Section -->
   <section id="skills" class="skills">
     <div class="container">
-      <h2 class="section-title">Skills & Technologies</h2>
+      <h2 class="section-title bungee-shade-regular">Skills & Technologies</h2>
       <div class="skills-grid">
         <div class="skill-card">
           <h3>Frontend</h3>
@@ -67,39 +75,71 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
   </section>
+ 
 
   <!-- Projects Section -->
   <section id="projects" class="projects">
     <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
+      <h2 class="section-title bungee-shade-regular">Featured Projects</h2>
       <div class="projects-grid">
         <article class="project-card">
-          <h3>Project One</h3>
-          <p>A brief description of the project and the technologies used.</p>
+        <div>
+          <h3>Win Sporting Prizes</h3>
+          <p>A gamified sports rewards platform built to increase engagement and diversify revenue.</p>
+              </div>
           <div class="project-tags">
-            <span>React</span>
-            <span>TypeScript</span>
+            <img class="logos" src="/images/logos/FigmaSvg50x50.svg" alt="Figma Project" width="50" height="50" />
+            <img class="logos" src="/images/logos/VueSvg50x50.svg" alt="Figma Project" width="50" height="50" />
+            <img class="logos" src="/images/logos/FigmaSvg50x50.svg" alt="Figma Project" width="50" height="50" />
+            <img class="logos" src="/images/logos/VueSvg50x50.svg" alt="Figma Project" width="50" height="50" />
+            <img class="logos" src="/images/logos/VueSvg50x50.svg" alt="Figma Project" width="50" height="50" />
           </div>
+               <LinkButton url="/winsportingprizes" label="View Case Study" />
+
         </article>
         <article class="project-card">
-          <h3>Project Two</h3>
-          <p>A brief description of the project and the technologies used.</p>
+          <h3>Rewards4 Platform</h3>
+          <p>Modernising a multi-brand rewards ecosystem with Vue 3, TypeScript, and improved UX.</p>
           <div class="project-tags">
-            <span>Vue</span>
-            <span>CSS</span>
+            <img class="logos" src="/images/logos/VueSvg50x50.svg" alt="Vue Project" width="50" height="50" />
+            <img class="logos" src="/images/logos/VueSvg50x50.svg" alt="Vue Project" width="50" height="50" />
+            <img class="logos" src="/images/logos/VueSvg50x50.svg" alt="Vue Project" width="50" height="50" />
+            <img class="logos" src="/images/logos/VueSvg50x50.svg" alt="Vue Project" width="50" height="50" />
+            <img class="logos" src="/images/logos/VueSvg50x50.svg" alt="Vue Project" width="50" height="50" />
           </div>
+          <LinkButton url="/rewards4" label="View Case Study" />
         </article>
         <article class="project-card">
           <h3>Project Three</h3>
           <p>A brief description of the project and the technologies used.</p>
           <div class="project-tags">
-            <span>Astro</span>
-            <span>Tailwind</span>
+             <img class="logos" src="/images/logos/FigmaSvg50x50.svg" alt="Figma Project" width="50" height="50" />
+                           <img class="logos" src="/images/logos/VueSvg50x50.svg" alt="Figma Project" width="50" height="50" />
+                          <img class="logos" src="/images/logos/FigmaSvg50x50.svg" alt="Figma Project" width="50" height="50" />
+                           <img class="logos" src="/images/logos/VueSvg50x50.svg" alt="Figma Project" width="50" height="50" />
+                               <img class="logos" src="/images/logos/VueSvg50x50.svg" alt="Figma Project" width="50" height="50" />
           </div>
+              <LinkButton url="/winsportingprizes" label="View Case Study" />
+        </article>
+        <article class="project-card">
+
+          <h3>Figma Project</h3>
+          <p>A design project built with Figma.</p>
+          <div class="project-tags">
+  
+                      <img class="logos" src="/images/logos/FigmaSvg50x50.svg" alt="Figma Project" width="50" height="50" />
+                           <img class="logos" src="/images/logos/VueSvg50x50.svg" alt="Figma Project" width="50" height="50" />
+                          <img class="logos" src="/images/logos/FigmaSvg50x50.svg" alt="Figma Project" width="50" height="50" />
+                           <img class="logos" src="/images/logos/VueSvg50x50.svg" alt="Figma Project" width="50" height="50" />
+                               <img class="logos" src="/images/logos/VueSvg50x50.svg" alt="Figma Project" width="50" height="50" />
+                           
+          </div>
+              <LinkButton url="/winsportingprizes" label="View Case Study" />
         </article>
       </div>
     </div>
   </section>
+  </div>
 
   <!-- Contact Section -->
   <section id="contact" class="contact">
@@ -110,57 +150,90 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </p>
       <a href="mailto:your.email@example.com" class="btn btn-primary">Send Me an Email</a>
     </div>
+    
   </section>
 </BaseLayout>
 
 <style>
   .hero {
-    min-height: 100vh;
+      position: relative;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
     padding: 6rem 2rem 4rem;
+    border-inline: 2px solid var(--color-border);
+    max-width: 1250px;
+    margin-inline: auto;
+  }
+
+  .avatar {
+    width: auto;
+    height: 400px;
+    opacity: 0.75;
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1fr auto;
   }
 
   .greeting {
     font-size: 1.125rem;
-    color: var(--color-accent);
-    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  padding-left: 6px;
+  
   }
 
-  .name {
+  .header {
+    display:grid;
     font-size: 4rem;
+    line-height: 0.9;
+    text-transform: uppercase;
     font-weight: 700;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--color-text) 0%, var(--color-accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+   -webkit-text-fill-color: var(--color-accent-muted);
+    -webkit-text-stroke-width: 1px;
+    word-spacing: -30px;
   }
+
 
   .tagline {
     font-size: 1.25rem;
     color: var(--color-text-muted);
     margin-bottom: 2rem;
     max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+   
   }
 
   .hero-cta {
-    display: flex;
-    gap: 1rem;
+    display: grid;
+   grid-template-columns: auto 1fr;
+    gap: 2rem;
     justify-content: center;
+    align-items: end;
   }
 
   .btn {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
+border: 2px solid var(--color-text);
     font-weight: 500;
     font-size: 0.875rem;
     transition: all 0.2s ease;
+    color: var(--color-text);
+   box-shadow: 10px 10px teal;
+  }
+
+  .link-btn {
+     display: flex;
+    align-content: center;.
+    justify-self: end;
+
+  }
+
+  .link-btn p {
+    margin-right: 10px;
   }
 
   .btn-primary {
@@ -170,16 +243,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .btn-primary:hover {
     background: var(--color-accent-hover);
+     box-shadow: 8px 8px teal;
   }
 
-  .btn-secondary {
-    background: transparent;
-    border: 1px solid var(--color-border);
-    color: var(--color-text);
-  }
-
-  .btn-secondary:hover {
-    border-color: var(--color-text);
+    .btn-primary:active {
+   box-shadow: 5px 5px teal;
   }
 
   .container {
@@ -190,13 +258,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   section {
     padding: 6rem 0;
+    
   }
 
   .section-title {
     font-size: 2rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 3rem;
+   padding-bottom: 1.5rem;
+   
+  }
+
+  .about {
+    border-block: 3px solid var(--color-border);
+    margin-top: -50px;
   }
 
   /* About Section */
@@ -204,6 +279,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     max-width: 700px;
     margin: 0 auto;
     text-align: center;
+    
   }
 
   .about-content p {
@@ -211,6 +287,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--color-text-muted);
     line-height: 1.8;
   }
+
+.skills-projects {
+    border-inline: 2px solid var(--color-border);
+    margin-top: -50px;
+      max-width: 1250px;
+      margin-inline: auto;
+  }
+
 
   /* Skills Section */
   .skills-grid {
@@ -220,11 +304,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .skill-card {
-    background: var(--color-card);
-    border: 1px solid var(--color-border);
-    border-radius: 0.75rem;
+    border: 3px dashed;
+    box-shadow: 6px 6px 0;
     padding: 1.5rem;
   }
+
+  .skill-card:nth-child(1) { transform: rotate(-2.5deg); }
+  .skill-card:nth-child(2) { transform: rotate(0deg); margin-top: 10px; }
+  .skill-card:nth-child(3) { transform: rotate(2.5deg); }
 
   .skill-card h3 {
     font-size: 1.125rem;
@@ -243,35 +330,74 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: 0.875rem;
   }
 
+
+
   /* Projects Section */
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
+       
   }
 
   .project-card {
-    background: var(--color-card);
-    border: 1px solid var(--color-border);
-    border-radius: 0.75rem;
-    padding: 1.5rem;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+  
+padding: 1.5rem 1.5rem 1rem 1.5rem;
+    transition: transform 0.2s ease;
+    border: 3px dashed;
+    box-shadow: 6px 6px 0;
+    display: grid;
+    gap: 1rem;
+
   }
+
 
   .project-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--color-accent);
+   transition: a
   }
 
+
+ .project-card .logos {
+  filter: grayscale(0.6);
+  transform: scale(1);
+}
+
+.project-card:hover .logos {
+  animation: colorScale 0.4s forwards;
+}
+
+.project-card .logos:nth-child(1) { animation-delay: 0s; }
+.project-card .logos:nth-child(2) { animation-delay: 0.1s; }
+.project-card .logos:nth-child(3) { animation-delay: 0.2s; }
+.project-card .logos:nth-child(4) { animation-delay: 0.3s; }
+.project-card .logos:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes colorScale {
+  0% { 
+    filter: grayscale(1);
+    transform: scale(1);
+  }
+  50% { 
+    filter: grayscale(0);
+    transform: scale(1.1);
+  }
+  100% { 
+    filter: grayscale(0);
+    transform: scale(1);
+  }
+}
+
+ 
+
   .project-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+    
   }
 
   .project-card p {
     color: var(--color-text-muted);
     font-size: 0.875rem;
-    margin-bottom: 1rem;
+
   }
 
   .project-tags {
@@ -292,6 +418,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   /* Contact Section */
   .contact {
     text-align: center;
+    border-block: 1px solid var(--color-border);
+    margin-top: -50px;
+    
   }
 
   .contact-text {

@@ -1,0 +1,294 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LinkButton from '../components/LinkButton.vue';
+---
+
+<BaseLayout title="Rewards4 — Case Study" description="Modernising the Rewards4 Platform — Migrating a multi-brand rewards ecosystem to a scalable, high-performance architecture.">
+  <section class="case-study-hero">
+    <div class="container">
+      <p class="eyebrow">Case Study</p>
+      <h1>Rewards4 Platform</h1>
+      <p class="intro">Modernising a multi-brand rewards ecosystem to a scalable, high-performance architecture.</p>
+    </div>
+  </section>
+
+  <section class="case-study-content">
+    <div class="container">
+      <article class="case-study-panel">
+        <h2>Overview</h2>
+        <p>The Rewards4 platform powers a group of sports-focused loyalty websites, including:</p>
+        <ul class="case-study-list">
+          <li>Rewards4Racing</li>
+          <li>Rewards4Golf</li>
+          <li>Rewards4RugbyLeague</li>
+          <li>Rewards4Sport</li>
+        </ul>
+        <p>These platforms allow users to earn points through online shopping and redeem them with their favourite sports brands.</p>
+        <p>I led the front-end modernisation of these sites, migrating them from a legacy architecture to a scalable, component-based system using Vue 3 and TypeScript—while also improving usability across the platform through incremental UX enhancements.</p>
+      </article>
+
+      <article class="case-study-panel">
+        <h2>The Challenge</h2>
+        <p>The existing platform was built on a legacy stack that had become difficult to scale and maintain:</p>
+        <ul class="case-study-list">
+          <li>C#, .NET Core Razor Pages</li>
+          <li>SCSS and Bootstrap</li>
+          <li>Heavy reliance on jQuery and CMS-driven rendering</li>
+        </ul>
+        <p><strong>Key Issues</strong></p>
+        <ul class="case-study-list">
+          <li>Performance limitations: Pages were slow due to server-heavy rendering and inefficient front-end behaviour.</li>
+          <li>Inconsistent user experience: Each brand site had variations in layout, spacing, and components, leading to fragmentation.</li>
+          <li>Complex multi-brand structure: Updating styles and features across sites required duplicated effort.</li>
+          <li>Slow development workflow: Lack of reusable components made development time-consuming and harder to scale.</li>
+        </ul>
+        <p><strong>The Goal</strong></p>
+        <ul class="case-study-list">
+          <li>Modernise the front-end architecture</li>
+          <li>Improve performance and scalability</li>
+          <li>Standardise UX across multiple brands</li>
+          <li>Enable faster and more efficient development</li>
+          <li>Improve usability without redesigning core brand identity</li>
+        </ul>
+      </article>
+
+      <article class="case-study-panel">
+        <h2>My Role</h2>
+        <p>I worked across both UX and front-end development, focusing on:</p>
+        <ul class="case-study-list">
+          <li>Leading the migration to Vue 3 and TypeScript</li>
+          <li>Refactoring legacy jQuery-based patterns</li>
+          <li>Designing a scalable multi-brand system</li>
+          <li>Improving mobile usability and UI consistency</li>
+          <li>Collaborating with backend developers on API integration</li>
+        </ul>
+      </article>
+
+      <article class="case-study-panel">
+        <h2>Approach</h2>
+        <p><strong>Incremental Migration Strategy</strong></p>
+        <p>Rather than rebuilding everything at once, I implemented a phased approach:</p>
+        <ul class="case-study-list">
+          <li>Identified high-impact areas for refactoring</li>
+          <li>Rebuilt features using Vue components</li>
+          <li>Gradually replaced legacy functionality</li>
+        </ul>
+        <p>This ensured the platform remained stable while evolving.</p>
+        <p><strong>Component-Based Architecture</strong></p>
+        <p>I introduced a reusable component system to replace duplicated logic across sites.</p>
+        <p>This enabled:</p>
+        <ul class="case-study-list">
+          <li>Consistent UI patterns</li>
+          <li>Faster development</li>
+          <li>Easier maintenance</li>
+        </ul>
+        <p><strong>Tenant-Based Multi-Brand System</strong></p>
+        <p>I helped implement a tenant-based structure where:</p>
+        <ul class="case-study-list">
+          <li>All brands shared a core platform</li>
+          <li>Styling and configuration were applied per brand</li>
+        </ul>
+        <p>This allowed us to scale efficiently without duplicating effort.</p>
+        <p><strong>Performance Optimisation</strong></p>
+        <ul class="case-study-list">
+          <li>Reduced reliance on CMS-rendered content</li>
+          <li>Shifted to API-driven data loading</li>
+          <li>Loaded only necessary content per page</li>
+          <li>Utilised Cloudflare for caching and performance</li>
+        </ul>
+      </article>
+
+      <article class="case-study-panel">
+        <h2>Before vs After</h2>
+        <p><strong>Before</strong></p>
+        <ul class="case-study-list">
+          <li>jQuery-driven interactions</li>
+          <li>Server-rendered pages</li>
+          <li>Duplicated styles across brands</li>
+          <li>Slower development cycles</li>
+        </ul>
+        <p><strong>After</strong></p>
+        <ul class="case-study-list">
+          <li>Vue 3 component-based architecture</li>
+          <li>API-driven front-end</li>
+          <li>Shared system with configurable branding</li>
+          <li>Faster, more scalable development</li>
+        </ul>
+      </article>
+
+      <article class="case-study-panel">
+        <h2>UX Improvements Within Constraints</h2>
+        <p>Due to brand consistency requirements, a full redesign wasn't possible. Instead, I focused on incremental UX improvements that enhanced usability while preserving the core look and feel.</p>
+        <p><strong>1. Improving Visual Consistency</strong></p>
+        <p><strong>Before</strong></p>
+        <ul class="case-study-list">
+          <li>Inconsistent spacing, typography, and UI patterns</li>
+          <li>Similar components behaved differently across pages</li>
+        </ul>
+        <p><strong>After</strong></p>
+        <ul class="case-study-list">
+          <li>Standardised spacing, typography, and reusable components</li>
+          <li>Unified UI patterns across all sites</li>
+        </ul>
+        <p><strong>Impact</strong></p>
+        <ul class="case-study-list">
+          <li>More cohesive and professional experience</li>
+          <li>Reduced cognitive load for users</li>
+          <li>Easier system-wide updates</li>
+        </ul>
+        <p><strong>2. Enhancing Mobile Usability</strong></p>
+        <p><strong>Before</strong></p>
+        <ul class="case-study-list">
+          <li>Layouts not fully optimised for mobile</li>
+          <li>Dense content and harder-to-access interactions</li>
+        </ul>
+        <p><strong>After</strong></p>
+        <ul class="case-study-list">
+          <li>Mobile-first layout improvements</li>
+          <li>Better spacing and prioritisation of key actions</li>
+        </ul>
+        <p><strong>Impact</strong></p>
+        <ul class="case-study-list">
+          <li>Improved usability on mobile devices</li>
+          <li>Reduced friction in browsing and interaction</li>
+        </ul>
+        <p><strong>3. Simplifying Key Interactions</strong></p>
+        <p><strong>Before</strong></p>
+        <ul class="case-study-list">
+          <li>Some flows included unnecessary steps</li>
+          <li>Call-to-actions lacked clarity or consistency</li>
+        </ul>
+        <p><strong>After</strong></p>
+        <ul class="case-study-list">
+          <li>Simplified user flows</li>
+          <li>Improved CTA clarity and visibility</li>
+        </ul>
+        <p><strong>Impact</strong></p>
+        <ul class="case-study-list">
+          <li>Easier navigation and task completion</li>
+          <li>More intuitive user journeys</li>
+        </ul>
+        <p><strong>4. Improving Readability & Hierarchy</strong></p>
+        <p><strong>Before</strong></p>
+        <ul class="case-study-list">
+          <li>Dense layouts with weak visual hierarchy</li>
+          <li>Important information not clearly prioritised</li>
+        </ul>
+        <p><strong>After</strong></p>
+        <ul class="case-study-list">
+          <li>Clearer hierarchy using spacing and typography</li>
+          <li>Better content grouping and structure</li>
+        </ul>
+        <p><strong>Impact</strong></p>
+        <ul class="case-study-list">
+          <li>Improved scanability and readability</li>
+          <li>More modern and user-friendly interface</li>
+        </ul>
+      </article>
+
+      <article class="case-study-panel">
+        <h2>Impact</h2>
+        <p>This project resulted in:</p>
+        <ul class="case-study-list">
+          <li>Improved performance across all platforms</li>
+          <li>A consistent UI and UX across multiple brands</li>
+          <li>Reduced development time through reusable components</li>
+          <li>A scalable architecture for future growth</li>
+          <li>Enhanced usability without requiring a full redesign</li>
+        </ul>
+      </article>
+
+      <article class="case-study-panel">
+        <h2>Reflection</h2>
+        <p>This project strengthened my ability to:</p>
+        <ul class="case-study-list">
+          <li>Modernise legacy systems while maintaining live products</li>
+          <li>Design and implement scalable multi-brand architectures</li>
+          <li>Deliver UX improvements within real-world constraints</li>
+          <li>Balance technical decisions with user experience needs</li>
+        </ul>
+        <p>It also reinforced the importance of incremental improvement, showing that meaningful UX gains can be achieved without large-scale redesigns.</p>
+      </article>
+
+      <div class="case-study-actions">
+        <LinkButton url="/#projects" label="More Projects" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .case-study-hero {
+    padding: 8rem 0 4rem;
+    text-align: center;
+    border-block-end: 3px solid var(--color-border);
+  }
+
+  .case-study-hero .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .case-study-hero h1 {
+    font-size: clamp(2.75rem, 5vw, 4.5rem);
+    margin-bottom: 1.25rem;
+    line-height: 1.05;
+  }
+
+  .case-study-hero .intro {
+    max-width: 760px;
+    margin: 0 auto;
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+  }
+
+  .case-study-content {
+    padding: 4rem 0 6rem;
+  }
+
+  .case-study-panel {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+  }
+
+  .case-study-panel h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: var(--color-accent);
+  }
+
+  .case-study-panel p,
+  .case-study-panel li {
+    color: var(--color-text-muted);
+    line-height: 1.9;
+    font-size: 1rem;
+  }
+
+  .case-study-list {
+    margin: 1rem 0 1.5rem 1.25rem;
+    list-style: disc;
+    color: var(--color-text-muted);
+  }
+
+  .case-study-list li {
+    margin-bottom: 0.75rem;
+  }
+
+  .case-study-actions {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    .case-study-hero {
+      padding: 6rem 0 3rem;
+    }
+
+    .case-study-panel {
+      margin-bottom: 2.5rem;
+    }
+  }
+</style>
