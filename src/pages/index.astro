@@ -122,21 +122,7 @@ import TypeWriter from '../components/TypeWriter.vue';
           </div>
               <LinkButton url="/winsportingprizes" label="View Case Study" />
         </article>
-        <article class="project-card">
-
-          <h3>Figma Project</h3>
-          <p>A design project built with Figma.</p>
-          <div class="project-tags">
-  
-                      <img class="logos" src="/images/logos/FigmaSvg50x50.svg" alt="Figma Project" width="50" height="50" />
-                           <img class="logos" src="/images/logos/VueSvg50x50.svg" alt="Figma Project" width="50" height="50" />
-                          <img class="logos" src="/images/logos/FigmaSvg50x50.svg" alt="Figma Project" width="50" height="50" />
-                           <img class="logos" src="/images/logos/VueSvg50x50.svg" alt="Figma Project" width="50" height="50" />
-                               <img class="logos" src="/images/logos/VueSvg50x50.svg" alt="Figma Project" width="50" height="50" />
-                           
-          </div>
-              <LinkButton url="/winsportingprizes" label="View Case Study" />
-        </article>
+   
       </div>
     </div>
   </section>
@@ -228,7 +214,7 @@ import TypeWriter from '../components/TypeWriter.vue';
 
   .hero-cta {
     display: grid;
-   grid-template-columns: auto 1fr;
+       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
     justify-content: center;
     align-items: end;
@@ -243,6 +229,8 @@ border: 2px solid var(--color-text);
     transition: all 0.2s ease;
     color: var(--color-text);
    box-shadow: 10px 10px teal;
+max-width:200px;
+   justify-self: end;
   }
 
   .link-btn {
@@ -319,7 +307,7 @@ border: 2px solid var(--color-text);
   /* Skills Section */
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
   }
 
@@ -355,7 +343,7 @@ border: 2px solid var(--color-text);
   /* Projects Section */
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
        
   }
@@ -462,5 +450,19 @@ padding: 1.5rem 1.5rem 1rem 1.5rem;
       width: 100%;
       text-align: center;
     }
+
+      .header {
+    font-size: 2.5rem;
   }
+.hero {
+  padding: 1rem;
+}
+ .section-title {
+    font-size: 1.5rem;
+
+   
+  }
+  }
+
+  
 </style>

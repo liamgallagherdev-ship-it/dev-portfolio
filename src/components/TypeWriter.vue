@@ -7,7 +7,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
-const words = ['Creative', 'Innovative', 'Detail-Oriented', 'Passionate', 'Thoughtful'];
+const words = ['Creative', 'Innovative', 'Passionate', 'Thoughtful'];
 const displayedText = ref('');
 const currentWordIndex = ref(0);
 const currentCharIndex = ref(0);
@@ -33,12 +33,19 @@ const typeWriter = () => {
       isTyping.value = true;
       setTimeout(typeWriter, typeSpeed);
     } else {
-      // Finished typing, pause before deleting
-      isTyping.value = false;
-      setTimeout(() => {
-        isDeleting.value = true;
-        typeWriter();
-      }, pauseSpeed);
+      // Finished typing
+      if (currentWordIndex.value === words.length - 1) {
+        // Finished last word, stop
+        isTyping.value = false;
+        return;
+      } else {
+        // Pause before deleting
+        isTyping.value = false;
+        setTimeout(() => {
+          isDeleting.value = true;
+          typeWriter();
+        }, pauseSpeed);
+      }
     }
   } else {
     // Deleting phase
@@ -69,6 +76,9 @@ const typeWriter = () => {
   min-width: 200px;
 }
 
+
+
+
 .cursor {
   display: inline-block;
   width: 2px;
@@ -81,6 +91,7 @@ const typeWriter = () => {
 .cursor.active {
   animation: blink 0.7s infinite;
 }
+
 
 @keyframes blink {
   0%, 49% {

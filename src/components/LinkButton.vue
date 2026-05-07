@@ -22,6 +22,7 @@ const props = withDefaults(defineProps<{
   color: inherit;
   text-decoration: none;
   font-weight: 500;
+
 }
 
 .link-text {
@@ -42,4 +43,11 @@ const props = withDefaults(defineProps<{
 .link-btn:hover .link-arrow {
 
 }
+
+@media(max-width: 960px) {
+  .link-btn {
+    justify-content: end;
+  }
+}
+
 </style>
