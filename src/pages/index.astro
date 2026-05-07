@@ -2,6 +2,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LinkButton from '../components/LinkButton.vue';
+import TypeWriter from '../components/TypeWriter.vue';
 ---
 
 <BaseLayout title="Frontend Developer Portfolio">
@@ -11,7 +12,7 @@ import LinkButton from '../components/LinkButton.vue';
     <div class="hero-content">
     <div>
       <p class="greeting ">Hi, I’m Liam</p>
-    <h1 class="header"> <div class="">Creative </div> <div> Frontend Developer </div></h1>
+    <h1 class="header"> <TypeWriter client:load /> <div> Frontend Developer </div></h1>
       <p class="tagline">I build fast, intuitive interfaces with a focus on performance, usability, and detail.</p>
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary">View My Work</a>
@@ -161,21 +162,40 @@ import LinkButton from '../components/LinkButton.vue';
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 6rem 2rem 4rem;
+    padding: 6rem 4rem 4rem;
     border-inline: 2px solid var(--color-border);
     max-width: 1250px;
     margin-inline: auto;
   }
 
   .avatar {
-    width: auto;
-    height: 400px;
+      width: 400px;
+    height: 100%;
     opacity: 0.75;
+    aspect-ratio: 2 / 2;
   }
 
   .hero-content {
+      position: relative;
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1.5fr 1fr;
+  }
+
+  @media(max-width: 850px) {
+      .hero-content {
+    grid-template-columns: 1fr;
+  }
+ .avatar {
+  position: absolute;
+    width: 400px;
+     height: 400px;
+  aspect-ratio: 2/2;
+  z-index: -1;
+  bottom:0;
+  right:0;
+      opacity: 0.2;
+  }
+
   }
 
   .greeting {
