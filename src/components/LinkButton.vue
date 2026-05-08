@@ -23,6 +23,7 @@ const props = withDefaults(defineProps<{
   text-decoration: none;
   font-weight: 500;
   text-shadow: 0 0 2px var_(--color-bg);
+  justify-self: center;
 
 }
 

@@ -68,7 +68,8 @@ const typeWriter = () => {
 .typewriter {
   display: inline;
   font-weight: 600;
-  color: var(--color-accent);
+  color: var(--color-bg);
+   -webkit-text-stroke: 1px var(--color-accent);
 }
 
 .typewriter-text {
@@ -82,7 +83,7 @@ const typeWriter = () => {
 .cursor {
   display: inline-block;
   width: 2px;
-  height: 1em;
+  height: 3.5rem;
   background-color: var(--color-accent);
   margin-left: 2px;
   animation: blink 0.7s infinite;
