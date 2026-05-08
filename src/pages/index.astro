@@ -3,6 +3,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LinkButton from '../components/LinkButton.vue';
 import TypeWriter from '../components/TypeWriter.vue';
+import AntText1 from '../components/Playground/AntText copy.vue';
 ---
 
 <BaseLayout title="Frontend Developer Portfolio">
@@ -12,7 +13,13 @@ import TypeWriter from '../components/TypeWriter.vue';
     <div class="hero-content">
     <div>
       <p class="greeting ">Hi, I’m Liam</p>
-    <h1 class="header"> <TypeWriter client:load /> <div> Frontend Developer </div></h1>
+    <h1 class="header"> 
+   
+    <AntText1 class="writing"  client:load />
+
+
+
+    <div> Frontend Developer </div></h1>
       <p class="tagline">I build fast, intuitive interfaces with a focus on performance, usability, and detail.</p>
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary">View My Work</a>
@@ -142,6 +149,11 @@ import TypeWriter from '../components/TypeWriter.vue';
 </BaseLayout>
 
 <style>
+
+.writing {
+  max-width: 300px;
+}
+
   .hero {
       position: relative;
     min-height: 80vh;
