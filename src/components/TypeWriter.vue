@@ -69,7 +69,7 @@ const typeWriter = () => {
   display: inline;
   font-weight: 600;
   color: var(--color-bg);
-   -webkit-text-stroke: 1px var(--color-accent);
+   -webkit-text-stroke: 1px var(--color-border);
 }
 
 .typewriter-text {
