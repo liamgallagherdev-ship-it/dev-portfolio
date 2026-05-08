@@ -21,7 +21,7 @@ svg {
 
 svg path {
   fill: transparent;
-  stroke: black;
+  stroke: var( --color-border);
   stroke-width: 1;
 
   stroke-dasharray: var(--dash);
@@ -48,7 +48,7 @@ svg path {
 
     100% {
 
-     fill: var(--color-accent);
+   
          stroke-dashoffset: 0;
   }
 

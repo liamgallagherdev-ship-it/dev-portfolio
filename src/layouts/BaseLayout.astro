@@ -82,7 +82,7 @@ const { title, description = "Frontend Developer Portfolio" } = Astro.props;
   :root {
     --color-bg: #e5dcd3;
     --color-text: #1f2937;
-    --color-text-muted: #6b7280;
+    --color-text-muted: #393939;
     --color-accent: #9036ad;
     --color-accent-muted: #d0b4d9
     --color-accent-hover: #501d61;
@@ -116,7 +116,7 @@ const { title, description = "Frontend Developer Portfolio" } = Astro.props;
   body.dark-theme {
     --color-bg: #0f0f0f;
     --color-text: #e5dcd3;
-    --color-text-muted: #a1a1aa;
+    --color-text-muted: #e4e4ee;
     --color-card: #18181b;
     --color-border: #e5dcd3;
   }
@@ -192,7 +192,7 @@ const { title, description = "Frontend Developer Portfolio" } = Astro.props;
     z-index: 100;
     padding: 1rem 2rem;
 background-color: var(--color-bg);
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid var(--color-border);
   }
 
   .site-header nav {

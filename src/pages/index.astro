@@ -192,7 +192,7 @@ import AntText1 from '../components/Playground/AntText copy.vue';
   z-index: -1;
   bottom:0;
   right:0;
-      opacity: 0.2;
+      opacity: 0.1;
   }
 
   }
@@ -222,13 +222,15 @@ import AntText1 from '../components/Playground/AntText copy.vue';
     color: var(--color-text-muted);
     margin-bottom: 2rem;
     max-width: 500px;
+        text-shadow: 0 0 2px var_(--color-bg);
    
   }
 
   .hero-cta {
     display: grid;
        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    column-gap: 2rem;
+    row-gap:1rem;
     justify-content: center;
     align-items: end;
   }
@@ -471,7 +473,7 @@ padding: 1.5rem 1.5rem 1rem 1.5rem;
   .header {
  
     font-size: 50px;
-    line-height: 0.75;
+    line-height: 0.9;
 
   }
 
@@ -488,6 +490,10 @@ padding: 1.5rem 1.5rem 1rem 1.5rem;
   .writing {
   max-width: 200px;
 
+}
+
+.greeting {
+  padding-bottom: 0.5rem;
 }
   }
 

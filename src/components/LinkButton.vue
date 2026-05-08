@@ -22,6 +22,7 @@ const props = withDefaults(defineProps<{
   color: inherit;
   text-decoration: none;
   font-weight: 500;
+  text-shadow: 0 0 2px var_(--color-bg);
 
 }
 
