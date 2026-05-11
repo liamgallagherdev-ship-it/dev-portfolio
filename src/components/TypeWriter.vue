@@ -84,7 +84,7 @@ const typeWriter = () => {
   display: inline-block;
   width: 2px;
   height: 3.5rem;
-  background-color: var(--color-accent);
+  background-color: var(--color-border);
   margin-left: 2px;
   animation: blink 0.7s infinite;
 }
