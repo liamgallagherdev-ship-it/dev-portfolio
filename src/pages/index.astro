@@ -17,8 +17,6 @@ import AntText1 from '../components/Playground/AntText copy.vue';
    
     <TypeWriter  client:load />
 
-
-
     <div> Frontend Developer </div></h1>
       <p class="tagline">I build fast, intuitive interfaces with a focus on performance, usability, and detail.</p>
       <div class="hero-cta">
@@ -129,18 +127,7 @@ import AntText1 from '../components/Playground/AntText copy.vue';
           </div>
           <LinkButton url="/rewards4" label="View Case Study" />
         </article>
-        <article class="project-card">
-          <h3>Project Three</h3>
-          <p>A brief description of the project and the technologies used.</p>
-          <div class="project-tags">
-             <img class="logos" src="/images/logos/vue1.svg" alt="Figma Project" width="50" height="50" />
-                           <img class="logos" src="/images/logos/vue1.svg" alt="Figma Project" width="50" height="50" />
-                          <img class="logos" src="/images/logos/vue1.svg" alt="Figma Project" width="50" height="50" />
-                           <img class="logos" src="/images/logos/vue1.svg" alt="Figma Project" width="50" height="50" />
-                               <img class="logos" src="/images/logos/vue1.svg" alt="Figma Project" width="50" height="50" />
-          </div>
-              <LinkButton url="/winsportingprizes" label="View Case Study" />
-        </article>
+  
    
       </div>
     </div>
@@ -154,7 +141,10 @@ import AntText1 from '../components/Playground/AntText copy.vue';
       <p class="contact-text">
         I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
       </p>
-      <a href="mailto:your.email@example.com" class="btn btn-primary">Send Me an Email</a>
+    <div class="contact-grid">
+      <a href="mailto:liam.gallaher.dev@gmail.com" class="btn btn-primary">Send Me an Email</a>
+             <LinkButton  url="https://www.linkedin.com/in/liam-gallagher-17020b347/?trk=contact-info" label="LinkedIn" />
+        </div>
     </div>
     
   </section>
@@ -458,6 +448,12 @@ padding: 1.5rem 1.5rem 1rem 1.5rem;
     color: var(--color-text-muted);
   }
 
+.contact-grid {
+    display: grid;
+    justify-content: center;
+    gap: 1rem;
+}
+
   /* Contact Section */
   .contact {
     text-align: center;
@@ -471,6 +467,8 @@ padding: 1.5rem 1.5rem 1rem 1.5rem;
     max-width: 500px;
     margin: 0 auto 2rem;
   }
+
+
 
   @media (max-width: 768px) {
     .name {
