@@ -102,4 +102,16 @@ const typeWriter = () => {
     opacity: 0;
   }
 }
+
+  @media (max-width: 768px) {
+   .cursor {
+
+
+  height: 2.5rem;
+  
+
+}
+  }
+
+
 </style>
