@@ -244,119 +244,94 @@ background-color: var(--color-bg);
     }
   }
 
-  /* Toggle Button Styles */
-  .theme-toggle-container {
-    position: relative;
-    width: 74px;
-    height: 36px;
-  }
+/* Toggle Button Styles */
+.theme-toggle-container {
+  position: relative;
+  width: 74px;
+  height: 36px;
+}
 
-  .theme-toggle-wrapper {
-    position: relative;
-    height: 36px;
-    background-color: #fff;
-    border-radius: 100px;
-  }
+.theme-toggle-wrapper {
+  position: relative;
+  height: 36px;
+  background-color: #fff;
+  border-radius: 100px;
+}
 
-  .theme-toggle-knob,
-  .theme-toggle-bg {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
+.theme-toggle-btn {
+  position: relative;
+  width: 74px;
+  height: 36px;
+  overflow: hidden;
+}
 
-  .theme-toggle-btn {
-    position: relative;
-    width: 74px;
-    height: 36px;
-    overflow: hidden;
-  }
+/* pill outline */
+.theme-toggle-btn.btn-pill,
+.theme-toggle-btn.btn-pill > .theme-toggle-bg {
+  border-radius: 0px;
+  outline: 2.5px solid var(--color-border);
+}
 
-  .theme-toggle-btn.btn-pill,
-  .theme-toggle-btn.btn-pill > .theme-toggle-bg {
- border-radius: 0px;
-     outline: 2.5px solid var(--color-border);
-  
-   
-  }
+.theme-toggle-checkbox {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
 
-  .theme-toggle-checkbox {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    opacity: 0;
-    cursor: pointer;
-    z-index: 3;
-    
-  }
+/* background layer */
+.theme-toggle-bg {
+  position: absolute;
+  inset: 0;
+  background-color: #ebf7fc;
+  transition: 0.3s ease all;
+  z-index: 1;
+}
 
-  .theme-toggle-knob {
-    z-index: 2;
-  }
+/* KNOB (this is the important fix) */
+.theme-toggle-knob:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
 
-  .theme-toggle-bg {
-    width: 100%;
-    background-color: #ebf7fc;
-    transition: 0.3s ease all;
-    z-index: 1;
-  }
+  width: 50%;
+  height: 100%;
 
-  /* Theme Toggle Button */
-  #theme-toggle-btn .theme-toggle-knob:before {
-    content: "";
-    position: absolute;
-        background-color: teal;
-    top: 0px;
-    left: 0px;
-    width: 50%;
-    height: 100%;
-    background-image: url('/images/logos/light_mode_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg');
-    background-size: 40px 36px;
-    background-repeat: no-repeat;
-    background-position: center;
+  background-color: teal;
+  background-image: url('/images/logos/light_mode_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg');
+  background-size: 25px 36px;
+  background-repeat: no-repeat;
+  background-position: center;
+
   filter: grayscale(0.5);
-    transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
-   
-  }
 
-  #theme-toggle-btn .theme-toggle-checkbox:active + .theme-toggle-knob:before {
-    width: 50%;
-  
-  }
+  transform: translateX(0%);
+  transition: transform 0.45s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+  will-change: transform;
 
-  #theme-toggle-btn .theme-toggle-checkbox:checked:active + .theme-toggle-knob:before {
-    margin-left: -26px;
-  }
+  z-index: 2;
+}
 
-  #theme-toggle-btn .theme-toggle-checkbox:checked + .theme-toggle-knob:before {
-    content: "";
-    left: 50%;
-    background-image: url('/images/logos/dark_mode_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg');
-
-  }
-
-  #theme-toggle-btn .theme-toggle-checkbox:checked ~ .theme-toggle-bg {
-   
-  }
-
-  /* Dark theme toggle adjustments */
-  body.dark-theme .theme-toggle-wrapper {
-    background-color: #e61919;
-  }
-
-  body.dark-theme .theme-toggle-bg {
-    background-color: #2d2d2d;
-  }
-
-
-  body.dark-theme #theme-toggle-btn .theme-toggle-checkbox:checked + .theme-toggle-knob:before {
+/* checked state (smooth GPU move) */
+#theme-toggle-btn .theme-toggle-checkbox:checked + .theme-toggle-knob:before {
+  transform: translateX(100%);
+  background-image: url('/images/logos/dark_mode_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg');
     background-color: var(--color-accent);
-  }
+}
 
+/* active press effect */
+#theme-toggle-btn .theme-toggle-checkbox:active + .theme-toggle-knob:before {
+  transform: scale(0.98);
+}
+
+
+
+
+body.dark-theme .theme-toggle-bg {
+  background-color: #2d2d2d;
+}
 .material-icons {
   font-variation-settings:
   'FILL' 0,
