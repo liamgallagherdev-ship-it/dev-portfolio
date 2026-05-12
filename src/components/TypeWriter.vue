@@ -7,7 +7,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
-const words = ['Creative', 'Innovative', 'Passionate', 'Thoughtful'];
+const words = ['Interactive', 'Scalable', 'Accessible', 'Responsive', 'Creative'];
 const displayedText = ref('');
 const currentWordIndex = ref(0);
 const currentCharIndex = ref(0);

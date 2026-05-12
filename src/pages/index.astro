@@ -17,6 +17,8 @@ import AntText1 from '../components/Playground/AntText copy.vue';
    
     <TypeWriter  client:load />
 
+
+
     <div> Frontend Developer </div></h1>
       <p class="tagline">I build fast, intuitive interfaces with a focus on performance, usability, and detail.</p>
       <div class="hero-cta">
@@ -97,6 +99,23 @@ import AntText1 from '../components/Playground/AntText copy.vue';
     <div class="container">
       <h2 class="section-title bungee-shade-regular">Featured Projects</h2>
       <div class="projects-grid">
+          <article class="project-card">
+             <div>
+          <h3>Rewards4 Platform</h3>
+          <p>Modernising a multi-brand rewards ecosystem with Vue 3, TypeScript, and improved UX.</p>
+             </div>
+          <div class="project-tags">
+            <img class="logos" src="/images/logos/bootstrap1.svg" alt="Vue Project" width="50" height="50" />
+            <img class="logos" src="/images/logos/Css1.svg" alt="Vue Project" width="50" height="50" />
+            <img class="logos" src="/images/logos/html1.svg" alt="Vue Project" width="50" height="50" />
+            <img class="logos" src="/images/logos/Sass1.svg" alt="Vue Project" width="50" height="50" />
+            <img class="logos" src="/images/logos/vue1.svg" alt="Vue Project" width="50" height="50" />
+                     <img class="logos" src="/images/logos/Typescript.svg" alt="Figma Project" width="50" height="50" />
+          </div>
+             <div class="link">
+          <LinkButton url="/rewards4" label="View Case Study" />
+             </div>
+        </article>
         <article class="project-card">
         <div>
           <h3>Win Sporting Prizes</h3>
@@ -111,22 +130,11 @@ import AntText1 from '../components/Playground/AntText copy.vue';
               <img class="logos" src="/images/logos/Typescript.svg" alt="Figma Project" width="50" height="50" />
       
           </div>
+           <div class="link">
                <LinkButton url="/winsportingprizes" label="View Case Study" />
-
+ </div>
         </article>
-        <article class="project-card">
-          <h3>Rewards4 Platform</h3>
-          <p>Modernising a multi-brand rewards ecosystem with Vue 3, TypeScript, and improved UX.</p>
-          <div class="project-tags">
-            <img class="logos" src="/images/logos/bootstrap1.svg" alt="Vue Project" width="50" height="50" />
-            <img class="logos" src="/images/logos/Css1.svg" alt="Vue Project" width="50" height="50" />
-            <img class="logos" src="/images/logos/html1.svg" alt="Vue Project" width="50" height="50" />
-            <img class="logos" src="/images/logos/Sass1.svg" alt="Vue Project" width="50" height="50" />
-            <img class="logos" src="/images/logos/vue1.svg" alt="Vue Project" width="50" height="50" />
-                     <img class="logos" src="/images/logos/Typescript.svg" alt="Figma Project" width="50" height="50" />
-          </div>
-          <LinkButton url="/rewards4" label="View Case Study" />
-        </article>
+    
   
    
       </div>
@@ -151,7 +159,9 @@ import AntText1 from '../components/Playground/AntText copy.vue';
 </BaseLayout>
 
 <style>
-
+.link {
+    justify-self: start;
+}
 
 
   .hero {
@@ -268,6 +278,7 @@ max-width:200px;
   .btn-primary:hover {
     background: var(--color-accent-hover);
      box-shadow: 8px 8px teal;
+     color: black;
   }
 
     .btn-primary:active {
@@ -392,9 +403,8 @@ padding: 1.5rem 1.5rem 1rem 1.5rem;
 }
 
 .logos {
-  outline: 2px solid  var(--color-accent);
+  outline: 2px solid  var(--color-text-muted);
   border-radius:2px;
-  background-color: var(--color-accent-hover);
   background-color: var( --color-card);
 }
 

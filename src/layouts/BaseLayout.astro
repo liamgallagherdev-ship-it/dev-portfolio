@@ -25,18 +25,19 @@ const { title, description = "Frontend Developer Portfolio" } = Astro.props;
       <nav>
 <a href="/" class="logo">&lt;/Liam.Dev/&gt;</a>
         <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#skills">Skills</a></li>
+          <li><a href="/#projects">Projects</a></li>
          <!-- <li><a href="/css-showcase">CSS Showcase</a></li> -->
                        <!--  <li><a href="/playground">Playground</a></li> -->
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="/#contact">Contact</a></li>
           <li>
             <div class="theme-toggle-container">
               <div class="theme-toggle-wrapper">
                 <div class="theme-toggle-btn btn-pill" id="theme-toggle-btn">
                   <input type="checkbox" class="theme-toggle-checkbox" id="theme-toggle" />
                   <div class="theme-toggle-knob"></div>
+                  
                   <div class="theme-toggle-bg"></div>
                 </div>
               </div>
@@ -212,6 +213,7 @@ background-color: var(--color-bg);
   .nav-links {
     display: flex;
     gap: 2rem;
+        align-items: center;
   }
 
   .nav-links a {
@@ -274,8 +276,8 @@ background-color: var(--color-bg);
 
   .theme-toggle-btn.btn-pill,
   .theme-toggle-btn.btn-pill > .theme-toggle-bg {
-
-     outline: 2px solid  #9036ad;;
+ border-radius: 0px;
+     outline: 2.5px solid var(--color-border);
   
    
   }
@@ -289,6 +291,7 @@ background-color: var(--color-bg);
     opacity: 0;
     cursor: pointer;
     z-index: 3;
+    
   }
 
   .theme-toggle-knob {
@@ -306,16 +309,18 @@ background-color: var(--color-bg);
   #theme-toggle-btn .theme-toggle-knob:before {
     content: "";
     position: absolute;
+        background-color: teal;
     top: 0px;
     left: 0px;
     width: 50%;
     height: 100%;
-    background-image: url('/images/logos/LightOn.svg');
+    background-image: url('/images/logos/light_mode_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg');
     background-size: 40px 36px;
     background-repeat: no-repeat;
     background-position: center;
   filter: grayscale(0.5);
     transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+   
   }
 
   #theme-toggle-btn .theme-toggle-checkbox:active + .theme-toggle-knob:before {
@@ -330,7 +335,7 @@ background-color: var(--color-bg);
   #theme-toggle-btn .theme-toggle-checkbox:checked + .theme-toggle-knob:before {
     content: "";
     left: 50%;
-    background-image: url('/images/logos/LightOff.svg');
+    background-image: url('/images/logos/dark_mode_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg');
 
   }
 
@@ -347,12 +352,9 @@ background-color: var(--color-bg);
     background-color: #2d2d2d;
   }
 
-  body.dark-theme #theme-toggle-btn .theme-toggle-knob:before {
-    background-color: #6366f1;
-  }
 
   body.dark-theme #theme-toggle-btn .theme-toggle-checkbox:checked + .theme-toggle-knob:before {
-    background-color: #818cf8;
+    background-color: var(--color-accent);
   }
 
 .material-icons {
