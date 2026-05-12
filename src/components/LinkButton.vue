@@ -31,6 +31,7 @@ const props = withDefaults(defineProps<{
   display: inline-block;
   transition: letter-spacing 0.5s ease, transform 0.2s ease;
   letter-spacing: normal;
+    font-weight: 600;
 }
 
 .link-btn:hover .link-text {
@@ -40,6 +41,8 @@ const props = withDefaults(defineProps<{
 
 .link-arrow {
   transition: transform 0.2s ease;
+  
+
 }
 
 .link-btn:hover .link-arrow {
