@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Background01, { meta as bg01 } from '../components/css-showcase/Backgrounds/Background01.vue';
+import Gradient01, { meta as g01 } from '../components/css-showcase/Gradients/Gradient01.vue';
+import Background02, { meta as bg02 } from '../components/css-showcase/Backgrounds/Background02.vue';
+import Background03, { meta as bg03 } from '../components/css-showcase/Backgrounds/Background03.vue';
+
+const backgrounds = [
+  { ...bg01, component: Background01 },
+  { ...g01, component: Gradient01 },
+  { ...bg02, component: Background02 },
+  { ...bg03, component: Background03 },
+];
+---
+
+<BaseLayout title="Background Ideas" description="A growing collection of CSS background styles and textures.">
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">CSS Challenge</p>
+      <h1>Background Ideas</h1>
+      <p class="intro">A growing collection of CSS backgrounds and textures</p>
+    </div>
+  </section>
+
+  <section class="items-section">
+    <div class="container">
+      <div class="items-grid">
+        {backgrounds.map((item) => (
+          <a href={`/background-ideas/${item.id}`} class="item-card">
+            <item.component />
+            <span class="item-card-label">
+              <span class="day">{item.day}</span>
+              <span class="item-name">{item.name}</span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 8rem 2rem 4rem;
+    border-bottom: 3px solid var(--color-border);
+  }
+
+  .eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .intro {
+    color: var(--color-text-muted);
+    font-size: 1.125rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .items-section {
+    padding: 5rem 0;
+  }
+
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .item-card {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--color-border);
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+
+  .item-card:hover {
+    border-color: var(--color-accent);
+  }
+
+  .item-card-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-top: 2px solid var(--color-border);
+  }
+
+  .day {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    font-family: monospace;
+  }
+
+  .item-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+</style>

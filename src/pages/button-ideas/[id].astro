@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button01, { meta as btn01 } from '../../components/css-showcase/Buttons/Button01.vue';
+import Button01Code from '../../components/css-showcase/Buttons/ButtonsCode/Button01Code.vue';
+import Button02, { meta as btn02 } from '../../components/css-showcase/Buttons/Button02.vue';
+import Button02Code from '../../components/css-showcase/Buttons/ButtonsCode/Button02Code.vue';
+import Button03, { meta as btn03 } from '../../components/css-showcase/Buttons/Button03.vue';
+import Button03Code from '../../components/css-showcase/Buttons/ButtonsCode/Button03Code.vue';
+
+export function getStaticPaths() {
+  return [
+    { params: { id: '01' } },
+    { params: { id: '02' } },
+    { params: { id: '03' } },
+  ];
+}
+
+const { id } = Astro.params;
+
+const metas: Record<string, typeof btn01> = {
+  '01': btn01,
+  '02': btn02,
+  '03': btn03,
+};
+
+const meta = metas[id];
+---
+
+<BaseLayout title={`${meta.day} — ${meta.name}`}>
+  <section class="detail-hero">
+    <div class="container">
+      <a href="/button-ideas" class="back-link">&lt;&lt; All Buttons</a>
+      <p class="eyebrow">{meta.day}</p>
+      <h1>{meta.name}</h1>
+    </div>
+  </section>
+
+  <section class="detail-body">
+    <div class="container">
+      <div class="preview-panel">
+        {id === '01' && <Button01 showOptions={true} client:load />}
+        {id === '02' && <Button02 showOptions={true} client:load />}
+        {id === '03' && <Button03 showOptions={true} client:load />}
+      </div>
+
+      <div class="code-panel">
+        {id === '01' && <Button01Code />}
+        {id === '02' && <Button02Code />}
+        {id === '03' && <Button03Code />}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .detail-hero {
+    padding: 8rem 2rem 3rem;
+    border-bottom: 3px solid var(--color-border);
+  }
+
+  .back-link {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: var(--color-accent);
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+    font-family: monospace;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .detail-body {
+    padding: 4rem 0;
+  }
+
+  .detail-body .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .preview-panel {
+       position: relative;
+
+  }
+
+  @media (max-width: 700px) {
+    .detail-body .container {
+      grid-template-columns: 1fr;
+    }
+    .preview-panel {
+  
+    }
+  }
+</style>

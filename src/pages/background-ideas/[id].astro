@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Background01, { meta as bg01 } from '../../components/css-showcase/Backgrounds/Background01.vue';
+import Background01Code from '../../components/css-showcase/Backgrounds/BackgroundsCode/Background01Code.vue';
+import Gradient01, { meta as g01 } from '../../components/css-showcase/Gradients/Gradient01.vue';
+import Gradient01Code from '../../components/css-showcase/Gradients/GradientsCode/Gradient01Code.vue';
+import Background02, { meta as bg02 } from '../../components/css-showcase/Backgrounds/Background02.vue';
+import Background02Code from '../../components/css-showcase/Backgrounds/BackgroundsCode/Background02Code.vue';
+import Background03, { meta as bg03 } from '../../components/css-showcase/Backgrounds/Background03.vue';
+import Background03Code from '../../components/css-showcase/Backgrounds/BackgroundsCode/Background03Code.vue';
+
+export function getStaticPaths() {
+  return [
+    { params: { id: '01' } },
+    { params: { id: '02' } },
+    { params: { id: '03' } },
+    { params: { id: '04' } },
+  ];
+}
+
+const { id } = Astro.params;
+
+const metas: Record<string, typeof bg01> = {
+  '01': bg01,
+  '02': g01,
+  '03': bg02,
+  '04': bg03,
+};
+
+const meta = metas[id];
+---
+
+<BaseLayout title={`${meta.day} — ${meta.name}`}>
+  <section class="detail-hero">
+    <div class="container">
+      <a href="/background-ideas" class="back-link">&lt;&lt; All Backgrounds</a>
+      <p class="eyebrow">{meta.day}</p>
+      <h1>{meta.name}</h1>
+    </div>
+  </section>
+
+  <section class="detail-body">
+    <div class="container">
+      <div class="preview-panel">
+        {id === '01' && <Background01 client:load />}
+        {id === '02' && <Gradient01 client:load />}
+        {id === '03' && <Background02 client:load />}
+        {id === '04' && <Background03 client:load />}
+      </div>
+      <div class="code-panel">
+        {id === '01' && <Background01Code />}
+        {id === '02' && <Gradient01Code />}
+        {id === '03' && <Background02Code />}
+        {id === '04' && <Background03Code />}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .detail-hero {
+    padding: 8rem 2rem 3rem;
+    border-bottom: 3px solid var(--color-border);
+  }
+
+  .back-link {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s ease;
+  }
+
+  .back-link:hover { color: var(--color-accent); }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+    font-family: monospace;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .detail-body {
+    padding: 4rem 0;
+  }
+
+  .detail-body .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+</style>

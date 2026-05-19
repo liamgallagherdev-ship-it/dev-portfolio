@@ -159,6 +159,36 @@ const demos = [
       </div>
 
       <div class="showcase-grid">
+        <a href="/button-ideas" class="demo-card ideas-card" data-category="ui">
+          <div class="ideas-preview">
+            <button class="sample s1">Button</button>
+            <button class="sample s2">Button</button>
+            <button class="sample s3">link</button>
+          </div>
+          <div class="ideas-info">
+            <h3>Buttons</h3>
+            <p>100 Reasons to Click</p>
+            <span class="ideas-link">View collection &gt;&gt;</span>
+          </div>
+        </a>
+
+        <a href="/background-ideas" class="demo-card ideas-card" data-category="effects">
+          <div class="ideas-preview bg-preview">
+            <svg style="display:none">
+              <filter id="showcase-noise">
+                <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+                <feColorMatrix type="saturate" values="0" />
+              </filter>
+            </svg>
+            <div class="bg-sample"></div>
+          </div>
+          <div class="ideas-info">
+            <h3>Backgrounds</h3>
+            <p>Textures, noise, patterns &amp; more</p>
+            <span class="ideas-link">View collection &gt;&gt;</span>
+          </div>
+        </a>
+
         {demos.map((demo) => (
           <DemoCard category={demo.category}>
             <demo.component code={demo.code} />
@@ -229,6 +259,106 @@ const demos = [
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 1.5rem;
+  }
+
+  /* 100 Button Ideas card */
+  .ideas-card {
+    background: var(--color-card, #18181b);
+    border: 1px solid var(--color-border, #27272a);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .ideas-card:hover {
+    border-color: var(--color-accent);
+  }
+
+  .ideas-preview {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    padding: 1rem;
+  }
+
+  .sample {
+    padding: 8px 16px;
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: default;
+  }
+
+  .s1 {
+    background: #0f0f0f;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 0 14px #6366f1;
+  }
+
+  .s2 {
+    background: transparent;
+    color: var(--color-text);
+    border: 2px solid var(--color-text);
+    box-shadow: 4px 4px 0 var(--color-text);
+  }
+
+  .s3 {
+    background: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    letter-spacing: 0.08em;
+  }
+
+  .ideas-info {
+    padding: 1.25rem;
+  }
+
+  .ideas-info h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .ideas-info p {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .bg-preview {
+    background: #0d0d18;
+    position: relative;
+  }
+
+  .bg-sample {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(ellipse at 50% 50%, #1e1b4b 0%, #0d0d18 70%);
+  }
+
+  .bg-sample::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    filter: url(#showcase-noise);
+    opacity: 0.18;
+    background: white;
+  }
+
+  .ideas-link {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    letter-spacing: 0.03em;
   }
 
   .add-new {

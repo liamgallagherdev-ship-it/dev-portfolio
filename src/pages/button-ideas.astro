@@ -1,0 +1,336 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button01, { meta as btn01 } from '../components/css-showcase/Buttons/Button01.vue';
+import Button02, { meta as btn02 } from '../components/css-showcase/Buttons/Button02.vue';
+import Button03, { meta as btn03 } from '../components/css-showcase/Buttons/Button03.vue';
+
+const buttons = [
+  { ...btn01, component: Button01 },
+  { ...btn02, component: Button02 },
+  { ...btn03, component: Button03 },
+];
+---
+
+<BaseLayout title="100 Reasons to Click" description="One new CSS button every day — a growing collection of button styles and interactions.">
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">CSS Challenge</p>
+      <h1>100 Reasons to Click</h1>
+      <p class="intro">100 buttons. Considered, accessible, production-ready</p>
+        <section class="criteria">
+
+      <details class="criteria-panel">
+        <summary class="criteria-summary">Button Criteria</summary>
+        <div class="criteria-grid">
+
+          <div class="criteria-group">
+            <h3>States</h3>
+            <ul>
+              <li>Default</li>
+              <li>Hover</li>
+              <li>Focus-visible (keyboard)</li>
+              <li>Active / pressed</li>
+              <li>Disabled</li>
+              <li>Loading</li>
+              <li>Success</li>
+              <li>Error</li>
+              <li>Selected / toggled</li>
+              <li>Read-only</li>
+            </ul>
+          </div>
+
+          <div class="criteria-group">
+            <h3>Accessibility</h3>
+            <ul>
+              <li>Text contrast (4.5:1 normal, 3:1 large)</li>
+              <li>Button vs background contrast (3:1)</li>
+              <li>Focus indicator (2px min, 3:1 contrast)</li>
+              <li>Touch target size (44×44px min)</li>
+              <li>Not relying on color alone</li>
+              <li>Respects prefers-reduced-motion</li>
+              <li>Respects forced colors mode</li>
+              <li>Screen reader label (aria-label if icon-only)</li>
+              <li>Semantic HTML (&lt;button&gt; vs &lt;a&gt;)</li>
+              <li>Disabled state (aria-disabled vs disabled)</li>
+              <li>Loading state (aria-live or aria-busy)</li>
+              <li>Keyboard operable (Enter and Space)</li>
+            </ul>
+          </div>
+
+          <div class="criteria-group">
+            <h3>Visual / Styling Specs</h3>
+            <ul>
+              <li>Padding (vertical / horizontal)</li>
+              <li>Border radius</li>
+              <li>Border width and color</li>
+              <li>Background (solid, gradient, transparent)</li>
+              <li>Shadow / elevation per state</li>
+              <li>Typography (font, weight, size, tracking)</li>
+              <li>Icon size and spacing</li>
+              <li>Color tokens (not hex values)</li>
+              <li>Dark mode variant</li>
+              <li>High contrast mode variant</li>
+            </ul>
+          </div>
+
+          <div class="criteria-group">
+            <h3>Interaction & Motion</h3>
+            <ul>
+              <li>Transition duration (150–250ms)</li>
+              <li>Easing curve</li>
+              <li>What animates on hover</li>
+              <li>What animates on press</li>
+              <li>What animates on focus</li>
+              <li>Loading animation (spinner, dots…)</li>
+              <li>Success/error transition back to default</li>
+              <li>No layout shift between states</li>
+            </ul>
+          </div>
+
+          <div class="criteria-group">
+            <h3>Hierarchy & Variants</h3>
+            <ul>
+              <li>Primary / secondary / ghost / destructive</li>
+              <li>Sizes (sm / md / lg)</li>
+              <li>With icon / icon-only / icon + label</li>
+              <li>Icon position (leading / trailing)</li>
+              <li>Full-width vs auto-width</li>
+              <li>Split button or dropdown variant</li>
+            </ul>
+          </div>
+
+          <div class="criteria-group">
+            <h3>Content & Microcopy</h3>
+            <ul>
+              <li>Action-oriented, specific label</li>
+              <li>Short, medium, long labels tested</li>
+              <li>Truncation or wrapping behavior</li>
+              <li>Sentence case vs title case</li>
+              <li>Loading label ("Saving…" vs spinner only)</li>
+              <li>Success/error message</li>
+            </ul>
+          </div>
+
+          <div class="criteria-group">
+            <h3>Edge Cases</h3>
+            <ul>
+              <li>Long label behavior</li>
+              <li>Very short label (single char)</li>
+              <li>RTL language support</li>
+              <li>Multiple buttons side by side</li>
+              <li>Button inside a form (submit behavior)</li>
+              <li>Button on dark backgrounds</li>
+              <li>Button on image / busy backgrounds</li>
+              <li>Nested inside cards, modals, toolbars</li>
+            </ul>
+          </div>
+
+          <div class="criteria-group">
+            <h3>Documentation</h3>
+            <ul>
+              <li>When to use this button</li>
+              <li>When NOT to use it</li>
+              <li>Anatomy diagram</li>
+              <li>All states in one frame</li>
+              <li>Code snippet</li>
+              <li>Design tokens listed</li>
+            </ul>
+          </div>
+
+          <div class="criteria-group">
+            <h3>Technical</h3>
+            <ul>
+              <li>Component API (props: variant, size…)</li>
+              <li>TypeScript types</li>
+              <li>Forward ref for focus management</li>
+              <li>type="button" set explicitly</li>
+              <li>Works without JS</li>
+              <li>Tested keyboard only</li>
+              <li>Tested with screen reader</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+  
+  </section>
+    </div>
+  </section>
+
+
+
+  <section class="buttons-section">
+    <div class="container">
+      <div class="buttons-grid">
+
+        {buttons.map((btn) => (
+          <a href={`/button-ideas/${btn.id}`} class="btn-card">
+            <btn.component />
+            <span class="btn-card-label">
+              <span class="day">{btn.day}</span>
+              <span class="btn-name">{btn.name}</span>
+            </span>
+          </a>
+        ))}
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.btn-6').forEach(btn => {
+    const ripple = btn.querySelector<HTMLElement>('.ripple');
+    if (!ripple) return;
+    const setPos = (e: MouseEvent) => {
+      const rect = btn.getBoundingClientRect();
+      ripple.style.left = `${e.clientX - rect.left}px`;
+      ripple.style.top = `${e.clientY - rect.top}px`;
+    };
+    btn.addEventListener('mouseenter', setPos);
+    btn.addEventListener('mouseleave', setPos);
+  });
+</script>
+
+<style>
+  .hero {
+    padding: 8rem 2rem 4rem;
+    border-bottom: 3px solid var(--color-border);
+  }
+
+  .eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .code-details {
+    min-width: 300px;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .intro {
+    color: var(--color-text-muted);
+    font-size: 1.125rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+
+
+  .criteria-summary {
+    padding: 1.25rem 0;
+    font-size: 1.1rem;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .criteria-summary::-webkit-details-marker { display: none; }
+
+  .criteria-summary::before {
+    content: '▶';
+    font-size: 0.6rem;
+    transition: transform 0.2s ease;
+    color: var(--color-accent);
+  }
+
+  details[open] .criteria-summary::before {
+    transform: rotate(90deg);
+  }
+
+  .criteria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .criteria-group h3 {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px dashed var(--color-border);
+  }
+
+  .criteria-group ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    list-style: none;
+  }
+
+  .criteria-group li {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .criteria-group li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--color-border);
+  }
+
+  /* ── Buttons section ── */
+  .buttons-section {
+    padding: 5rem 0;
+  }
+
+  .buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .btn-card {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--color-border);
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+
+
+  .btn-card-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-top: 2px solid var(--color-border);
+  }
+
+  .day {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    font-family: monospace;
+  }
+
+  .btn-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+</style>

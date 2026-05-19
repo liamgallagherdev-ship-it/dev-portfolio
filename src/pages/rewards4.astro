@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LinkButton from '../components/LinkButton.vue';
+import BeforeAfterSlider from '../components/BeforeAfterSlider.vue';
 ---
 
 <BaseLayout title="Rewards4 — Case Study" description="Modernising the Rewards4 Platform — Migrating a multi-brand rewards ecosystem to a scalable, high-performance architecture.">
@@ -12,7 +13,7 @@ import LinkButton from '../components/LinkButton.vue';
     </div>
   </section>
 
-  <section class="case-study-content">
+  <section class="case-study-content case-study-panel">
     <div class="container">
       <article class="case-study-panel">
         <h2>Overview</h2>
@@ -31,8 +32,8 @@ import LinkButton from '../components/LinkButton.vue';
   <div class="container">
 
 
-    <details class="case-study-panel">
-      <summary>The Challenge</summary>
+    <div class="case-study-panel">
+      <h2 class="panel-title">The Challenge</h2>
 
       <div class="case-study-panel-content">
         <p>The existing platform was built on a legacy stack that had become difficult to scale and maintain:</p>
@@ -62,10 +63,10 @@ import LinkButton from '../components/LinkButton.vue';
           <li>Improve usability without redesigning the core brand identity</li>
         </ul>
       </div>
-    </details>
+    </div>
 
-    <details class="case-study-panel">
-      <summary>My Role</summary>
+    <div class="case-study-panel">
+      <h2 class="panel-title">My Role</h2>
 
       <div class="case-study-panel-content">
         <p>I worked across both UX and front-end development, focusing on:</p>
@@ -78,10 +79,10 @@ import LinkButton from '../components/LinkButton.vue';
           <li>Collaborating with backend developers on API integration</li>
         </ul>
       </div>
-    </details>
+    </div>
 
-    <details class="case-study-panel">
-      <summary>Approach</summary>
+    <div class="case-study-panel">
+      <h2 class="panel-title">Approach</h2>
 
       <div class="case-study-panel-content">
         <p><strong>Incremental Migration Strategy</strong></p>
@@ -129,10 +130,10 @@ import LinkButton from '../components/LinkButton.vue';
           <li>Used Cloudflare for caching and delivery optimisation</li>
         </ul>
       </div>
-    </details>
+    </div>
 
-    <details class="case-study-panel">
-      <summary>Before vs After</summary>
+    <div class="case-study-panel">
+      <h2 class="panel-title">Before vs After</h2>
 
       <div class="case-study-panel-content">
         <p><strong>Before</strong></p>
@@ -153,10 +154,56 @@ import LinkButton from '../components/LinkButton.vue';
           <li>Faster and more scalable development workflows</li>
         </ul>
       </div>
-    </details>
+    </div>
 
-    <details class="case-study-panel">
-      <summary>UX Improvements Within Constraints</summary>
+    <div class="ui-comparison-panel">
+      <h2 class="panel-title">Sign-In Page — UI Comparison</h2>
+      <div class="case-study-panel-content">
+        <p class="ui-intro">The sign-in and registration page is one of the highest-traffic entry points across all brands. Drag the slider to compare — small changes, meaningful impact.</p>
+
+
+
+   <div class="ui-comparison-panel-content">
+   
+
+        <BeforeAfterSlider
+          client:load
+          before="/images/CaseStudy/Rewards4/Before%20Sign-In-Join-Now.png"
+          after="/images/CaseStudy/Rewards4/After%20Sign-In-Join-Now.png"
+          beforeAlt="Before: Rewards4Racing sign-in page"
+          afterAlt="After: Rewards4Racing sign-in page"
+        />
+
+        <div class="ui-callouts">
+          <div class="ui-callout">
+            <span class="callout-num">01</span>
+            <div>
+              <strong>Nav CTA</strong>
+              <p>"Sign In" only &rarr; "Sign In | Join Now". New users now have a clear registration path without hunting.</p>
+            </div>
+          </div>
+          <div class="ui-callout">
+            <span class="callout-num">02</span>
+            <div>
+              <strong>Value proposition</strong>
+              <p>Time-bound savings figure replaced with benefit-led, evergreen copy — always accurate, no ongoing maintenance.</p>
+            </div>
+          </div>
+          <div class="ui-callout">
+            <span class="callout-num">03</span>
+            <div>
+              <strong>Form card design</strong>
+              <p>Plain white card replaced with a premium dark treatment that integrates with the hero and reinforces brand quality.</p>
+            </div>
+          </div>
+       
+        </div>
+        <div>
+      </div>
+    </div>
+
+    <div class="case-study-panel">
+      <h2 class="panel-title">UX Improvements Within Constraints</h2>
 
       <div class="case-study-panel-content">
         <p>
@@ -195,10 +242,10 @@ import LinkButton from '../components/LinkButton.vue';
           <li>Enhanced scanability and readability across devices</li>
         </ul>
       </div>
-    </details>
+    </div>
 
-    <details class="case-study-panel">
-      <summary>Impact</summary>
+    <div class="case-study-panel">
+      <h2 class="panel-title">Impact</h2>
 
       <div class="case-study-panel-content">
         <ul class="case-study-list">
@@ -209,10 +256,10 @@ import LinkButton from '../components/LinkButton.vue';
           <li>Improved usability without requiring a full redesign</li>
         </ul>
       </div>
-    </details>
+    </div>
 
-    <details class="case-study-panel">
-      <summary>Reflection</summary>
+    <div class="case-study-panel">
+      <h2 class="panel-title">Reflection</h2>
 
       <div class="case-study-panel-content">
         <p>This project strengthened my ability to:</p>
@@ -228,7 +275,7 @@ import LinkButton from '../components/LinkButton.vue';
           It reinforced the importance of incremental improvement, showing that meaningful UX gains can be achieved without large-scale redesigns.
         </p>
       </div>
-    </details>
+    </div>
 
     <div class="case-study-actions">
       <LinkButton url="/#projects" label="More Projects" />
@@ -271,40 +318,18 @@ import LinkButton from '../components/LinkButton.vue';
   }
 
   .case-study-panel {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto 1.5rem;
-}
 
-details.case-study-panel {
-  border: 3px dashed;
-  box-shadow: 6px 6px 0;
-  background: var(--color-surface);
   overflow: hidden;
 }
 
-details.case-study-panel summary {
-  list-style: none;
-  cursor: pointer;
+.panel-title {
   padding: 1.25rem 1.5rem;
-  color: var(--color-text);
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 2px solid var(--color-border);
   font-size: 1.25rem;
   font-weight: 600;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-details.case-study-panel summary::-webkit-details-marker {
-  display: none;
-}
-
-details.case-study-panel summary::after {
-  content: '▸';
-  float: right;
-  transition: transform 0.2s ease;
-}
-
-details.case-study-panel[open] summary::after {
-  transform: rotate(90deg);
+  color: var(--color-text);
 }
 
 .case-study-panel-content {
@@ -322,4 +347,63 @@ details.case-study-panel[open] summary::after {
     text-align: center;
     margin-top: 3rem;
 }
+
+.ui-comparison-panel {
+
+}
+
+.ui-intro {
+  max-width: 700px;
+  margin-bottom: 1.5rem;
+}
+
+.ui-callouts {
+  display: grid;
+
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+@media (max-width: 650px) {
+  .ui-callouts {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ui-callout {
+  display: flex;
+  gap: 0.75rem;
+  border: 3px dashed var(--color-border);
+  box-shadow: 4px 4px 0 var(--color-border);
+  padding: 1rem;
+}
+
+.callout-num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  flex-shrink: 0;
+  font-family: "Courier Prime", monospace;
+  opacity: 0.25;
+}
+
+.ui-callout strong {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+}
+
+.ui-callout p {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.ui-comparison-panel-content {
+  display: grid;
+  grid-template-columns:  1fr 300px;
+  gap: 2rem;
+  }
 </style>

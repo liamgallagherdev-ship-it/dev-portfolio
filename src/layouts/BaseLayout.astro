@@ -21,6 +21,7 @@ const { title, description = "Frontend Developer Portfolio" } = Astro.props;
 <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
   </head>
   <body>
+    <div id="theme-curtain" aria-hidden="true"></div>
     <header class="site-header">
       <nav>
 <a href="/" class="logo">&lt;/Liam.Dev/&gt;</a>
@@ -28,7 +29,7 @@ const { title, description = "Frontend Developer Portfolio" } = Astro.props;
           <li><a href="/#about">About</a></li>
           <li><a href="/#skills">Skills</a></li>
           <li><a href="/#projects">Projects</a></li>
-         <!-- <li><a href="/css-showcase">CSS Showcase</a></li> -->
+         <li><a href="/css-showcase">CSS Showcase
                        <!--  <li><a href="/playground">Playground</a></li> -->
           <li><a href="/#contact">Contact</a></li>
           <li>
@@ -46,25 +47,56 @@ const { title, description = "Frontend Developer Portfolio" } = Astro.props;
         </ul>
       </nav>
       <script>
-        // Check for saved theme preference or default to light
+        const DURATION   = 680;
+        const EASING     = 'cubic-bezier(0.76, 0, 0.24, 1)';
+        const BG_DARK    = '#0f0f0f';
+        const BG_LIGHT   = '#e5dcd3';
+
+        const checkbox   = document.getElementById('theme-toggle');
+        const curtain    = document.getElementById('theme-curtain');
+        const toggleBtn  = document.getElementById('theme-toggle-btn');
+
+        // Restore saved theme on page load (no animation)
         const savedTheme = localStorage.getItem('theme') || 'light';
-        const checkbox = document.getElementById('theme-toggle');
-        
-        // Apply saved theme on page load
         if (savedTheme === 'dark') {
           document.body.classList.add('dark-theme');
-          checkbox.checked = true;
+          if (checkbox) (checkbox as HTMLInputElement).checked = true;
         }
 
-        // Toggle theme on checkbox change
-        checkbox.addEventListener('change', function() {
-          if (this.checked) {
-            document.body.classList.add('dark-theme');
-            localStorage.setItem('theme', 'dark');
-          } else {
-            document.body.classList.remove('dark-theme');
-            localStorage.setItem('theme', 'light');
+        checkbox && checkbox.addEventListener('change', function () {
+          const nowDark = (this as HTMLInputElement).checked;
+
+          // Block further clicks during animation
+          if (toggleBtn) toggleBtn.style.pointerEvents = 'none';
+
+          // Drop curtain in the incoming theme's bg colour
+          if (curtain) {
+            curtain.style.transition = 'none';
+            curtain.style.transform  = 'scaleY(0)';
+            curtain.style.background = nowDark ? BG_DARK : BG_LIGHT;
+            curtain.getBoundingClientRect(); // force reflow
+
+            curtain.style.transition = `transform ${DURATION}ms ${EASING}`;
+            curtain.style.transform  = 'scaleY(1)';
           }
+
+          setTimeout(() => {
+            // Apply theme change while hidden under the curtain
+            if (nowDark) {
+              document.body.classList.add('dark-theme');
+              localStorage.setItem('theme', 'dark');
+            } else {
+              document.body.classList.remove('dark-theme');
+              localStorage.setItem('theme', 'light');
+            }
+
+            // Lift the curtain to reveal the new theme
+            if (curtain) curtain.style.transform = 'scaleY(0)';
+
+            setTimeout(() => {
+              if (toggleBtn) toggleBtn.style.pointerEvents = '';
+            }, DURATION + 60);
+          }, DURATION);
         });
       </script>
     </header>
@@ -192,7 +224,7 @@ const { title, description = "Frontend Developer Portfolio" } = Astro.props;
     right: 0;
     z-index: 100;
     padding: 1rem 2rem;
-background-color: var(--color-bg);
+backdrop-filter: blur(20px);
     border-bottom: 3px solid var(--color-border);
   }
 
@@ -332,6 +364,17 @@ background-color: var(--color-bg);
 body.dark-theme .theme-toggle-bg {
   background-color: #2d2d2d;
 }
+/* Curtain wipe overlay */
+#theme-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  transform-origin: top;
+  transform: scaleY(0);
+  pointer-events: none;
+  will-change: transform;
+}
+
 .material-icons {
   font-variation-settings:
   'FILL' 0,
