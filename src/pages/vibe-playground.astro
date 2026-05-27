@@ -1,0 +1,259 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const sites = [
+  {
+    slug: 'barbers',
+    name: 'The Cut',
+    industry: 'Barber Shop',
+    description: 'Classic barbershop landing page — dark, bold, old-school craft.',
+    status: 'in progress',
+    gradient: 'linear-gradient(135deg, #0a0a0a 0%, #1a1208 60%, #2d1f00 100%)',
+    accent: '#c8922a',
+  },
+  {
+    slug: 'fintech',
+    name: 'Vault',
+    industry: 'Fintech',
+    description: 'Clean financial product landing page — trust, clarity, conversion.',
+    status: 'in progress',
+    gradient: 'linear-gradient(135deg, #020817 0%, #0a1628 60%, #0f2a4a 100%)',
+    accent: '#3b82f6',
+  },
+];
+---
+
+<BaseLayout title="Vibe Playground" description="Mini-sites built from scratch — each one a different industry, style, and challenge.">
+
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">vibe playground</p>
+      <h1>Build. <span class="accent">Ship.</span> Repeat.</h1>
+      <p class="subtitle">Mini-sites built from scratch — each one a different industry, style, and stack.</p>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <div class="container">
+
+      <div class="site-grid">
+
+        {sites.map((site) => (
+          <a href={`/vibe/${site.slug}`} class="site-card">
+            <div class="card-preview" style={`background: ${site.gradient};`}>
+              <span class="preview-accent" style={`background: ${site.accent};`}></span>
+              <span class="preview-label" style={`color: ${site.accent};`}>{site.industry}</span>
+            </div>
+            <div class="card-body">
+              <div class="card-top">
+                <span class={`status status--${site.status.replace(' ', '-')}`}>{site.status}</span>
+              </div>
+              <h2 class="card-name">{site.name}</h2>
+              <p class="card-desc">{site.description}</p>
+              <span class="card-cta">View site &rarr;</span>
+            </div>
+          </a>
+        ))}
+
+        <div class="site-card site-card--new">
+          <div class="new-inner">
+            <span class="new-icon">+</span>
+            <p>Next site</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 8rem 2rem 4rem;
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .accent {
+    color: var(--color-accent);
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    max-width: 480px;
+
+  }
+
+  .gallery {
+    padding: 4rem 0 8rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .site-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .site-card {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--color-border);
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .site-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-3px);
+  }
+
+  .card-preview {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem;
+  }
+
+  .preview-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+  }
+
+  .preview-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .card-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .status {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid currentColor;
+  }
+
+  .status--in-progress {
+    color: #c8922a;
+  }
+
+  .status--live {
+    color: #16a34a;
+  }
+
+  .status--draft {
+    color: var(--color-text-muted);
+  }
+
+  .card-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .card-desc {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  .card-cta {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    margin-top: 0.5rem;
+  }
+
+  /* Empty / next card */
+  .site-card--new {
+    border-style: dashed;
+    cursor: default;
+    min-height: 320px;
+  }
+
+  .site-card--new:hover {
+    border-color: var(--color-border);
+    transform: none;
+  }
+
+  .new-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  .new-icon {
+    font-size: 2rem;
+    line-height: 1;
+    opacity: 0.4;
+  }
+
+  .new-inner p {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.4;
+  }
+
+  @media (max-width: 768px) {
+    h1 { font-size: 2.25rem; }
+    .site-grid { grid-template-columns: 1fr; }
+  }
+</style>

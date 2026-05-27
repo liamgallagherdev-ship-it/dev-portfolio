@@ -6,12 +6,18 @@ import Button02, { meta as btn02 } from '../../components/css-showcase/Buttons/B
 import Button02Code from '../../components/css-showcase/Buttons/ButtonsCode/Button02Code.vue';
 import Button03, { meta as btn03 } from '../../components/css-showcase/Buttons/Button03.vue';
 import Button03Code from '../../components/css-showcase/Buttons/ButtonsCode/Button03Code.vue';
+import Button04, { meta as btn04 } from '../../components/css-showcase/Buttons/Button04.vue';
+import Button04Code from '../../components/css-showcase/Buttons/ButtonsCode/Button04Code.vue';
+import Button05, { meta as btn05 } from '../../components/css-showcase/Buttons/Button05.vue';
+import Button05Code from '../../components/css-showcase/Buttons/ButtonsCode/Button05Code.vue';
 
 export function getStaticPaths() {
   return [
     { params: { id: '01' } },
     { params: { id: '02' } },
     { params: { id: '03' } },
+    { params: { id: '04' } },
+    { params: { id: '05' } },
   ];
 }
 
@@ -21,6 +27,8 @@ const metas: Record<string, typeof btn01> = {
   '01': btn01,
   '02': btn02,
   '03': btn03,
+  '04': btn04,
+  '05': btn05,
 };
 
 const meta = metas[id];
@@ -41,12 +49,16 @@ const meta = metas[id];
         {id === '01' && <Button01 showOptions={true} client:load />}
         {id === '02' && <Button02 showOptions={true} client:load />}
         {id === '03' && <Button03 showOptions={true} client:load />}
+        {id === '04' && <Button04 showOptions={true} client:load />}
+        {id === '05' && <Button05 showOptions={true} client:load />}
       </div>
 
       <div class="code-panel">
         {id === '01' && <Button01Code />}
         {id === '02' && <Button02Code />}
         {id === '03' && <Button03Code />}
+        {id === '04' && <Button04Code />}
+        {id === '05' && <Button05Code />}
       </div>
     </div>
   </section>
