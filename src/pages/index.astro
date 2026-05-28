@@ -108,12 +108,12 @@ I’m passionate about building thoughtful digital experiences that look great a
           <p>Modernising a multi-brand rewards ecosystem with Vue 3, TypeScript, and improved UX.</p>
              </div>
           <div class="project-tags">
-            <img class="logos" src="/images/logos/bootstrap1.svg" alt="Vue Project" width="50" height="50" />
-            <img class="logos" src="/images/logos/Css1.svg" alt="Vue Project" width="50" height="50" />
-            <img class="logos" src="/images/logos/html1.svg" alt="Vue Project" width="50" height="50" />
-            <img class="logos" src="/images/logos/Sass1.svg" alt="Vue Project" width="50" height="50" />
-            <img class="logos" src="/images/logos/vue1.svg" alt="Vue Project" width="50" height="50" />
-                     <img class="logos" src="/images/logos/Typescript.svg" alt="Figma Project" width="50" height="50" />
+            <img class="logos" src="/images/logos/bootstrap1.svg" alt="Vue Project" width="40" height="40" />
+            <img class="logos" src="/images/logos/Css1.svg" alt="Vue Project" width="40" height="40" />
+            <img class="logos" src="/images/logos/html1.svg" alt="Vue Project" width="40" height="40" />
+            <img class="logos" src="/images/logos/Sass1.svg" alt="Vue Project" width="40" height="40" />
+            <img class="logos" src="/images/logos/vue1.svg" alt="Vue Project" width="40" height="40" />
+                     <img class="logos" src="/images/logos/Typescript.svg" alt="Figma Project" width="40" height="40" />
           </div>
              <div class="link">
           <LinkButton url="/rewards4" label="View Case Study" />
@@ -125,17 +125,30 @@ I’m passionate about building thoughtful digital experiences that look great a
           <p>A gamified sports rewards platform built to increase engagement and diversify revenue.</p>
               </div>
           <div class="project-tags">
-            <img class="logos" src="/images/logos/figma.svg" alt="Figma Project" width="50" height="50" />
-    <img class="logos" src="/images/logos/Css1.svg" alt="Vue Project" width="50" height="50" />
-            <img class="logos" src="/images/logos/html1.svg" alt="Vue Project" width="50" height="50" />
-    
-            <img class="logos" src="/images/logos/vue1.svg" alt="Figma Project" width="50" height="50" />
-              <img class="logos" src="/images/logos/Typescript.svg" alt="Figma Project" width="50" height="50" />
-      
+            <img class="logos" src="/images/logos/figma.svg" alt="Figma Project" width="40" height="40" />
+            <img class="logos" src="/images/logos/Css1.svg" alt="CSS" width="40" height="40" />
+            <img class="logos" src="/images/logos/html1.svg" alt="HTML" width="40" height="40" />
+            <img class="logos" src="/images/logos/vue1.svg" alt="Vue" width="40" height="40" />
+            <img class="logos" src="/images/logos/Typescript.svg" alt="TypeScript" width="40" height="40" />
           </div>
            <div class="link">
                <LinkButton url="/winsportingprizes" label="View Case Study" />
  </div>
+        </article>
+
+        <article class="project-card project-card--concept">
+          <div>
+            <span class="concept-tag">UI/UX Concept</span>
+            <h3>The Cut — Barbershop</h3>
+            <p>End-to-end design exploration: service-first booking flow, custom CSS animations, mobile navigation, and a full multi-step booking page — built from scratch with no brief.</p>
+          </div>
+          <div class="project-tags">
+            <img class="logos" src="/images/logos/html1.svg" alt="HTML" width="40" height="40" />
+            <img class="logos" src="/images/logos/Css1.svg" alt="CSS" width="40" height="40" />
+          </div>
+          <div class="link">
+            <LinkButton url="/vibe/barbers" label="View Site" />
+          </div>
         </article>
     
   
@@ -381,14 +394,13 @@ max-width:200px;
   }
 
   .project-card {
-  
-padding: 1.5rem 1.5rem 1rem 1.5rem;
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
     transition: transform 0.2s ease;
     border: 3px dashed;
     box-shadow: 6px 6px 0;
     display: grid;
+    grid-template-rows: 1fr auto auto;
     gap: 1rem;
-
   }
 
 
@@ -436,9 +448,21 @@ padding: 1.5rem 1.5rem 1rem 1.5rem;
 
  
 
+  .concept-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    padding: 0.2rem 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
   .project-card h3 {
     font-size: 1.5rem;
-    
+
   }
 
   .project-card p {
@@ -450,7 +474,8 @@ padding: 1.5rem 1.5rem 1rem 1.5rem;
   .project-tags {
     display: flex;
     gap: 0.5rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    align-items: center;
   }
 
   .project-tags span {

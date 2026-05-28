@@ -15,25 +15,10 @@
     <nav class="nav">
       <a href="#" class="logo"><img src="/images/Vibe/Barber/logoPng.png" alt="The Cut" class="logo-img" /></a>
       <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#book" class="nav-cta">Book Now</a></li>
+        <li><a href="#services" class="nav-cta">Book Now</a></li>
       </ul>
-      <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
     </nav>
   </header>
-
-  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-    <ul class="mobile-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#book" class="nav-cta">Book Now</a></li>
-    </ul>
-  </div>
 
   <section class="hero">
     <div class="hero-inner">
@@ -42,12 +27,11 @@
       <div class="hero-subtitle" data-animate style="--delay: 0.4s">of the Cut.</div>
       <p class="hero-sub" data-animate style="--delay: 0.55s">Old-school craft. New-school precision. Walk in looking good, leave looking great.</p>
       <div class="hero-actions" data-animate style="--delay: 0.7s">
-        <a href="#book" class="btn btn--ghost">Book Now</a>
         <a href="#services" class="btn btn--primary">
           <span class="circle" aria-hidden="true">
             <span class="material-symbols-outlined">content_cut</span>
           </span>
-          <span class="button-text">Our Services</span>
+          <span class="button-text">View Services</span>
         </a>
       </div>
     </div>
@@ -59,48 +43,54 @@
       <p class="section-label" data-animate>What We Do</p>
       <h2 class="section-title" data-animate style="--delay: 0.1s">Services</h2>
       <div class="services-grid">
-        <div class="service-card service-card--featured" data-animate style="--delay: 0s">
+        <a href="/vibe/barbers-book?service=The+Restyle&price=%C2%A330" class="service-card" data-animate style="--delay: 0s">
           <span class="service-num">01</span>
           <h3>The Restyle!</h3>
           <p>The full transformation. New look, new you.</p>
           <span class="service-price">£30</span>
-        </div>
-        <div class="service-card" data-animate style="--delay: 0.08s">
+        </a>
+        <a href="/vibe/barbers-book?service=Haircut+%26+Beard+Trim&price=%C2%A321" class="service-card" data-animate style="--delay: 0.08s">
           <span class="service-num">02</span>
           <h3>Haircut &amp; Beard Trim</h3>
           <p>The complete package — sharp cut, shaped beard.</p>
           <span class="service-price">£21 <span class="price-note">+£1 skin fade</span></span>
-        </div>
-        <div class="service-card" data-animate style="--delay: 0.16s">
+        </a>
+        <a href="/vibe/barbers-book?service=Men%27s+Cut+%26+Style&price=%C2%A318" class="service-card" data-animate style="--delay: 0.16s">
           <span class="service-num">03</span>
           <h3>Men's Cut &amp; Style</h3>
           <p>Cut, styled, and finished to walk out looking right.</p>
           <span class="service-price">£18 <span class="price-note">+£1 skin fade</span></span>
-        </div>
-        <div class="service-card" data-animate style="--delay: 0.24s">
+        </a>
+        <a href="/vibe/barbers-book?service=Boys+Cut&price=%C2%A316" class="service-card" data-animate style="--delay: 0.24s">
           <span class="service-num">04</span>
           <h3>Boys Cut</h3>
           <p>Under 16. Clean, tidy, done properly.</p>
           <span class="service-price">£16 <span class="price-note">+£1 skin fade</span></span>
-        </div>
-        <div class="service-card" data-animate style="--delay: 0.32s">
+        </a>
+        <a href="/vibe/barbers-book?service=OAP+Cut&price=%C2%A315" class="service-card" data-animate style="--delay: 0.32s">
           <span class="service-num">05</span>
           <h3>OAP Cut</h3>
           <p>Over 65. Classic service, respectful price.</p>
           <span class="service-price">£15</span>
-        </div>
-        <div class="service-card" data-animate style="--delay: 0.4s">
+        </a>
+        <a href="/vibe/barbers-book?service=Clipper+Cut&price=%C2%A313" class="service-card" data-animate style="--delay: 0.4s">
           <span class="service-num">06</span>
           <h3>Clipper Cut</h3>
           <p>All over clipper — fast, clean, no fuss.</p>
           <span class="service-price">£13</span>
-        </div>
-        <div class="service-card" data-animate style="--delay: 0.48s">
+        </a>
+        <a href="/vibe/barbers-book?service=Beard+Trim&price=%C2%A313" class="service-card" data-animate style="--delay: 0.48s">
           <span class="service-num">07</span>
           <h3>Beard Trim</h3>
           <p>Tidy up the lines. Keep the shape working for you.</p>
           <span class="service-price">£13</span>
-        </div>
+        </a>
+        <a href="/vibe/barbers-book?service=New+Client+Cut+%26+Style&price=%C2%A322" class="service-card" data-animate style="--delay: 0.56s">
+          <span class="service-num">08</span>
+          <h3>New Client Cut &amp; Style</h3>
+          <p>First time in the chair? Extra time to talk through exactly the look you're after. No rush, no guessing.</p>
+          <span class="service-price">£22</span>
+        </a>
       </div>
     </div>
   </section>
@@ -189,11 +179,63 @@
     </div>
   </section>
 
+  <section class="info" id="visit">
+    <div class="container">
+      <div class="info-grid">
+
+        <div class="info-left">
+          <p class="section-label" data-animate>Find Us</p>
+          <h2 class="section-title" data-animate style="--delay: 0.1s">Hours &amp; Location</h2>
+          <address class="info-address" data-animate style="--delay: 0.2s">
+            16 Partington Street, Failsworth, M35 9RD
+          </address>
+          <ul class="hours-list" data-animate style="--delay: 0.3s">
+            <li class="hours-row hours-row--closed">
+              <span>Monday</span><span>Closed</span>
+            </li>
+            <li class="hours-row">
+              <span>Tuesday</span><span>09:00 – 20:00</span>
+            </li>
+            <li class="hours-row">
+              <span>Wednesday</span><span>10:30 – 20:00</span>
+            </li>
+            <li class="hours-row">
+              <span>Thursday</span><span>09:00 – 20:00</span>
+            </li>
+            <li class="hours-row">
+              <span>Friday</span><span>10:30 – 20:00</span>
+            </li>
+            <li class="hours-row">
+              <span>Saturday</span><span>08:00 – 17:00</span>
+            </li>
+            <li class="hours-row hours-row--closed">
+              <span>Sunday</span><span>Closed</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="info-map" data-animate style="--delay: 0.2s">
+          <iframe
+            src="https://www.google.com/maps?q=Trumans+Barbershop+16+Partington+Street+Failsworth+Manchester+M35+9RD&output=embed"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Trumans Barbershop location"
+          ></iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <section class="cta-band" id="book">
     <div class="container">
       <h2 data-animate>Ready for a fresh cut?</h2>
       <p data-animate style="--delay: 0.15s">No waiting. Book your chair online.</p>
-      <a href="#" class="btn btn--primary" data-animate style="--delay: 0.3s">
+      <a href="#services" class="btn btn--primary" data-animate style="--delay: 0.3s">
         <span class="circle" aria-hidden="true">
           <span class="material-symbols-outlined">content_cut</span>
         </span>
@@ -204,8 +246,18 @@
 
   <footer class="footer">
     <div class="container">
-      <img src="/images/Vibe/Barber/logoPng.png" alt="The Cut" class="logo-img" />
-      <p>123 Atlantic Ave, Brooklyn, NY &mdash; Mon–Sat 9am–7pm</p>
+      <div class="footer-row">
+        <img src="/images/Vibe/Barber/logoPng.png" alt="The Cut" class="logo-img" />
+<div class="footer-socials">
+          <a href="#" aria-label="Instagram">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Trumans Barbershop</p>
+      </div>
     </div>
   </footer>
 
@@ -221,24 +273,6 @@
 
     document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
 
-    const burger = document.querySelector('.burger');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    burger.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('is-open');
-      burger.setAttribute('aria-expanded', isOpen);
-      mobileMenu.setAttribute('aria-hidden', !isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('is-open');
-        burger.setAttribute('aria-expanded', 'false');
-        mobileMenu.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-      });
-    });
 
     document.querySelectorAll('.faq-trigger').forEach(trigger => {
       trigger.addEventListener('click', () => {
@@ -350,6 +384,70 @@
     background: var(--gold) !important;
     color: var(--bg) !important;
   }
+
+  .nav-socials {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-social, .nav-account {
+    display: flex;
+    align-items: center;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+
+  .nav-social:hover, .nav-account:hover { color: var(--gold); }
+
+  .nav-account .material-symbols-outlined { font-size: 1.3rem; }
+
+  /* Footer */
+  .footer-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    text-align: center;
+  }
+
+.footer-socials {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .footer-socials a {
+    color: var(--muted);
+    display: flex;
+    transition: color 0.2s;
+  }
+
+  .footer-socials a:hover { color: var(--gold); }
+
+  .footer-copy {
+    font-family: var(--font-head);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #3a3830;
+  }
+
+  /* Mobile socials */
+  .mobile-socials {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobile-socials a {
+    color: var(--muted);
+    display: flex;
+    transition: color 0.2s;
+  }
+
+  .mobile-socials a:hover { color: var(--gold); }
 
   /* Hero */
   .hero {
@@ -574,21 +672,18 @@ align-content: space-around;
      grid-template-rows: 1fr  1fr 1fr;
   }
 
+  .service-card {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
   .service-card:hover {
-    background: rgba(200, 146, 42, 0.04);
+    background: rgba(200, 146, 42, 0.07);
+        border-bottom-color: var(--gold);
   }
 
-  .service-card:nth-child(4n) { border-right: none; }
-
-  .service-card--featured {
-    background: rgba(200, 146, 42, 0.06);
-    border-bottom-color: var(--gold);
-  }
-
-  .service-card--featured .service-card h3 {
-    color: var(--gold);
-  }
-
+  
   .price-note {
         position: absolute;
     font-size: 0.65rem;
@@ -801,6 +896,79 @@ align-content: space-around;
     color: var(--muted);
   }
 
+  /* Info / Hours + Map */
+  .info {
+    padding: 7rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+
+  .info-address {
+    font-style: normal;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  .hours-list {
+    list-style: none;
+    border-top: 1px solid var(--border);
+  }
+
+  .hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+    font-family: var(--font-head);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+
+  .hours-row span:last-child {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .hours-row--closed {
+    color: var(--muted);
+  }
+
+  .hours-row--closed span:last-child {
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .info-map {
+    height: 480px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .info-map iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: grayscale(1) invert(1) contrast(0.85) brightness(0.9);
+  }
+
+  @media (max-width: 900px) {
+    .info-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .info-map { height: 320px; }
+  }
+
   /* CTA band */
   .cta-band {
     padding: 6rem 0;
@@ -826,21 +994,11 @@ align-content: space-around;
 
   /* Footer */
   .footer {
-    padding: 2.5rem 0;
+    padding: 3rem 0;
     border-top: 1px solid var(--border);
   }
 
-  .footer .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .footer p {
-    font-size: 0.8rem;
-    color: var(--muted);
+  @media (max-width: 768px) {
   }
 
   /* Scroll animations */
@@ -864,101 +1022,17 @@ align-content: space-around;
     .service-card:nth-child(2n) { border-right: none; }
   }
 
-  /* Burger */
-  .burger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.25rem;
-    z-index: 200;
-  }
-
-  .burger span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--cream);
-    border-radius: 2px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    transform-origin: center;
-  }
-
-  .burger[aria-expanded="true"] span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-  }
-
-  .burger[aria-expanded="true"] span:nth-child(2) {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-
-  .burger[aria-expanded="true"] span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-  }
-
-  /* Mobile menu */
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 90;
-    background: var(--bg);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-
-  .mobile-menu.is-open {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  .mobile-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
-  .mobile-links a {
-    font-family: var(--font-head);
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .mobile-links a:hover { color: var(--cream); }
-
-  .mobile-links .nav-cta {
-    color: var(--gold) !important;
-    border: 1px solid var(--gold);
-    padding: 0.6rem 1.5rem;
-  }
-
-  .mobile-links .nav-cta:hover {
-    background: var(--gold) !important;
-    color: var(--bg) !important;
-  }
-
   @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .burger { display: flex; }
-    .mobile-menu { display: flex; }
     .services-grid { grid-template-columns: 1fr; }
     .service-card { border-right: none; }
     .testimonials-grid { grid-template-columns: 1fr; }
+
+
+      .service-card {
+ 
+    min-height: auto;
+
+  }
   }
 
 
