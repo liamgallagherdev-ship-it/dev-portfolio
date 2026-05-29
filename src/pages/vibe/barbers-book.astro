@@ -1,3 +1,6 @@
+---
+import BarberTeam from '../../components/BarberTeam.astro';
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -52,36 +55,7 @@
       <!-- Step 1: Choose barber -->
       <section class="step" id="step-1">
         <h2 class="step-title">Choose your barber</h2>
-        <div class="barbers-grid">
-
-          <button class="barber-card" data-barber="Sam">
-            <div class="barber-avatar">S</div>
-            <div class="barber-info">
-              <span class="barber-name">Sam</span>
-              <span class="barber-spec">Fades &amp; Styling</span>
-              <span class="barber-avail barber-avail--open">Available today</span>
-            </div>
-          </button>
-
-          <button class="barber-card" data-barber="Jake">
-            <div class="barber-avatar">J</div>
-            <div class="barber-info">
-              <span class="barber-name">Jake</span>
-              <span class="barber-spec">Classic Cuts</span>
-              <span class="barber-avail barber-avail--open">Available today</span>
-            </div>
-          </button>
-
-          <button class="barber-card" data-barber="Danny">
-            <div class="barber-avatar">D</div>
-            <div class="barber-info">
-              <span class="barber-name">Danny</span>
-              <span class="barber-spec">Beard &amp; Groom</span>
-              <span class="barber-avail barber-avail--busy">Fully booked today</span>
-            </div>
-          </button>
-
-        </div>
+        <BarberTeam selectable />
         <div class="step-actions">
           <button class="btn btn--primary" id="step1Next" disabled>
             <span class="circle" aria-hidden="true">
@@ -214,13 +188,9 @@
     }
 
     // ── Step 1: Barber ─────────────────────────────────────────────────
-    document.querySelectorAll('.barber-card').forEach(card => {
-      card.addEventListener('click', () => {
-        document.querySelectorAll('.barber-card').forEach(c => c.classList.remove('selected'));
-        card.classList.add('selected');
-        state.barber = card.dataset.barber;
-        document.getElementById('step1Next').disabled = false;
-      });
+    document.addEventListener('barber-selected', (e) => {
+      state.barber = e.detail.barber;
+      document.getElementById('step1Next').disabled = false;
     });
 
     document.getElementById('step1Next').addEventListener('click', () => {
@@ -534,14 +504,14 @@
     font-weight: 700;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
   }
 
   .step-actions {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
   }
 
   /* Barbers */
@@ -637,8 +607,8 @@
     margin-top: 0.25rem;
   }
 
-  .barber-avail--open { color: #16a34a; }
-  .barber-avail--busy { color: var(--muted); }
+  .barber-avail--open { color: var(--gold); }
+  .barber-avail--busy { color: var(--gold); }
 
   /* Calendar */
   .datetime-grid {
@@ -880,7 +850,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 4rem 0;
+    padding: 1rem 0;
     gap: 1rem;
   }
 
@@ -992,6 +962,9 @@
       gap: 1.25rem;
     }
 
+    
+  .step-actions { margin-top: 0rem;}
+
     .barber-info { align-items: flex-start; }
 
     .barber-avatar {
@@ -1023,17 +996,6 @@
       font-size: 0.7rem;
     }
 
-    .progress {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.5rem;
-    }
-
-    .progress-line {
-      width: 1px;
-      height: 1.25rem;
-      margin: 0 0 0 calc(1rem - 0.5px);
-      flex: none;
-    }
+    .progress { display: none; }
   }
 </style>

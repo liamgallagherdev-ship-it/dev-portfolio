@@ -1,3 +1,6 @@
+---
+import BarberTeam from '../../components/BarberTeam.astro';
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -95,6 +98,14 @@
     </div>
   </section>
 
+  <section class="team" id="team">
+    <div class="container">
+      <p class="section-label" data-animate>The Crew</p>
+      <h2 class="section-title" data-animate style="--delay: 0.1s">Meet the Barbers</h2>
+      <BarberTeam />
+    </div>
+  </section>
+
   <section class="faqs" id="faqs">
     <div class="container">
       <p class="section-label" data-animate>Got Questions</p>
@@ -152,6 +163,7 @@
       <div class="testimonials-grid">
 
         <div class="testimonial-card" data-animate style="--delay: 0s">
+          <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
           <p class="testimonial-quote">"Best barber I've been to in years. Knew exactly what I wanted without me having to explain it twice. Left looking sharper than I have in a long time."</p>
           <div class="testimonial-footer">
             <span class="testimonial-name">James R.</span>
@@ -160,6 +172,7 @@
         </div>
 
         <div class="testimonial-card" data-animate style="--delay: 0.1s">
+          <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
           <p class="testimonial-quote">"Took my lad for his first proper cut here. The barber was patient, made him feel comfortable, and the result was brilliant. We won't be going anywhere else."</p>
           <div class="testimonial-footer">
             <span class="testimonial-name">Mark T.</span>
@@ -168,6 +181,7 @@
         </div>
 
         <div class="testimonial-card" data-animate style="--delay: 0.2s">
+          <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
           <p class="testimonial-quote">"Old-school feel, proper skill. No rushing, no fuss — just a clean cut and a straight shave done right. The kind of place you tell your mates about."</p>
           <div class="testimonial-footer">
             <span class="testimonial-name">Danny K.</span>
@@ -661,15 +675,16 @@
   }
 
   .service-card {
-    padding: 2rem ;
+    position: relative;
+    padding: 2rem;
     border-right: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     display: grid;
-align-content: space-around;
+    align-content: space-around;
     gap: 0.75rem;
     transition: background 0.2s;
     min-height: 300px;
-     grid-template-rows: 1fr  1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
   }
 
   .service-card {
@@ -728,6 +743,12 @@ align-content: space-around;
     font-weight: 700;
     color: var(--gold);
     letter-spacing: -0.02em;
+  }
+
+  /* Team */
+  .team {
+    padding: 7rem 0;
+    border-top: 1px solid var(--border);
   }
 
   /* FAQs */
@@ -859,6 +880,12 @@ align-content: space-around;
     color: var(--gold);
     opacity: 0.25;
     pointer-events: none;
+  }
+
+  .testimonial-stars {
+    font-size: 0.9rem;
+    color: var(--gold);
+    letter-spacing: 0.15em;
   }
 
   .testimonial-quote {
@@ -1026,6 +1053,9 @@ align-content: space-around;
     .services-grid { grid-template-columns: 1fr; }
     .service-card { border-right: none; }
     .testimonials-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr; }
+    .team-card { border-right: none; border-bottom: 1px solid var(--border); }
+    .team-card:last-child { border-bottom: none; }
 
 
       .service-card {

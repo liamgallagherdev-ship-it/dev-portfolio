@@ -102,41 +102,38 @@ I’m passionate about building thoughtful digital experiences that look great a
     <div class="container">
       <h2 class="section-title bungee-shade-regular">Featured Projects</h2>
       <div class="projects-grid">
-          <article class="project-card">
-             <div>
-          <h3>Rewards4 Platform</h3>
-          <p>Modernising a multi-brand rewards ecosystem with Vue 3, TypeScript, and improved UX.</p>
-             </div>
-          <div class="project-tags">
-            <img class="logos" src="/images/logos/bootstrap1.svg" alt="Vue Project" width="40" height="40" />
-            <img class="logos" src="/images/logos/Css1.svg" alt="Vue Project" width="40" height="40" />
-            <img class="logos" src="/images/logos/html1.svg" alt="Vue Project" width="40" height="40" />
-            <img class="logos" src="/images/logos/Sass1.svg" alt="Vue Project" width="40" height="40" />
-            <img class="logos" src="/images/logos/vue1.svg" alt="Vue Project" width="40" height="40" />
-                     <img class="logos" src="/images/logos/Typescript.svg" alt="Figma Project" width="40" height="40" />
+        <a href="/rewards4" class="project-card">
+          <div>
+            <h3>Rewards4 Platform</h3>
+            <p>Modernising a multi-brand rewards ecosystem with Vue 3, TypeScript, and improved UX.</p>
           </div>
-             <div class="link">
-          <LinkButton url="/rewards4" label="View Case Study" />
-             </div>
-        </article>
-        <article class="project-card">
-        <div>
-          <h3>Win Sporting Prizes</h3>
-          <p>A gamified sports rewards platform built to increase engagement and diversify revenue.</p>
-              </div>
           <div class="project-tags">
-            <img class="logos" src="/images/logos/figma.svg" alt="Figma Project" width="40" height="40" />
+            <img class="logos" src="/images/logos/bootstrap1.svg" alt="Bootstrap" width="40" height="40" />
+            <img class="logos" src="/images/logos/Css1.svg" alt="CSS" width="40" height="40" />
+            <img class="logos" src="/images/logos/html1.svg" alt="HTML" width="40" height="40" />
+            <img class="logos" src="/images/logos/Sass1.svg" alt="Sass" width="40" height="40" />
+            <img class="logos" src="/images/logos/vue1.svg" alt="Vue" width="40" height="40" />
+            <img class="logos" src="/images/logos/Typescript.svg" alt="TypeScript" width="40" height="40" />
+          </div>
+          <span class="card-cta">View Case Study →</span>
+        </a>
+
+        <a href="/winsportingprizes" class="project-card">
+          <div>
+            <h3>Win Sporting Prizes</h3>
+            <p>A gamified sports rewards platform built to increase engagement and diversify revenue.</p>
+          </div>
+          <div class="project-tags">
+            <img class="logos" src="/images/logos/figma.svg" alt="Figma" width="40" height="40" />
             <img class="logos" src="/images/logos/Css1.svg" alt="CSS" width="40" height="40" />
             <img class="logos" src="/images/logos/html1.svg" alt="HTML" width="40" height="40" />
             <img class="logos" src="/images/logos/vue1.svg" alt="Vue" width="40" height="40" />
             <img class="logos" src="/images/logos/Typescript.svg" alt="TypeScript" width="40" height="40" />
           </div>
-           <div class="link">
-               <LinkButton url="/winsportingprizes" label="View Case Study" />
- </div>
-        </article>
+          <span class="card-cta">View Case Study →</span>
+        </a>
 
-        <article class="project-card project-card--concept">
+        <a href="/vibe/barbers" class="project-card project-card--concept">
           <div>
             <span class="concept-tag">UI/UX Concept</span>
             <h3>The Cut — Barbershop</h3>
@@ -146,10 +143,8 @@ I’m passionate about building thoughtful digital experiences that look great a
             <img class="logos" src="/images/logos/html1.svg" alt="HTML" width="40" height="40" />
             <img class="logos" src="/images/logos/Css1.svg" alt="CSS" width="40" height="40" />
           </div>
-          <div class="link">
-            <LinkButton url="/vibe/barbers" label="View Site" />
-          </div>
-        </article>
+          <span class="card-cta">View Site →</span>
+        </a>
     
   
    
@@ -175,8 +170,10 @@ I’m passionate about building thoughtful digital experiences that look great a
 </BaseLayout>
 
 <style>
-.link {
-max-width: 200px;
+.card-cta {
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  font-weight: 600;
 }
 
 
@@ -395,17 +392,19 @@ max-width:200px;
 
   .project-card {
     padding: 1.5rem 1.5rem 1rem 1.5rem;
-    transition: transform 0.2s ease;
     border: 3px dashed;
     box-shadow: 6px 6px 0;
     display: grid;
     grid-template-rows: 1fr auto auto;
     gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
   }
 
-
   .project-card:hover {
-   transition: a
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0;
   }
 
 
@@ -474,7 +473,7 @@ max-width:200px;
   .project-tags {
     display: flex;
     gap: 0.5rem;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
   }
 

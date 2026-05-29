@@ -1,0 +1,241 @@
+---
+interface Props {
+  selectable?: boolean;
+}
+const { selectable = false } = Astro.props;
+---
+
+<div class="team-grid" data-selectable={selectable || undefined}>
+
+  <div class="team-card" data-barber="Sam" data-team-animate style="--delay: 0s">
+    <div class="team-avatar">S</div>
+    <h3 class="team-name">Sam</h3>
+    <p class="team-bio">Sam's the man for a clean fade. Sharp lines, precise finish — he reads the brief and delivers every time.</p>
+    <span class="team-avail" id="avail-sam">—</span>
+  </div>
+
+  <div class="team-card" data-barber="Jake" data-team-animate style="--delay: 0.1s">
+    <div class="team-avatar">J</div>
+    <h3 class="team-name">Jake</h3>
+    <p class="team-bio">Jake keeps it traditional. Scissor-work that's stood the test of time — clean, considered, and properly done.</p>
+    <span class="team-avail" id="avail-jake">—</span>
+  </div>
+
+  <div class="team-card" data-barber="Danny" data-team-animate style="--delay: 0.2s">
+    <div class="team-avatar">D</div>
+    <h3 class="team-name">Danny</h3>
+    <p class="team-bio">Danny's beard work is second to none. Shaped, lined, and finished so you walk out looking like you mean business.</p>
+    <span class="team-avail" id="avail-danny">—</span>
+  </div>
+
+</div>
+
+<script>
+  // Scroll animation (scoped to team cards only)
+  const teamObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        teamObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('[data-team-animate]').forEach(el => teamObserver.observe(el));
+
+  // Availability
+  (function () {
+    const CLOSED = [0, 1];
+    const SLOTS = {
+      2: ['09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30'],
+      3: ['10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30'],
+      4: ['09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30'],
+      5: ['10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30'],
+      6: ['08:00','08:30','09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30'],
+    };
+    const DAY = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+    function nextOpenDay(from) {
+      const d = new Date(from.getFullYear(), from.getMonth(), from.getDate() + 1);
+      while (CLOSED.includes(d.getDay())) d.setDate(d.getDate() + 1);
+      return d;
+    }
+
+    function fmt(d) { return `${DAY[d.getDay()]} ${d.getDate()} ${MON[d.getMonth()]}`; }
+
+    function nextSlot(dow) {
+      const slots = SLOTS[dow] || [];
+      const now = new Date();
+      const mins = now.getHours() * 60 + now.getMinutes();
+      return slots.find(s => { const [h, m] = s.split(':').map(Number); return h * 60 + m > mins; });
+    }
+
+    const now = new Date();
+    const dow = now.getDay();
+    const openToday = !CLOSED.includes(dow);
+
+    [
+      { id: 'avail-sam',   skipDays: 0 },
+      { id: 'avail-jake',  skipDays: 7 },
+      { id: 'avail-danny', skipDays: 0 },
+    ].forEach(({ id, skipDays }) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      if (skipDays > 0) {
+        const future = new Date(now.getFullYear(), now.getMonth(), now.getDate() + skipDays);
+        while (CLOSED.includes(future.getDay())) future.setDate(future.getDate() + 1);
+        el.textContent = `Next available: ${fmt(future)}`;
+        el.classList.add('team-avail--busy');
+        return;
+      }
+
+      if (!openToday) {
+        el.textContent = `Next available: ${fmt(nextOpenDay(now))}`;
+        el.classList.add('team-avail--busy');
+        return;
+      }
+
+      const slot = nextSlot(dow);
+      if (slot) {
+        el.textContent = `Next slot: ${slot} today`;
+        el.classList.add('team-avail--open');
+      } else {
+        el.textContent = `Next available: ${fmt(nextOpenDay(now))}`;
+        el.classList.add('team-avail--busy');
+      }
+    });
+  })();
+
+  // Selectable mode — used on the booking page
+  const selectableGrid = document.querySelector('.team-grid[data-selectable]');
+  if (selectableGrid) {
+    selectableGrid.querySelectorAll('.team-card').forEach(card => {
+      card.addEventListener('click', () => {
+        selectableGrid.querySelectorAll('.team-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        document.dispatchEvent(new CustomEvent('barber-selected', {
+          detail: { barber: card.dataset.barber }
+        }));
+      });
+    });
+  }
+</script>
+
+<style>
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+
+  .team-card {
+    position: relative;
+    padding: 1.5rem 2rem;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.3rem;
+    transition: background 0.2s;
+  }
+
+  .team-card:last-child { border-right: none; }
+  .team-card:hover { background: rgba(200, 146, 42, 0.05); }
+
+  /* Selectable state */
+  .team-grid[data-selectable] .team-card { cursor: pointer; }
+
+  .team-grid[data-selectable] .team-card.selected {
+    background: rgba(200, 146, 42, 0.08);
+  }
+
+  .team-grid[data-selectable] .team-card.selected::after {
+    content: '✓';
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .team-grid[data-selectable] .team-card.selected .team-avatar {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .team-avatar {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-head);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--muted);
+    transition: border-color 0.2s, color 0.2s;
+    margin-bottom: 0.5rem;
+  }
+
+  .team-card:hover .team-avatar {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .team-name {
+    font-family: var(--font-head);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .team-bio {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.7;
+    flex: 1;
+       margin: 0;
+  }
+
+  .team-avail {
+    font-family: var(--font-head);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid currentColor;
+    margin-top: 0.5rem;
+  }
+
+  .team-avail--open { color: var(--gold); }
+  .team-avail--busy { color: var(--gold); }
+
+  /* Scroll animation */
+  @media (prefers-reduced-motion: no-preference) {
+    [data-team-animate] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+      transition-delay: var(--delay, 0s);
+    }
+    [data-team-animate].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .team-grid { grid-template-columns: 1fr; }
+    .team-card { border-right: none; border-bottom: 1px solid var(--border); }
+    .team-card:last-child { border-bottom: none; }
+  }
+</style>
