@@ -9,23 +9,29 @@ const { selectable = false } = Astro.props;
 
   <div class="team-card" data-barber="Sam" data-team-animate style="--delay: 0s">
     <div class="team-avatar">S</div>
-    <h3 class="team-name">Sam</h3>
-    <p class="team-bio">Sam's the man for a clean fade. Sharp lines, precise finish — he reads the brief and delivers every time.</p>
-    <span class="team-avail" id="avail-sam">—</span>
+    <div class="team-info">
+      <h3 class="team-name">Sam</h3>
+      <p class="team-bio">Sam's the man for a clean fade. Sharp lines, precise finish — he reads the brief and delivers every time.</p>
+      <span class="team-avail" id="avail-sam">—</span>
+    </div>
   </div>
 
   <div class="team-card" data-barber="Jake" data-team-animate style="--delay: 0.1s">
     <div class="team-avatar">J</div>
-    <h3 class="team-name">Jake</h3>
-    <p class="team-bio">Jake keeps it traditional. Scissor-work that's stood the test of time — clean, considered, and properly done.</p>
-    <span class="team-avail" id="avail-jake">—</span>
+    <div class="team-info">
+      <h3 class="team-name">Jake</h3>
+      <p class="team-bio">Jake keeps it traditional. Scissor-work that's stood the test of time — clean, considered, and properly done.</p>
+      <span class="team-avail" id="avail-jake">—</span>
+    </div>
   </div>
 
   <div class="team-card" data-barber="Danny" data-team-animate style="--delay: 0.2s">
     <div class="team-avatar">D</div>
-    <h3 class="team-name">Danny</h3>
-    <p class="team-bio">Danny's beard work is second to none. Shaped, lined, and finished so you walk out looking like you mean business.</p>
-    <span class="team-avail" id="avail-danny">—</span>
+    <div class="team-info">
+      <h3 class="team-name">Danny</h3>
+      <p class="team-bio">Danny's beard work is second to none. Shaped, lined, and finished so you walk out looking like you mean business.</p>
+      <span class="team-avail" id="avail-danny">—</span>
+    </div>
   </div>
 
 </div>
@@ -188,6 +194,14 @@ const { selectable = false } = Astro.props;
     color: var(--gold);
   }
 
+  .team-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
   .team-name {
     font-family: var(--font-head);
     font-size: 1.5rem;
@@ -235,7 +249,39 @@ const { selectable = false } = Astro.props;
 
   @media (max-width: 768px) {
     .team-grid { grid-template-columns: 1fr; }
-    .team-card { border-right: none; border-bottom: 1px solid var(--border); }
+
+    .team-card {
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      padding: 1.25rem;
+      gap: 0.5rem;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
     .team-card:last-child { border-bottom: none; }
+
+    .team-avatar {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 6rem;
+      height: 6rem;
+      font-size: 4.25rem;
+      opacity: 0.15;
+      z-index: 0;
+      margin-bottom: 0;
+      flex-shrink: 0;
+    }
+
+    .team-info {
+      align-items: flex-start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .team-avail { margin-top: 0.25rem; }
   }
 </style>
