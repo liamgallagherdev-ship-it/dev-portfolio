@@ -6,7 +6,7 @@
   <title>Costumes with Character — Bringing Your Brand to Life</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Finger+Paint&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Finger+Paint&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,1,0" />
 </head>
 <body>
@@ -14,27 +14,37 @@
   <header class="header">
     <nav class="nav">
       <a href="#" class="logo">
-        <span class="logo-main">Costumes</span>
-        <span class="logo-sub">with Character</span>
+        <img src="/images/Vibe/Costumes/costumeswithcharacterlogo.png" alt="Costumes with Character" class="logo-img" />
       </a>
       <ul class="nav-links">
         <li><a href="#" class="nav-link active">Home</a></li>
         <li><a href="#" class="nav-link">Costumes</a></li>
         <li><a href="#" class="nav-link">Puppets</a></li>
         <li><a href="#" class="nav-link">Printing</a></li>
-        <li><a href="#" class="nav-link">Info</a></li>
-        <li><a href="#" class="nav-link">Aftercare</a></li>
-        <li><a href="#" class="nav-link">Blog</a></li>
-        <li><a href="#" class="nav-link">About Us</a></li>
-        <li><a href="#" class="nav-link">Jobs</a></li>
         <li><a href="#" class="nav-link">Contact</a></li>
+        <li class="nav-more">
+          <button class="nav-link nav-more-btn">More ▾</button>
+          <ul class="nav-dropdown">
+            <li><a href="#" class="dropdown-link">Info</a></li>
+            <li><a href="#" class="dropdown-link">Aftercare</a></li>
+            <li><a href="#" class="dropdown-link">Blog</a></li>
+            <li><a href="#" class="dropdown-link">About Us</a></li>
+            <li><a href="#" class="dropdown-link">Jobs</a></li>
+          </ul>
+        </li>
       </ul>
+      <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
       <div class="nav-contact">
-        <a href="mailto:sales@costumeswithcharacter.com" class="nav-email">sales@costumeswithcharacter.com</a>
-        <a href="tel:01614428740" class="nav-phone">
-          <span class="material-symbols-outlined">call</span>
-          0161 442 8740
-        </a>
+        <div class="nav-actions">
+          <a href="tel:01614428740" class="nav-phone">
+            <span class="material-symbols-outlined">call</span>
+            0161 442 8740
+          </a>
+          <a href="#" class="nav-quote">Get a Quote</a>
+        </div>
       </div>
     </nav>
   </header>
@@ -63,10 +73,7 @@
           Custom mascots and character costumes that create unforgettable experiences, build connections and make your brand stand out.
         </p>
 
-        <a href="#" class="btn btn--primary">
-          Explore Mascots
-          <span class="material-symbols-outlined">arrow_forward</span>
-        </a>
+        <button class="bubbly-button">Explore Mascots →</button>
 
         <div class="hero-badges">
           <div class="badge">
@@ -96,36 +103,69 @@
     </div>
   </section>
 
-  <div class="paint-stroke" aria-hidden="true">
-    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,58 C35,38 70,72 120,54 C170,36 210,75 270,56 C330,37 375,74 440,55 C505,36 545,72 610,54 C675,36 715,70 780,54 C845,38 885,72 950,55 C1015,38 1060,73 1125,55 C1190,37 1240,72 1305,55 C1360,40 1410,68 1440,54 L1440,90 L0,90 Z" fill="#ffd000"/>
-      <path d="M0,68 C50,55 100,76 160,65 C220,54 270,74 330,64 C390,54 440,73 510,63 C580,53 630,72 700,63 C770,54 820,72 890,64 C960,56 1010,73 1080,65 C1150,57 1210,73 1280,65 C1340,57 1400,71 1440,64 L1440,90 L0,90 Z" fill="#ffd000" opacity="0.45"/>
-    </svg>
-  </div>
-
   <div class="categories-bar">
-    <a href="#" class="category">
-      <span class="material-symbols-outlined">celebration</span>
-      Events &amp; Promotions
-    </a>
-    <a href="#" class="category">
-      <span class="material-symbols-outlined">storefront</span>
-      Brand Awareness
-    </a>
-    <a href="#" class="category">
-      <span class="material-symbols-outlined">festival</span>
-      Parties &amp; Festivals
-    </a>
-    <a href="#" class="category">
-      <span class="material-symbols-outlined">shopping_bag</span>
-      Retail &amp; Activations
-    </a>
-    <a href="#" class="category">
-      <span class="material-symbols-outlined">favorite</span>
-      Memorable Experiences
-    </a>
+    <div class="categories-track">
+      <a href="#" class="category"><span class="material-symbols-outlined">celebration</span>Events &amp; Promotions</a>
+      <a href="#" class="category"><span class="material-symbols-outlined">storefront</span>Brand Awareness</a>
+      <a href="#" class="category"><span class="material-symbols-outlined">festival</span>Parties &amp; Festivals</a>
+      <a href="#" class="category"><span class="material-symbols-outlined">shopping_bag</span>Retail &amp; Activations</a>
+      <a href="#" class="category"><span class="material-symbols-outlined">favorite</span>Memorable Experiences</a>
+      <span class="category badge-cat"><span class="material-symbols-outlined">verified</span>Premium Quality</span>
+      <span class="category badge-cat"><span class="material-symbols-outlined">favorite</span>Made to Engage</span>
+      <span class="category badge-cat"><span class="material-symbols-outlined">auto_awesome</span>Experience Led</span>
+      <!-- Duplicate set for seamless loop -->
+      <a href="#" class="category" aria-hidden="true"><span class="material-symbols-outlined">celebration</span>Events &amp; Promotions</a>
+      <a href="#" class="category" aria-hidden="true"><span class="material-symbols-outlined">storefront</span>Brand Awareness</a>
+      <a href="#" class="category" aria-hidden="true"><span class="material-symbols-outlined">festival</span>Parties &amp; Festivals</a>
+      <a href="#" class="category" aria-hidden="true"><span class="material-symbols-outlined">shopping_bag</span>Retail &amp; Activations</a>
+      <a href="#" class="category" aria-hidden="true"><span class="material-symbols-outlined">favorite</span>Memorable Experiences</a>
+      <span class="category badge-cat" aria-hidden="true"><span class="material-symbols-outlined">verified</span>Premium Quality</span>
+      <span class="category badge-cat" aria-hidden="true"><span class="material-symbols-outlined">favorite</span>Made to Engage</span>
+      <span class="category badge-cat" aria-hidden="true"><span class="material-symbols-outlined">auto_awesome</span>Experience Led</span>
+    </div>
   </div>
 
+  <nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <ul>
+      <li><a href="#" class="mobile-link">Home</a></li>
+      <li><a href="#" class="mobile-link">Costumes</a></li>
+      <li><a href="#" class="mobile-link">Puppets</a></li>
+      <li><a href="#" class="mobile-link">Printing</a></li>
+      <li><a href="#" class="mobile-link">Info</a></li>
+      <li><a href="#" class="mobile-link">Aftercare</a></li>
+      <li><a href="#" class="mobile-link">Contact</a></li>
+    </ul>
+    <div class="mobile-contact">
+      <a href="mailto:sales@costumeswithcharacter.com">sales@costumeswithcharacter.com</a>
+      <a href="tel:01614428740" class="mobile-phone">
+        <span class="material-symbols-outlined">call</span>
+        0161 442 8740
+      </a>
+    </div>
+  </nav>
+
+  <script>
+    const burgerBtn = document.getElementById('burgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    burgerBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('is-open');
+      burgerBtn.classList.toggle('is-open', isOpen);
+      burgerBtn.setAttribute('aria-expanded', isOpen);
+      mobileMenu.setAttribute('aria-hidden', !isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    mobileMenu.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('is-open');
+        burgerBtn.classList.remove('is-open');
+        burgerBtn.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      });
+    });
+  </script>
 </body>
 </html>
 
@@ -139,7 +179,7 @@
     --purple: #1a0d40;
     --white:  #ffffff;
     --muted:  rgba(255,255,255,0.65);
-    --font-display: 'Bungee', sans-serif;
+    --font-display: 'Lilita One', cursive;
     --font-accent:  'Finger Paint', cursive;
     --font-body:    'Montserrat', sans-serif;
   }
@@ -161,16 +201,16 @@
   .header {
     position: fixed;
     top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: rgba(13, 8, 42, 0.88);
+    z-index: 200;
+    background: rgba(13, 8, 42, 0.92);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+
   }
 
   .nav {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0.75rem 2rem;
+    padding: 1.75rem 2rem;
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -182,6 +222,16 @@
     flex-direction: column;
     line-height: 1.1;
     flex-shrink: 0;
+  }
+
+  .logo-img {
+    height: 170px;
+    width: auto;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+        z-index: 100;
+        transform: rotate(-5deg);
   }
 
   .logo-main {
@@ -217,22 +267,99 @@
     font-weight: 500;
     color: var(--muted);
     padding: 0.35rem 0.6rem;
-    border-radius: 4px;
+    white-space: nowrap;
+    position: relative;
+    transition: color 0.2s;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0.6rem; right: 0.6rem;
+    height: 2px;
+    background: var(--yellow);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+
+  .nav-link:hover { color: var(--white); }
+  .nav-link:hover::after { transform: scaleX(1); }
+  .nav-link.active { color: var(--yellow); }
+  .nav-link.active::after { transform: scaleX(1); }
+
+  /* Dropdown */
+  .nav-more { position: relative; }
+
+  .nav-dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    background: #1a0d40;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 0.5rem 0;
+    min-width: 140px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-6px);
+    transition: opacity 0.2s, transform 0.2s;
+    z-index: 10;
+  }
+
+  .nav-more:hover .nav-dropdown,
+  .nav-more:focus-within .nav-dropdown {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+
+  .dropdown-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--muted);
     transition: color 0.2s, background 0.2s;
     white-space: nowrap;
   }
 
-  .nav-link:hover,
-  .nav-link.active { color: var(--white); }
-  .nav-link.active { color: var(--yellow); }
+  .dropdown-link:hover { color: var(--white); background: rgba(255,255,255,0.05); }
 
   /* Contact */
   .nav-contact {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 0.2rem;
+    gap: 0.35rem;
     flex-shrink: 0;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-quote {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    color: var(--yellow);
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    padding: 0.3rem 0.85rem;
+    border-radius: 100px;
+    border: 2px solid var(--yellow);
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-quote:hover {
+    background: var(--yellow);
+    color: #1a0d40;
   }
 
   .nav-email {
@@ -263,7 +390,7 @@
   /* ── Hero ────────────────────────────────────────────────────────── */
   .hero {
     position: relative;
-    min-height: 100vh;
+height: 90vh;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -303,7 +430,7 @@
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 8rem 2rem 4rem;
+    padding: 4rem 2rem 0rem;
   }
 
   .hero-content {
@@ -327,17 +454,18 @@
   .line-2 {
     font-size: clamp(3rem, 7vw, 5.5rem);
     color: var(--white);
-    letter-spacing: -0.05em;
+font-weight: 100;
+line-height: 0.85em;
   }
 
   .line-2 {
     display: flex;
     align-items: flex-start;
-    gap: 0.3em;
+    gap: 0.1em;
   }
 
   .line-3 {
-    font-size: clamp(4.5rem, 11vw, 9rem);
+    font-size: clamp(3rem, 11vw, 9rem);
     color: var(--yellow);
     letter-spacing: -0.05em;
     line-height: 0.85;
@@ -345,7 +473,7 @@
 
   .line-4 {
     font-family: var(--font-accent);
-    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-size: clamp(2rem, 7vw, 5.5rem);
     color: var(--pink);
     display: flex;
     align-items: center;
@@ -353,7 +481,7 @@
     margin-top: -0.5em;
     font-weight: 100;
     font-style: italic;
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
   }
 
   .exclaim {
@@ -385,35 +513,111 @@
     line-height: 1.7;
   }
 
-  /* Button */
-  .btn--primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--yellow);
-    color: #1a0d40;
+  /* Button — bubbly */
+  .bubbly-button {
     font-family: var(--font-display);
-  
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: 0.85rem 2rem;
-    border-radius: 100px;
-    transition: background 0.2s, transform 0.2s;
-    cursor: pointer;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    padding: 0.9em 2.2em;
+    background-color: var(--yellow);
+    color: #1a0d40;
+    border-radius: 4px;
     border: none;
+    cursor: pointer;
+    position: relative;
+    isolation: isolate;
+    transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+    box-shadow: 0 2px 25px rgba(255, 208, 0, 0.45);
   }
 
-  .btn--primary .material-symbols-outlined { font-size: 1.1rem; }
-  .btn--primary:hover { background: #ffe040; transform: translateY(-2px); }
-  .btn--primary:active { transform: translateY(0); }
+  .bubbly-button:focus { outline: 0; }
+
+  .bubbly-button:hover {
+    animation: bubbleBounce 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  }
+
+  @keyframes bubbleBounce {
+    0%   { transform: scale(1); }
+    20%  { transform: scale(1.06); }
+    40%  { transform: scale(0.98); }
+    60%  { transform: scale(1.03); }
+    80%  { transform: scale(0.99); }
+    100% { transform: scale(1); }
+  }
+
+  .bubbly-button:active {
+    transform: scale(0.9);
+    background-color: #e6bc00;
+    box-shadow: 0 2px 25px rgba(255, 208, 0, 0.2);
+  }
+
+  .bubbly-button::before,
+  .bubbly-button::after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 140%;
+    height: 100%;
+    left: -20%;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size: 0% 0%;
+  }
+
+  .bubbly-button::before {
+    top: -75%;
+    background-image:
+      radial-gradient(circle, var(--yellow) 20%, transparent 20%),
+      radial-gradient(circle, transparent 20%, var(--yellow) 20%, transparent 30%),
+      radial-gradient(circle, var(--yellow) 20%, transparent 20%),
+      radial-gradient(circle, var(--yellow) 20%, transparent 20%),
+      radial-gradient(circle, transparent 10%, var(--yellow) 15%, transparent 20%),
+      radial-gradient(circle, var(--yellow) 20%, transparent 20%),
+      radial-gradient(circle, var(--pink) 20%, transparent 20%),
+      radial-gradient(circle, var(--pink) 20%, transparent 20%),
+      radial-gradient(circle, var(--yellow) 20%, transparent 20%);
+  }
+
+  .bubbly-button::after {
+    bottom: -75%;
+    background-image:
+      radial-gradient(circle, var(--yellow) 20%, transparent 20%),
+      radial-gradient(circle, var(--pink) 20%, transparent 20%),
+      radial-gradient(circle, transparent 10%, var(--yellow) 15%, transparent 20%),
+      radial-gradient(circle, var(--yellow) 20%, transparent 20%),
+      radial-gradient(circle, var(--pink) 20%, transparent 20%),
+      radial-gradient(circle, var(--yellow) 20%, transparent 20%),
+      radial-gradient(circle, var(--yellow) 20%, transparent 20%);
+  }
+
+  .bubbly-button:hover::before {
+    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+    animation: topBubbles ease-in-out 0.75s forwards;
+  }
+
+  .bubbly-button:hover::after {
+    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+    animation: bottomBubbles ease-in-out 0.75s forwards;
+  }
+
+  @keyframes topBubbles {
+    0%   { background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%; }
+    50%  { background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%; }
+    100% { background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%; background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%; }
+  }
+
+  @keyframes bottomBubbles {
+    0%   { background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%; }
+    50%  { background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%; }
+    100% { background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%; background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%; }
+  }
 
   /* Badges */
   .hero-badges {
     display: flex;
     gap: 1.5rem;
     margin-top: 2.5rem; 
-  wrap-flex: wrap;
+flex-wrap: wrap;
 
   } 
 
@@ -433,6 +637,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.1rem;
+        font-weight: 100;
   }
 
   .badge-text strong {
@@ -449,29 +654,22 @@
     color: var(--muted);
   }
 
-  /* ── Paint stroke ────────────────────────────────────────────────── */
-  .paint-stroke {
-    background: var(--bg);
-    line-height: 0;
-    margin-bottom: -1px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .paint-stroke svg {
-    display: block;
-    width: 100%;
-    height: 80px;
-  }
-
   /* ── Categories bar ──────────────────────────────────────────────── */
   .categories-bar {
     background: var(--yellow);
+    overflow: hidden;
+  }
+
+  /* Desktop: static centred layout, hide duplicates */
+  .categories-track {
     display: flex;
     justify-content: center;
-    align-items: stretch;
     flex-wrap: wrap;
+    width: 100%;
   }
+
+  .categories-track [aria-hidden="true"] { display: none; }
+  .badge-cat { display: none; }
 
   .category {
     display: flex;
@@ -480,13 +678,14 @@
     padding: 1rem 2rem;
     font-family: var(--font-display);
     font-size: 0.8rem;
-
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: #1a0d40;
+    white-space: nowrap;
     border-right: 1px solid rgba(26,13,64,0.15);
     transition: background 0.2s;
     cursor: pointer;
+    flex-shrink: 0;
   }
 
   .category:last-child { border-right: none; }
@@ -497,35 +696,182 @@
     color: #1a0d40;
   }
 
+   .categories-bar { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; }
+    .category { flex-shrink: 0; padding: 0.85rem 1.25rem; }
+  .category:last-child { border-right: none; }
+  .category:hover { background: rgba(255,255,255,0.2); }
+
+  .category .material-symbols-outlined {
+    font-size: 1.1rem;
+    color: #1a0d40;
+  }
+
+  /* ── Burger ──────────────────────────────────────────────────────── */
+  .burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-left: auto;
+    z-index: 200;
+  }
+
+  .burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+  }
+
+  .burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .burger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── Mobile menu ─────────────────────────────────────────────────── */
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 150;
+    background: #0d082a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.65, 0, 0.076, 1);
+  }
+
+  .mobile-menu.is-open { transform: translateX(0); }
+
+  .mobile-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .mobile-link {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: color 0.2s;
+  }
+
+  .mobile-link:hover { color: var(--yellow); }
+
+  .mobile-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem;
+  }
+
+  .mobile-contact a {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .mobile-phone {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--yellow);
+    color: #1a0d40 !important;
+    font-family: var(--font-display) !important;
+    font-size: 1rem !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 100px;
+  }
+
   /* ── Responsive ──────────────────────────────────────────────────── */
   @media (max-width: 1024px) {
     .nav-links { display: none; }
+    .nav-contact { display: none; }
+    .burger { display: flex; }
     .hero-img { width: 80%; }
   }
 
   @media (max-width: 700px) {
-    .nav-contact { display: none; }
+
+
+
 
     .hero-img {
       width: 100%;
       opacity: 0.35;
     }
 
+      .logo-img {
+        left:0;
+    height: 150px;
+    width: auto;
+
+  }
+
+  @media (max-width: 375px) {
+
+            .badge-icon {
+    font-size: 1.6rem;
+  
+}
+  
+.hero {
+  widthL:70vh;
+}
+      .logo-img {
+    height: 130px;}
+
+.hero-sub {
+  font-size: 12px;
+}
+
+
+  }
+
+
+
     .hero-fade {
-      background: linear-gradient(
-        to right,
-        var(--bg) 0%,
-        rgba(13, 8, 42, 0.85) 100%
-      );
+     background: linear-gradient(to top, #0d082a4a 0%, rgba(13, 8, 42, 0.85) 100%);
     }
 
     .hero-content { max-width: 100%; }
 
     .hero-badges { gap: 1rem; }
-
     .badge-text span { display: none; }
 
-    .categories-bar { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; }
-    .category { flex-shrink: 0; padding: 0.85rem 1.25rem; }
+    .categories-track {
+      width: max-content;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      animation: marquee 18s linear infinite;
+    }
+
+    .categories-bar:hover .categories-track { animation-play-state: paused; }
+
+    .categories-track [aria-hidden="true"] { display: flex; }
+    .badge-cat { display: flex; }
+
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .category { padding: 0.85rem 1.25rem; }
   }
 </style>
