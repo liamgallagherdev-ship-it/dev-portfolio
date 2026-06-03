@@ -49,6 +49,26 @@
     </nav>
   </header>
 
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <ul>
+      <li><a href="#" class="mobile-link">Home</a></li>
+      <li><a href="#" class="mobile-link">Costumes</a></li>
+      <li><a href="#" class="mobile-link">Puppets</a></li>
+      <li><a href="#" class="mobile-link">Printing</a></li>
+      <li><a href="#" class="mobile-link">Contact</a></li>
+      <li><a href="#" class="mobile-link">Info</a></li>
+      <li><a href="#" class="mobile-link">Aftercare</a></li>
+      <li><a href="#" class="mobile-link">About Us</a></li>
+    </ul>
+    <div class="mobile-contact">
+      <a href="tel:01614428740" class="mobile-phone">
+        <span class="material-symbols-outlined">call</span>
+        0161 442 8740
+      </a>
+      <a href="#" class="nav-quote">Get a Quote</a>
+    </div>
+  </div>
+
   <section class="hero">
     <div class="hero-image-wrap">
       <img src="/images/Vibe/Costumes/CostumeHero.png" alt="Costumes with Character mascots" class="hero-img" />
@@ -180,37 +200,79 @@
 
   <!-- How It Works -->
   <section class="process">
-    <div class="process-inner">
-      <div class="process-header">
-        <h2 class="process-title">How It Works</h2>
-        <p class="process-sub">From first conversation to finished costume — here's what to expect.</p>
-      </div>
-      <div class="process-steps">
-        <div class="process-step">
-          <div class="step-number">01</div>
-          <h3 class="step-title">Brief</h3>
-          <p class="step-desc">Tell us about your character, how it'll be used, and any existing brand guidelines.</p>
-        </div>
-        <div class="process-connector"></div>
-        <div class="process-step">
-          <div class="step-number">02</div>
-          <h3 class="step-title">Design</h3>
-          <p class="step-desc">Our team creates detailed artwork and concepts for your review and approval.</p>
-        </div>
-        <div class="process-connector"></div>
-        <div class="process-step">
-          <div class="step-number">03</div>
-          <h3 class="step-title">Build</h3>
-          <p class="step-desc">We handcraft your costume using premium materials built to perform and last.</p>
-        </div>
-        <div class="process-connector"></div>
-        <div class="process-step">
-          <div class="step-number">04</div>
-          <h3 class="step-title">Deliver</h3>
-          <p class="step-desc">Your finished costume arrives ready to perform, complete with aftercare guidance.</p>
-        </div>
-      </div>
+
+    <div class="process-header">
+      <h2 class="process-title">How It Works</h2>
+      <p class="process-sub">From first conversation to finished costume — here's what to expect.</p>
     </div>
+
+    <div class="process-inner">
+
+      <div class="process-step">
+        <div class="step-media">
+          <img src="/images/Vibe/Costumes/Step1v1.png" alt="Brief" />
+        </div>
+        <div class="step-content">
+          <div class="step-num-bg">01</div>
+          <span class="step-label">Step 01</span>
+          <h3 class="step-heading">Brief</h3>
+          <p class="step-desc">Tell us about your character, how it'll be used, and any existing brand guidelines. We'll schedule a free consultation to talk through your vision in detail.</p>
+        </div>
+      </div>
+
+      <div class="process-step process-step--flip">
+        <div class="step-media">
+          <img src="/images/Vibe/Costumes/Step2v1.png" alt="Design" />
+        </div>
+        <div class="step-content">
+          <div class="step-num-bg">02</div>
+          <span class="step-label">Step 02</span>
+          <h3 class="step-heading">Design</h3>
+          <p class="step-desc">Our team creates detailed artwork and 3D concepts for your review and approval. We refine until every detail is exactly right before anything is built.</p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-media">
+          <img src="/images/Vibe/Costumes/Step3v1.png" alt="Build" />
+        </div>
+        <div class="step-content">
+          <div class="step-num-bg">03</div>
+          <span class="step-label">Step 03</span>
+          <h3 class="step-heading">Build</h3>
+          <p class="step-desc">We handcraft your costume using premium materials engineered to perform under pressure and built to last for years of use.</p>
+        </div>
+      </div>
+
+      <div class="process-step process-step--flip">
+        <div class="step-media">
+          <img src="/images/Vibe/Costumes/Step4v1.png" alt="Deliver" />
+        </div>
+        <div class="step-content">
+          <div class="step-num-bg">04</div>
+          <span class="step-label">Step 04</span>
+          <h3 class="step-heading">Deliver</h3>
+          <p class="step-desc">Your finished costume arrives ready to perform, complete with a full aftercare pack and ongoing support from our team whenever you need it.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="process-scroll-hint">
+      <button class="carousel-btn carousel-btn--prev" aria-label="Previous step">&#8592;</button>
+      <div class="scroll-dots">
+        <span class="scroll-dot is-active"></span>
+        <span class="scroll-dot"></span>
+        <span class="scroll-dot"></span>
+        <span class="scroll-dot"></span>
+      </div>
+      <button class="carousel-btn carousel-btn--next" aria-label="Next step">&#8594;</button>
+    </div>
+
+    <div class="process-cta">
+      <a href="#" class="process-cta-btn">Start your project →</a>
+    </div>
+
   </section>
 
   <!-- Gallery -->
@@ -256,6 +318,47 @@
   </section>
 
   <script>
+    const stepObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          stepObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.process-step').forEach(step => {
+      stepObserver.observe(step);
+    });
+
+    const carouselInner = document.querySelector('.process-inner');
+    if (carouselInner) {
+      const steps = carouselInner.querySelectorAll('.process-step');
+      const dots  = document.querySelectorAll('.scroll-dot');
+      const prev  = document.querySelector('.carousel-btn--prev');
+      const next  = document.querySelector('.carousel-btn--next');
+      let idx = 0;
+
+      function goTo(i) {
+        idx = Math.max(0, Math.min(i, steps.length - 1));
+        carouselInner.scrollLeft = idx * carouselInner.offsetWidth;
+        dots.forEach((d, j) => d.classList.toggle('is-active', j === idx));
+        if (prev) prev.disabled = idx === 0;
+        if (next) next.disabled = idx === steps.length - 1;
+      }
+
+      prev?.addEventListener('click', () => goTo(idx - 1));
+      next?.addEventListener('click', () => goTo(idx + 1));
+      dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+      let touchStartX = 0;
+      carouselInner.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+      carouselInner.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) goTo(diff > 0 ? idx + 1 : idx - 1);
+      }, { passive: true });
+    }
+
     const burgerBtn = document.getElementById('burgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
 
@@ -948,14 +1051,11 @@ flex-wrap: wrap;
     padding: 5rem 2rem;
   }
 
-  .process-inner {
-    max-width: 1400px;
-    margin-inline: auto;
-  }
-
   .process-header {
     text-align: center;
-    margin-bottom: 4rem;
+    padding-bottom: 3rem;
+    max-width: 900px;
+    margin-inline: auto;
   }
 
   .process-title {
@@ -969,60 +1069,127 @@ flex-wrap: wrap;
   .process-sub {
     font-size: 0.95rem;
     color: rgba(26,13,64,0.6);
-    max-width: 480px;
-    margin-inline: auto;
     line-height: 1.7;
   }
 
-  .process-steps {
-    display: flex;
-    align-items: flex-start;
+  .process-inner {
+    max-width: 1400px;
+    margin-inline: auto;
+    overflow: hidden;
+    border-radius: 16px;
   }
 
   .process-step {
-    flex: 1;
+    display: grid;
+    grid-template-columns: auto 
+     auto;
+         justify-content: center;
+    min-height: 440px;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .process-step.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .process-step--flip .step-media { order: 2; }
+  .process-step--flip .step-content { order: 1; }
+
+  .step-media {
+    
+    position: relative;
+  }
+
+  .step-media img {
+     width: 440px;
+    height: auto;
+    
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s ease;
+  }
+
+  .process-step:hover .step-media img {
+    transform: scale(1.04);
+  }
+
+  .step-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 0 1.5rem;
+    
+    position: relative;
+    overflow: hidden;
   }
 
-  .step-number {
+  .step-num-bg {
+    position: absolute;
     font-family: var(--font-display);
-    font-size: clamp(3rem, 5vw, 4.5rem);
-    color: var(--yellow);
-    line-height: 1;
-    margin-bottom: 1rem;
-  }
-
-  .step-title {
-    font-family: var(--font-display);
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+    font-size: clamp(10rem, 18vw, 18rem);
     color: #1a0d40;
-    margin-bottom: 0.65rem;
+    opacity: 0.04;
+    line-height: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .step-label {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #1a0d40;
+    background: var(--yellow);
+    display: inline-block;
+    padding: 0.25rem 0.85rem;
+    border-radius: 100px;
+    margin-bottom: 0.5rem;
+    align-self: flex-start;
+  }
+
+  .step-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    text-transform: uppercase;
+    color: #1a0d40;
+    line-height: 1;
+    margin-bottom: 1.25rem;
   }
 
   .step-desc {
-    font-size: 0.82rem;
-    color: rgba(26,13,64,0.6);
-    line-height: 1.7;
-    max-width: 200px;
+    font-size: 0.95rem;
+    color: rgba(26,13,64,0.65);
+    line-height: 1.8;
+    max-width: 420px;
   }
 
-  .process-connector {
-    flex-shrink: 0;
-    width: 48px;
-    height: 2px;
-    margin-top: 2.5rem;
-    background: repeating-linear-gradient(
-      to right,
-      var(--yellow) 0, var(--yellow) 6px,
-      transparent 6px, transparent 13px
-    );
+  .process-scroll-hint { display: none; }
+
+  .process-cta {
+    text-align: center;
+    padding: 4rem 2rem;
   }
+
+  .process-cta-btn {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.9em 2.5em;
+    background: #1a0d40;
+    color: var(--white);
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+
+  .process-cta-btn:hover { background: #2d1a6e; }
 
   /* ── Gallery ─────────────────────────────────────────────────────── */
   .gallery {
@@ -1318,10 +1485,89 @@ flex-wrap: wrap;
     .services { padding: 3rem 1.25rem; }
     .services-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
 
-    .process { padding: 3rem 1.25rem; }
-    .process-steps { flex-direction: column; align-items: center; gap: 0; }
-    .process-step { padding: 1.5rem 1rem; }
-    .process-connector { width: 2px; height: 40px; margin: 0; background: repeating-linear-gradient(to bottom, var(--yellow) 0, var(--yellow) 6px, transparent 6px, transparent 13px); }
+    .process { padding: 4rem 1.25rem; }
+    .process-header { padding: 0 0 2.5rem; }
+
+    .process-inner {
+      display: flex;
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      border-radius: 12px;
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+     
+    }
+
+    .process-inner::-webkit-scrollbar { display: none; }
+
+    .process-step {
+      flex: 0 0 100%;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: auto;
+      border-radius: 0;
+      overflow: hidden;
+      border: none;
+      opacity: 1 !important;
+      transform: none !important;
+       align-items: center;
+    }
+
+    .process-step--flip .step-media { order: 0; }
+    .process-step--flip .step-content { order: 1; }
+    .step-media img { height: auto; object-fit: unset; }
+    .step-content { padding: 1.75rem 1.5rem; }
+    .step-num-bg { font-size: 40vw; }
+
+    .process-scroll-hint {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      padding: 1.25rem 0 0;
+    }
+
+    .scroll-dots {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .scroll-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(26,13,64,0.2);
+      transition: background 0.2s, width 0.2s;
+      cursor: pointer;
+    }
+
+    .scroll-dot.is-active {
+      background: #1a0d40;
+      width: 22px;
+      border-radius: 4px;
+    }
+
+    .carousel-btn {
+      background: #1a0d40;
+      color: #ffffff;
+      border: none;
+      border-radius: 50%;
+      width: 2.5rem;
+      height: 2.5rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, opacity 0.2s;
+      flex-shrink: 0;
+    }
+
+    .carousel-btn:disabled { opacity: 0.25; cursor: default; }
+    .carousel-btn:not(:disabled):hover { background: #2d1a6e; }
 
     .gallery { padding: 3rem 1.25rem; }
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1332,6 +1578,7 @@ flex-wrap: wrap;
 
   @media (max-width: 480px) {
     .services-grid { grid-template-columns: 1fr; }
+    .step-content { padding: 2rem 1.25rem; }
     .gallery-grid { grid-template-columns: 1fr; }
     .gallery-item--featured { grid-column: span 1; }
   }
