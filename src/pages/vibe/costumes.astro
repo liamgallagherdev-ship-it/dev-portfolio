@@ -333,7 +333,7 @@
 
     const carouselInner = document.querySelector('.process-inner');
     if (carouselInner) {
-      const steps = carouselInner.querySelectorAll('.process-step');
+      const steps = Array.from(carouselInner.querySelectorAll('.process-step'));
       const dots  = document.querySelectorAll('.scroll-dot');
       const prev  = document.querySelector('.carousel-btn--prev');
       const next  = document.querySelector('.carousel-btn--next');
@@ -341,7 +341,9 @@
 
       function goTo(i) {
         idx = Math.max(0, Math.min(i, steps.length - 1));
-        carouselInner.scrollLeft = idx * carouselInner.offsetWidth;
+        steps.forEach(step => {
+          step.style.transform = `translateX(-${idx * 100}%)`;
+        });
         dots.forEach((d, j) => d.classList.toggle('is-active', j === idx));
         if (prev) prev.disabled = idx === 0;
         if (next) next.disabled = idx === steps.length - 1;
@@ -351,12 +353,7 @@
       next?.addEventListener('click', () => goTo(idx + 1));
       dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
 
-      let touchStartX = 0;
-      carouselInner.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-      carouselInner.addEventListener('touchend', e => {
-        const diff = touchStartX - e.changedTouches[0].clientX;
-        if (Math.abs(diff) > 50) goTo(diff > 0 ? idx + 1 : idx - 1);
-      }, { passive: true });
+      goTo(0);
     }
 
     const burgerBtn = document.getElementById('burgerBtn');
@@ -1113,9 +1110,7 @@ flex-wrap: wrap;
     transition: transform 0.7s ease;
   }
 
-  .process-step:hover .step-media img {
-    transform: scale(1.04);
-  }
+
 
   .step-content {
     display: flex;
@@ -1490,21 +1485,17 @@ flex-wrap: wrap;
 
     .process-inner {
       display: flex;
-      overflow-x: scroll;
-      scroll-behavior: smooth;
-      scrollbar-width: none;
+      overflow: hidden;
       border-radius: 12px;
       max-width: 100%;
       margin: 0;
       padding: 0;
-     
     }
-
-    .process-inner::-webkit-scrollbar { display: none; }
 
     .process-step {
       flex: 0 0 100%;
       min-width: 0;
+      width: 100%;
       display: flex;
       flex-direction: column;
       min-height: auto;
@@ -1512,8 +1503,8 @@ flex-wrap: wrap;
       overflow: hidden;
       border: none;
       opacity: 1 !important;
-      transform: none !important;
-       align-items: center;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      align-items: center;
     }
 
     .process-step--flip .step-media { order: 0; }
@@ -1578,7 +1569,8 @@ flex-wrap: wrap;
 
   @media (max-width: 480px) {
     .services-grid { grid-template-columns: 1fr; }
-    .step-content { padding: 2rem 1.25rem; }
+    .step-content { padding: 0rem 1.25rem; }
+    .step-media img{max-width: 300px; justify-self: center;}
     .gallery-grid { grid-template-columns: 1fr; }
     .gallery-item--featured { grid-column: span 1; }
   }
