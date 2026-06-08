@@ -92,30 +92,6 @@
       </div>
     </div>
 
-    <!-- stats strip pinned to bottom -->
-    <div class="stats-bar">
-      <div class="container">
-        <div class="stats-bar__inner" data-animate style="--delay:0.5s">
-
-          <div class="stat">
-            <span class="stat__number"><span class="stat__count" data-count="20">0</span>K<sup>+</sup></span>
-            <span class="stat__label">Fighters Worldwide</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <span class="stat__number"><span class="stat__count" data-count="30">0</span><sup>+</sup></span>
-            <span class="stat__label">Countries</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <span class="stat__number"><span class="stat__count" data-count="100">0</span><sup>%</sup></span>
-            <span class="stat__label">Commitment to the Sport</span>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
     <!-- decorative chrome -->
     <div class="deco-corner deco-corner--top-left"></div>
     <div class="deco-corner deco-corner--bottom-left"></div>
@@ -123,6 +99,30 @@
     <div class="deco-red-stripe"></div>
 
   </section>
+
+  <!-- ── STATS BAR ─────────────────────────────────────────────────── -->
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stats-bar__inner" data-animate style="--delay:0.5s">
+
+        <div class="stat">
+          <span class="stat__number"><span class="stat__count" data-count="20">0</span>K<sup>+</sup></span>
+          <span class="stat__label">Fighters Worldwide</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat__number"><span class="stat__count" data-count="30">0</span><sup>+</sup></span>
+          <span class="stat__label">Countries</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat__number"><span class="stat__count" data-count="100">0</span><sup>%</sup></span>
+          <span class="stat__label">Commitment to the Sport</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <!-- ── EQUIPMENT ────────────────────────────────────────────────── -->
   <section class="equipment" id="equipment">
@@ -360,11 +360,11 @@
           if (entry.isIntersecting) {
             setTimeout(() => {
               document.querySelectorAll('.stat__count').forEach(animateCount);
-            }, 400);
+            }, 800);
             countObserver.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.5 });
+      }, { threshold: .5 });
       countObserver.observe(statsInner);
     }
 
@@ -585,7 +585,7 @@ border-bottom: 1px solid var(--line-subtle);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     overflow: hidden;
     background:
       linear-gradient(100deg,
@@ -613,6 +613,7 @@ border-bottom: 1px solid var(--line-subtle);
     display: flex;
     align-items: center;
     padding: 9rem 0 2rem;
+        border-bottom: 1px solid var(--line-subtle);
   }
 
   .hero-content .container { width: 100%; }
@@ -819,16 +820,16 @@ border-bottom: 1px solid var(--line-subtle);
   .stats-bar {
     position: relative;
     z-index: 1;
-    border-top: 1px solid var(--line-subtle);
-    background: rgba(10,10,10,0.65);
-    backdrop-filter: blur(8px);
+    background: var(--bg-2);
+    
+
   }
 
   .stats-bar__inner {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem 0;
+    padding: 2.5rem 0;
   }
 
   .stats-bar__est {
@@ -841,7 +842,7 @@ border-bottom: 1px solid var(--line-subtle);
 
   .stats-bar__est-label {
     font-family: var(--font-ui);
-    font-size: 0.6rem;
+    font-size: 1.9rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--white);
@@ -859,12 +860,13 @@ border-bottom: 1px solid var(--line-subtle);
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
-    padding-right: 3rem;
+    min-width: 150px;
+    align-items: center;
   }
 
   .stat__number {
     font-family: var(--font-display);
-    font-size: 2rem;
+    font-size: 3rem;
     line-height: 1;
     color: var(--white);
   }
@@ -891,7 +893,7 @@ border-bottom: 1px solid var(--line-subtle);
   .stat-divider {
     width: 1px; height: 36px;
     background: var(--line-subtle);
-    margin-right: 3rem;
+   
     flex-shrink: 0;
   }
 
@@ -974,13 +976,8 @@ border-bottom: 1px solid var(--line-subtle);
 
 
   @media (max-width: 700px) {
-  
-
-
     .deco-location { display: none; }
     .hero-content { padding-top: 8rem; }
-    .stat-divider { margin-right: 1.5rem; }
-    .stat { padding-right: 1.5rem; }
     .stats-bar__est { display: none; }
   }
 
@@ -989,8 +986,20 @@ border-bottom: 1px solid var(--line-subtle);
     .nav { padding: 0 1.5rem; }
     .mobile-menu__links { padding-left: 1.5rem; padding-right: 1.5rem; }
     .mobile-menu__cta { margin-left: 1.5rem; }
-   
     .hero { background-position: 80% center; }
+
+    /* stats bar: equal columns, no overflow */
+    .stats-bar__inner { padding: 1.75rem 0; }
+    .stat-divider { display: none; }
+    .stat {
+      flex: 1;
+      min-width: 0;
+      padding: 0;
+      border-right: 1px solid var(--line-subtle);
+    }
+    .stat:last-child { border-right: none; }
+    .stat__number { font-size: 2rem; }
+    .stat__label { white-space: normal; font-size: 0.58rem; text-align: center; }
   }
 
 
@@ -1059,8 +1068,8 @@ border-bottom: 1px solid var(--line-subtle);
 
   /* ── Equipment Section ───────────────────────────────────────────── */
   .equipment {
-    padding: 7rem 0;
-    border-top: 1px solid var(--line-subtle);
+   
+
   }
 
   .equip-grid {
