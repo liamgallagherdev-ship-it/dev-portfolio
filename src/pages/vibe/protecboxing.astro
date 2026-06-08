@@ -98,23 +98,18 @@
         <div class="stats-bar__inner" data-animate style="--delay:0.5s">
 
           <div class="stat">
-            <span class="stat__number">20K<sup>+</sup></span>
+            <span class="stat__number"><span class="stat__count" data-count="20">0</span>K<sup>+</sup></span>
             <span class="stat__label">Fighters Worldwide</span>
           </div>
           <div class="stat-divider"></div>
           <div class="stat">
-            <span class="stat__number">30<sup>+</sup></span>
+            <span class="stat__number"><span class="stat__count" data-count="30">0</span><sup>+</sup></span>
             <span class="stat__label">Countries</span>
           </div>
           <div class="stat-divider"></div>
           <div class="stat">
-            <span class="stat__number">100<sup>%</sup></span>
+            <span class="stat__number"><span class="stat__count" data-count="100">0</span><sup>%</sup></span>
             <span class="stat__label">Commitment to the Sport</span>
-          </div>
-
-          <div class="stats-bar__est">
-            <span class="stats-bar__est-label">Est.</span>
-            <span class="stats-bar__est-year">1994</span>
           </div>
 
         </div>
@@ -344,6 +339,35 @@
       mobileMenu.classList.toggle('is-open');
       mobileMenu.setAttribute('aria-hidden', String(open));
     });
+    function animateCount(el) {
+      const target = parseInt(el.dataset.count);
+      const duration = 1800;
+      const startTime = performance.now();
+      function tick(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target);
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    const statsInner = document.querySelector('.stats-bar__inner');
+    if (statsInner) {
+      const countObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              document.querySelectorAll('.stat__count').forEach(animateCount);
+            }, 400);
+            countObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      countObserver.observe(statsInner);
+    }
+
     const carousel = document.querySelector('.equip-bento__carousel');
     if (carousel) {
       const slides = carousel.querySelectorAll('.equip-bento__slide');
@@ -803,6 +827,7 @@ border-bottom: 1px solid var(--line-subtle);
   .stats-bar__inner {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 1.5rem 0;
   }
 
