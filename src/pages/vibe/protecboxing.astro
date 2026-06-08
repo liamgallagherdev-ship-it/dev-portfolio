@@ -142,7 +142,7 @@
           <div class="equip-bento__carousel">
             <div class="equip-bento__slide is-active" style="background-image: url('https://images.unsplash.com/photo-1561532325-7d5231a2dede?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODA5MDg4MTV8&ixlib=rb-4.1.0&q=85')"></div>
             <div class="equip-bento__slide" style="background-image: url('https://images.unsplash.com/photo-1680022546558-550eaf22351e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODA5MTAxNjF8&ixlib=rb-4.1.0&q=80&w=400)"></div>
-            <div class="equip-bento__slide" style="background-image: url('https://images.unsplash.com/photo-1651707999611-b3d3b849b8f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODA5MTAxOTZ8&ixlib=rb-4.1.0&q=80&w=400')"></div>
+            <div class="equip-bento__slide" style="background-image: url('https://images.unsplash.com/photo-1716307046875-4c4ba2f43cab?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODA5MTY0MTF8&ixlib=rb-4.1.0&q=85')"></div>
           </div>
           <div class="equip-bento__dots">
             <span class="equip-bento__dot is-active"></span>
@@ -708,13 +708,13 @@ border-bottom: 1px solid var(--line-subtle);
   }
 
   @keyframes wordBlurOut {
-    0%   { opacity: 1; filter: blur(0px); }
-    100% { opacity: 0; filter: blur(6px); }
+    0%   { opacity: 1; filter: blur(0px);transform:scale(1); }
+    100% { opacity: 0; filter: blur(6px); transform:scale(1.1);}
   }
 
   @keyframes wordBlurIn {
-    0%   { opacity: 0; filter: blur(6px); }
-    100% { opacity: 1; filter: blur(0px); }
+    0%   { opacity: 0; filter: blur(6px); transform:scale(1.1);}
+    100% { opacity: 1; filter: blur(0px); transform:scale(1);}
   }
 
   /* ── Info panel (description + CTA) ─────────────────────────────── */
@@ -1066,12 +1066,6 @@ border-bottom: 1px solid var(--line-subtle);
     margin-top: 0.75rem;
   }
 
-  /* ── Equipment Section ───────────────────────────────────────────── */
-  .equipment {
-   
-
-  }
-
   .equip-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1088,7 +1082,9 @@ border-bottom: 1px solid var(--line-subtle);
     background: var(--bg);
     transition: background 0.25s ease;
   }
-
+.equipment {
+padding: 3rem
+}
   .equip-card:hover { background: rgba(255,255,255,0.03); }
 
   .equip-card__cat {
@@ -1307,7 +1303,7 @@ border-bottom: 1px solid var(--line-subtle);
   @media (max-width: 600px) {
     .equip-grid { grid-template-columns: 1fr; }
     .footer-inner { grid-template-columns: 1fr; gap: 1.75rem; }
-    .equipment, .testimonials { padding: 5rem 0; }
+    .equipment, .testimonials { padding: 3rem 0; }
   }
 
   /* ── Equipment: Bento Grid ──────────────────────────────────────── */
