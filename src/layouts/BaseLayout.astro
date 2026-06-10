@@ -18,32 +18,21 @@ const { title, description = "Frontend Developer Portfolio" } = Astro.props;
     <title>{title}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Shade&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="theme-curtain" aria-hidden="true"></div>
     <header class="site-header">
       <nav>
-<a href="/" class="logo">&lt;/Liam.Dev/&gt;</a>
+        <a href="/" class="logo">
+          <span class="logo-mark">LG</span>
+          <span class="logo-text">&lt;/Liam.Dev/&gt;</span>
+        </a>
         <ul class="nav-links">
           <li><a href="/#about">About</a></li>
           <li><a href="/#skills">Skills</a></li>
           <li><a href="/#projects">Projects</a></li>
-          <!-- <li><a href="/css-showcase">CSS Showcase</a></li> -->
-          <!-- <li><a href="/vibe-playground">Vibe Playground</a></li> -->
           <li><a href="/#contact">Contact</a></li>
-          <li>
-            <div class="theme-toggle-container">
-              <div class="theme-toggle-wrapper">
-                <div class="theme-toggle-btn btn-pill" id="theme-toggle-btn">
-                  <input type="checkbox" class="theme-toggle-checkbox" id="theme-toggle" />
-                  <div class="theme-toggle-knob"></div>
-                  
-                  <div class="theme-toggle-bg"></div>
-                </div>
-              </div>
-            </div>
-          </li>
         </ul>
       </nav>
       <script>
@@ -106,7 +95,10 @@ const { title, description = "Frontend Developer Portfolio" } = Astro.props;
     </main>
     
     <footer class="site-footer">
-      <p>&copy; {new Date().getFullYear()} All rights reserved.</p>
+      <span class="site-footer__copy">&copy; {new Date().getFullYear()} Liam Gallagher</span>
+      <span class="site-footer__sep">·</span>
+      <span class="site-footer__copy">Frontend Developer &amp; UI/UX Designer</span>
+      <a href="#" class="site-footer__top">Back to Top ↑</a>
     </footer>
   </body>
 </html>
@@ -220,61 +212,121 @@ const { title, description = "Frontend Developer Portfolio" } = Astro.props;
 
   .site-header {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     z-index: 100;
-    padding: 1rem 2rem;
-backdrop-filter: blur(20px);
-    border-bottom: 3px solid var(--color-border);
+    height: 64px;
+    padding: 0 3rem;
+    background: rgba(8,8,8,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(232,228,223,0.09);
   }
 
   .site-header nav {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
+    gap: 2rem;
   }
 
   .logo {
-    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    font-family: 'Bebas Neue', 'Impact', sans-serif;
+    font-size: 1rem;
+    color: #080808;
+    background: #ccff00;
+    padding: 0.15rem 0.45rem;
+    line-height: 1;
+    letter-spacing: 0.04em;
+  }
+
+  .logo-text {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.82rem;
     font-weight: 700;
-    color: var(--color-accent);
+    color: rgba(232,228,223,0.55);
+    letter-spacing: 0.04em;
   }
 
   .nav-links {
     display: flex;
-    gap: 2rem;
-        align-items: center;
+    gap: 2.5rem;
+    align-items: center;
   }
 
   .nav-links a {
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
-    transition: color 0.2s ease;
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(232,228,223,0.42);
+    transition: color 0.2s;
+    position: relative;
+    padding-left: 11px;
   }
 
-  .nav-links a:hover {
-    color: var(--color-text);
+  .nav-links a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #ccff00;
+    transform: translateY(-50%) scale(0);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
+
+  .nav-links a:hover { color: #e8e4df; }
+  .nav-links a:hover::before { transform: translateY(-50%) scale(1); }
+
 
   main {
     min-height: 100vh;
   }
 
   .site-footer {
-    padding: 2rem;
-    text-align: center;
-    color: var(--color-text-muted);
-    font-size: 0.875rem;
-    border-top: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 3rem;
+    background: #080808;
+    border-top: 1px solid rgba(232,228,223,0.09);
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(232,228,223,0.28);
   }
 
+  .site-footer__sep { color: #ccff00; }
+
+  .site-footer__top {
+    margin-left: auto;
+    color: rgba(232,228,223,0.28);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+  }
+
+  .site-footer__top:hover { color: #ccff00; }
+
   @media (max-width: 768px) {
-    .nav-links {
-      display: none;
-    }
+    .site-header { padding: 0 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    .logo-text { display: none; }
   }
 
 /* Toggle Button Styles */

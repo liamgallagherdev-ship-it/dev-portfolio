@@ -1,61 +1,61 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import LinkButton from '../components/LinkButton.vue';
-import BeforeAfterSlider from '../components/BeforeAfterSlider.vue';
 ---
 
 <BaseLayout title="Rewards4 — Case Study" description="Modernising the Rewards4 Platform — Migrating a multi-brand rewards ecosystem to a scalable, high-performance architecture.">
-  <section class="case-study-hero">
-    <div class="container">
-      <p class="eyebrow">Case Study</p>
-      <h1>Rewards4 Platform</h1>
-      <p class="intro">Modernising a multi-brand rewards ecosystem to a scalable, high-performance architecture.</p>
+
+  <section class="cs-hero">
+    <div class="cs-eyebrow">
+      <span class="cs-idx">01</span>
+      <span class="cs-eyebrow__line"></span>
+      <span class="cs-eyebrow__label">Case Study</span>
+      <span class="cs-eyebrow__line"></span>
+    </div>
+    <div class="cs-hero__body">
+      <h1 class="cs-title">Rewards4<br>Platform</h1>
+      <div class="cs-hero__meta">
+        <p class="cs-intro">Modernising a multi-brand rewards ecosystem to a scalable, high-performance architecture.</p>
+        <div class="cs-tags">
+          <span>Vue.js</span>
+          <span>TypeScript</span>
+          <span>Sass</span>
+          <span>Bootstrap</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="case-study-content case-study-panel">
-    <div class="container">
-      <article class="case-study-panel">
-        <h2>Overview</h2>
-        <p>The Rewards4 platform powers a group of sports-focused loyalty websites, including:</p>
-        <ul class="case-study-list">
-          <li>Rewards4Racing</li>
-          <li>Rewards4Golf</li>
-          <li>Rewards4RugbyLeague</li>
-          <li>Rewards4Sport</li>
-        </ul>
-        <p>These platforms allow users to earn points through online shopping and redeem them with their favourite sports brands.</p>
-        <p>I led the front-end modernisation of these sites, migrating them from a legacy architecture to a scalable, component-based system using Vue 3 and TypeScript—while also improving usability across the platform through incremental UX enhancements.</p>
-      </article>
+  <div class="cs-body">
 
-    <section class="case-study-content">
-  <div class="container">
+    <section class="cs-section">
+      <div class="cs-section__label">
+        <span class="cs-section__line"></span>
+        <span class="cs-section__name">Overview</span>
+        <span class="cs-section__line"></span>
+      </div>
+      <div class="cs-section__body">
+        <p>The Rewards4 platform powers a group of sports-focused loyalty websites — Rewards4Racing, Rewards4Golf, Rewards4RugbyLeague, and Rewards4Sport — allowing users to earn points through online shopping and redeem them with their favourite sports brands.</p>
+        <p>I led the front-end modernisation of these sites, migrating them from a legacy architecture to a scalable, component-based system using Vue 3 and TypeScript, while improving usability across the platform through incremental UX enhancements.</p>
+      </div>
+    </section>
 
-
-    <div class="case-study-panel">
-      <h2 class="panel-title">The Challenge</h2>
-
-      <div class="case-study-panel-content">
-        <p>The existing platform was built on a legacy stack that had become difficult to scale and maintain:</p>
-
-        <ul class="case-study-list">
-          <li>C#, .NET Core Razor Pages</li>
-          <li>SCSS and Bootstrap</li>
-          <li>Heavy reliance on jQuery and CMS-driven rendering</li>
-        </ul>
-
-        <p><strong>Key Issues</strong></p>
-
-        <ul class="case-study-list">
-          <li>Performance limitations caused by server-heavy rendering and inefficient front-end behaviour</li>
+    <section class="cs-section">
+      <div class="cs-section__label">
+        <span class="cs-section__line"></span>
+        <span class="cs-section__name">The Challenge</span>
+        <span class="cs-section__line"></span>
+      </div>
+      <div class="cs-section__body">
+        <p>The existing platform was built on a legacy stack that had become difficult to scale and maintain — C#, .NET Core Razor Pages, SCSS, Bootstrap, and heavy reliance on jQuery and CMS-driven rendering.</p>
+        <h3>Key Issues</h3>
+        <ul class="cs-list">
+          <li>Performance limitations caused by server-heavy rendering</li>
           <li>Inconsistent user experiences across multiple brand sites</li>
           <li>Duplicated effort when updating styles and features</li>
           <li>Slow development workflows due to limited component reuse</li>
         </ul>
-
-        <p><strong>The Goal</strong></p>
-
-        <ul class="case-study-list">
+        <h3>Goals</h3>
+        <ul class="cs-list">
           <li>Modernise the front-end architecture</li>
           <li>Improve scalability and performance</li>
           <li>Standardise UX across brands</li>
@@ -63,15 +63,17 @@ import BeforeAfterSlider from '../components/BeforeAfterSlider.vue';
           <li>Improve usability without redesigning the core brand identity</li>
         </ul>
       </div>
-    </div>
+    </section>
 
-    <div class="case-study-panel">
-      <h2 class="panel-title">My Role</h2>
-
-      <div class="case-study-panel-content">
+    <section class="cs-section">
+      <div class="cs-section__label">
+        <span class="cs-section__line"></span>
+        <span class="cs-section__name">My Role</span>
+        <span class="cs-section__line"></span>
+      </div>
+      <div class="cs-section__body">
         <p>I worked across both UX and front-end development, focusing on:</p>
-
-        <ul class="case-study-list">
+        <ul class="cs-list">
           <li>Leading the migration to Vue 3 and TypeScript</li>
           <li>Refactoring legacy jQuery-based patterns</li>
           <li>Designing a scalable multi-brand architecture</li>
@@ -79,176 +81,59 @@ import BeforeAfterSlider from '../components/BeforeAfterSlider.vue';
           <li>Collaborating with backend developers on API integration</li>
         </ul>
       </div>
-    </div>
+    </section>
 
-    <div class="case-study-panel">
-      <h2 class="panel-title">Approach</h2>
+    <section class="cs-section">
+      <div class="cs-section__label">
+        <span class="cs-section__line"></span>
+        <span class="cs-section__name">Approach</span>
+        <span class="cs-section__line"></span>
+      </div>
+      <div class="cs-section__body">
+        <h3>Incremental Migration</h3>
+        <p>Rather than rebuilding the platform all at once, I introduced a phased migration strategy focused on stability and continuous improvement — identifying high-impact areas for refactoring, rebuilding features as Vue components, and gradually replacing legacy functionality.</p>
 
-      <div class="case-study-panel-content">
-        <p><strong>Incremental Migration Strategy</strong></p>
+        <h3>Component-Based Architecture</h3>
+        <p>I introduced reusable UI components to replace duplicated logic across sites, enabling consistent UI patterns, faster development, and easier maintenance.</p>
 
-        <p>
-          Rather than rebuilding the platform all at once, I introduced a phased migration strategy focused on stability and continuous improvement.
-        </p>
+        <h3>Tenant-Based Multi-Brand System</h3>
+        <p>I helped implement a tenant-based structure where all brands shared a common platform while supporting brand-specific styling and configuration, reducing duplication across projects.</p>
 
-        <ul class="case-study-list">
-          <li>Identified high-impact areas for refactoring</li>
-          <li>Rebuilt features using Vue components</li>
-          <li>Gradually replaced legacy functionality</li>
-        </ul>
-
-        <p><strong>Component-Based Architecture</strong></p>
-
-        <p>
-          I introduced reusable UI components to replace duplicated logic across sites, enabling:
-        </p>
-
-        <ul class="case-study-list">
-          <li>Consistent UI patterns</li>
-          <li>Faster development</li>
-          <li>Easier maintenance</li>
-        </ul>
-
-        <p><strong>Tenant-Based Multi-Brand System</strong></p>
-
-        <p>
-          I helped implement a tenant-based structure where all brands shared a common platform while supporting brand-specific styling and configuration.
-        </p>
-
-        <ul class="case-study-list">
-          <li>Shared platform architecture</li>
-          <li>Configurable branding per site</li>
-          <li>Reduced duplication across projects</li>
-        </ul>
-
-        <p><strong>Performance Optimisation</strong></p>
-
-        <ul class="case-study-list">
+        <h3>Performance Optimisation</h3>
+        <ul class="cs-list">
           <li>Reduced reliance on CMS-rendered content</li>
           <li>Shifted to API-driven data loading</li>
           <li>Loaded only required content per page</li>
           <li>Used Cloudflare for caching and delivery optimisation</li>
         </ul>
       </div>
-    </div>
+    </section>
 
-    <div class="case-study-panel">
-      <h2 class="panel-title">Before vs After</h2>
-
-      <div class="case-study-panel-content">
-        <p><strong>Before</strong></p>
-
-        <ul class="case-study-list">
-          <li>jQuery-driven interactions</li>
-          <li>Server-rendered pages</li>
-          <li>Duplicated styles across brands</li>
-          <li>Slower development cycles</li>
-        </ul>
-
-        <p><strong>After</strong></p>
-
-        <ul class="case-study-list">
-          <li>Vue 3 component architecture</li>
-          <li>API-driven front-end</li>
-          <li>Shared system with configurable branding</li>
-          <li>Faster and more scalable development workflows</li>
+    <section class="cs-section">
+      <div class="cs-section__label">
+        <span class="cs-section__line"></span>
+        <span class="cs-section__name">UX Improvements</span>
+        <span class="cs-section__line"></span>
+      </div>
+      <div class="cs-section__body">
+        <p>Due to brand consistency requirements, a full redesign was not possible. Instead, I focused on incremental UX improvements that improved usability while preserving the existing visual identity.</p>
+        <ul class="cs-list">
+          <li>Standardised spacing, typography, and reusable components across all sites</li>
+          <li>Introduced mobile-first layout improvements and improved key action visibility</li>
+          <li>Simplified user flows and reduced friction in browsing and interaction</li>
+          <li>Improved content grouping, hierarchy, and readability across devices</li>
         </ul>
       </div>
-    </div>
+    </section>
 
-    <div class="ui-comparison-panel">
-      <h2 class="panel-title">Sign-In Page — UI Comparison</h2>
-      <div class="case-study-panel-content">
-        <p class="ui-intro">The sign-in and registration page is one of the highest-traffic entry points across all brands. Drag the slider to compare — small changes, meaningful impact.</p>
-
-
-
-   <div class="ui-comparison-panel-content">
-   
-
-        <BeforeAfterSlider
-          client:load
-          before="/images/CaseStudy/Rewards4/Before%20Sign-In-Join-Now.png"
-          after="/images/CaseStudy/Rewards4/After%20Sign-In-Join-Now.png"
-          beforeAlt="Before: Rewards4Racing sign-in page"
-          afterAlt="After: Rewards4Racing sign-in page"
-        />
-
-        <div class="ui-callouts">
-          <div class="ui-callout">
-            <span class="callout-num">01</span>
-            <div>
-              <strong>Nav CTA</strong>
-              <p>"Sign In" only &rarr; "Sign In | Join Now". New users now have a clear registration path without hunting.</p>
-            </div>
-          </div>
-          <div class="ui-callout">
-            <span class="callout-num">02</span>
-            <div>
-              <strong>Value proposition</strong>
-              <p>Time-bound savings figure replaced with benefit-led, evergreen copy — always accurate, no ongoing maintenance.</p>
-            </div>
-          </div>
-          <div class="ui-callout">
-            <span class="callout-num">03</span>
-            <div>
-              <strong>Form card design</strong>
-              <p>Plain white card replaced with a premium dark treatment that integrates with the hero and reinforces brand quality.</p>
-            </div>
-          </div>
-       
-        </div>
-        <div>
+    <section class="cs-section">
+      <div class="cs-section__label">
+        <span class="cs-section__line"></span>
+        <span class="cs-section__name">Impact</span>
+        <span class="cs-section__line"></span>
       </div>
-    </div>
-
-    <div class="case-study-panel">
-      <h2 class="panel-title">UX Improvements Within Constraints</h2>
-
-      <div class="case-study-panel-content">
-        <p>
-          Due to brand consistency requirements, a full redesign was not possible. Instead, I focused on incremental UX improvements that improved usability while preserving the existing visual identity.
-        </p>
-
-        <p><strong>Improving Visual Consistency</strong></p>
-
-        <ul class="case-study-list">
-          <li>Standardised spacing, typography, and reusable components</li>
-          <li>Unified UI patterns across all sites</li>
-          <li>Reduced cognitive load through consistency</li>
-        </ul>
-
-        <p><strong>Enhancing Mobile Usability</strong></p>
-
-        <ul class="case-study-list">
-          <li>Introduced mobile-first layout improvements</li>
-          <li>Improved spacing and prioritisation of key actions</li>
-          <li>Reduced friction in browsing and interaction flows</li>
-        </ul>
-
-        <p><strong>Simplifying Key Interactions</strong></p>
-
-        <ul class="case-study-list">
-          <li>Simplified user flows</li>
-          <li>Improved CTA visibility and clarity</li>
-          <li>Created more intuitive navigation patterns</li>
-        </ul>
-
-        <p><strong>Improving Readability & Hierarchy</strong></p>
-
-        <ul class="case-study-list">
-          <li>Introduced clearer spacing and typography hierarchy</li>
-          <li>Improved content grouping and layout structure</li>
-          <li>Enhanced scanability and readability across devices</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="case-study-panel">
-      <h2 class="panel-title">Impact</h2>
-
-      <div class="case-study-panel-content">
-        <ul class="case-study-list">
+      <div class="cs-section__body">
+        <ul class="cs-list">
           <li>Improved performance across all platforms</li>
           <li>Created a more consistent UX across multiple brands</li>
           <li>Reduced development time through reusable components</li>
@@ -256,29 +141,22 @@ import BeforeAfterSlider from '../components/BeforeAfterSlider.vue';
           <li>Improved usability without requiring a full redesign</li>
         </ul>
       </div>
-    </div>
+    </section>
 
-    <div class="case-study-panel">
-      <h2 class="panel-title">Reflection</h2>
-
-      <div class="case-study-panel-content">
-        <p>This project strengthened my ability to:</p>
-
-        <ul class="case-study-list">
-          <li>Modernise legacy systems while maintaining live products</li>
-          <li>Design scalable multi-brand architectures</li>
-          <li>Deliver UX improvements within real-world constraints</li>
-          <li>Balance technical decisions with user experience goals</li>
-        </ul>
-
-        <p>
-          It reinforced the importance of incremental improvement, showing that meaningful UX gains can be achieved without large-scale redesigns.
-        </p>
+    <section class="cs-section">
+      <div class="cs-section__label">
+        <span class="cs-section__line"></span>
+        <span class="cs-section__name">Reflection</span>
+        <span class="cs-section__line"></span>
       </div>
-    </div>
+      <div class="cs-section__body">
+        <p>This project strengthened my ability to modernise legacy systems while maintaining live products, design scalable multi-brand architectures, and deliver UX improvements within real-world constraints.</p>
+        <p>It reinforced the importance of incremental improvement — showing that meaningful UX gains can be achieved without large-scale redesigns.</p>
+      </div>
+    </section>
 
-    <div class="case-study-actions">
-      <LinkButton url="/#projects" label="More Projects" />
+    <div class="cs-back">
+      <a href="/#projects">← Back to Projects</a>
     </div>
 
   </div>
@@ -286,124 +164,197 @@ import BeforeAfterSlider from '../components/BeforeAfterSlider.vue';
 </BaseLayout>
 
 <style>
-  .case-study-hero {
-    padding: 8rem 0 4rem;
-    text-align: center;
-    border-block-end: 3px solid var(--color-border);
+  :root {
+    --hbg:   #080808;
+    --htxt:  #e8e4df;
+    --hacc:  #ccff00;
+    --hline: rgba(232,228,223,0.09);
+    --hmute: rgba(232,228,223,0.42);
+    --hfont: 'Bebas Neue', 'Impact', sans-serif;
   }
 
-  .case-study-hero .eyebrow {
+  .cs-hero,
+  .cs-body,
+  .cs-back {
+    background: var(--hbg);
+    color: var(--htxt);
+  }
+
+  /* ── Hero ── */
+  .cs-hero {
+    padding-top: 64px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--hline);
+  }
+
+  .cs-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.7rem 3rem;
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--color-text-muted);
-    margin-bottom: 1rem;
-    font-size: 0.875rem;
+    color: var(--hmute);
+    border-bottom: 1px solid var(--hline);
+    flex-shrink: 0;
   }
 
-  .case-study-hero h1 {
-    font-size: clamp(2.75rem, 5vw, 4.5rem);
-    margin-bottom: 1.25rem;
-    line-height: 1.05;
+  .cs-idx {
+    font-family: var(--hfont);
+    font-size: 3rem;
+    color: var(--hacc);
+    line-height: 1;
   }
 
-  .case-study-hero .intro {
-    max-width: 760px;
+  .cs-eyebrow__line { flex: 1; height: 1px; background: var(--hline); }
+
+  .cs-hero__body {
+    display: grid;
+    grid-template-columns: 1fr 0.55fr;
+    gap: 4rem;
+    align-items: end;
+    padding: 4rem 3rem 5rem;
+  }
+
+  .cs-title {
+    font-family: var(--hfont);
+    font-size: clamp(5rem, 12vw, 16rem);
+    line-height: 0.88;
+    text-transform: uppercase;
+    color: var(--htxt);
+  }
+
+  .cs-intro {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--hmute);
+    margin-bottom: 1.75rem;
+  }
+
+  .cs-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .cs-tags span {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--hacc);
+    border: 1px solid rgba(204,255,0,0.3);
+    padding: 0.28rem 0.65rem;
+  }
+
+  /* ── Content ── */
+  .cs-body { }
+
+  .cs-section {
+    padding: 4rem 3rem;
+    border-bottom: 1px solid var(--hline);
+    max-width: 1400px;
     margin: 0 auto;
-    font-size: 1.25rem;
-    color: var(--color-text-muted);
   }
 
-  .case-study-content {
-    padding: 2rem 1rem ;
+  .cs-section__label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
   }
 
-  .case-study-panel {
-  max-width: 1200px;
-  margin: 0 auto 1.5rem;
+  .cs-section__line { flex: 1; height: 1px; background: var(--hline); }
 
-  overflow: hidden;
-}
-
-.panel-title {
-  padding: 1.25rem 1.5rem;
-  border-bottom: 2px solid var(--color-border);
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--color-text);
-}
-
-.case-study-panel-content {
-  padding: 1.5rem;
-}
-
-.case-study-panel p,
-.case-study-panel li {
-  color: var(--color-text-muted);
-  line-height: 1.9;
-  font-size: 1rem;
-}
-
-.case-study-actions {
-    text-align: center;
-    margin-top: 3rem;
-}
-
-.ui-comparison-panel {
-
-}
-
-.ui-intro {
-  max-width: 700px;
-  margin-bottom: 1.5rem;
-}
-
-.ui-callouts {
-  display: grid;
-
-  gap: 1rem;
-  margin-top: 1.25rem;
-}
-
-@media (max-width: 650px) {
-  .ui-callouts {
-    grid-template-columns: 1fr;
+  .cs-section__name {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--hacc);
+    white-space: nowrap;
   }
-}
 
-.ui-callout {
-  display: flex;
-  gap: 0.75rem;
-  border: 3px dashed var(--color-border);
-  box-shadow: 4px 4px 0 var(--color-border);
-  padding: 1rem;
-}
+  .cs-section__body {
+    max-width: 740px;
+  }
 
-.callout-num {
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1;
-  flex-shrink: 0;
-  font-family: "Courier Prime", monospace;
-  opacity: 0.25;
-}
+  .cs-section__body p {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--hmute);
+    margin-bottom: 1.25rem;
+  }
 
-.ui-callout strong {
-  display: block;
-  font-size: 0.875rem;
-  color: var(--color-text);
-  margin-bottom: 0.25rem;
-}
+  .cs-section__body h3 {
+    font-family: var(--hfont);
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--htxt);
+    margin-top: 2rem;
+    margin-bottom: 0.6rem;
+    line-height: 1;
+  }
 
-.ui-callout p {
-  font-size: 0.8rem;
-  line-height: 1.6;
-  color: var(--color-text-muted);
-  margin: 0;
-}
+  .cs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+  }
 
-.ui-comparison-panel-content {
-  display: grid;
-  grid-template-columns:  1fr 300px;
-  gap: 2rem;
+  .cs-list li {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--hmute);
+    padding: 0.5rem 0 0.5rem 1.25rem;
+    border-bottom: 1px solid var(--hline);
+    position: relative;
+  }
+
+  .cs-list li:first-child { border-top: 1px solid var(--hline); }
+
+  .cs-list li::before {
+    content: '·';
+    color: var(--hacc);
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+
+  /* ── Back ── */
+  .cs-back {
+    padding: 3rem;
+    border-top: 1px solid var(--hline);
+  }
+
+  .cs-back a {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--hmute);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .cs-back a:hover { color: var(--hacc); }
+
+  @media (max-width: 768px) {
+    .cs-eyebrow { padding: 0.6rem 1.5rem; }
+    .cs-hero__body { grid-template-columns: 1fr; padding: 2.5rem 1.5rem 3rem; gap: 2rem; }
+    .cs-section { padding: 3rem 1.5rem; }
+    .cs-back { padding: 2rem 1.5rem; }
   }
 </style>

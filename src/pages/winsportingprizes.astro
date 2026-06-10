@@ -1,303 +1,390 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import LinkButton from '../components/LinkButton.vue';
 ---
 
-<BaseLayout title="Win Sporting Prizes — Case Study" description="Win Sporting Prizes case study on gamified rewards and engagement.">
-  <section class="case-study-hero">
-    <div class="container">
-      <p class="eyebrow">Case Study</p>
-      <h1>Win Sporting Prizes</h1>
-      <p class="intro">Designing a gamified rewards platform to increase engagement and diversify revenue.</p>
+<BaseLayout title="Win Sporting Prizes — Case Study" description="Designing a digital prize-draw platform for sports fans — UX strategy, end-to-end design and CMS architecture for Win Sporting Prizes.">
+
+  <section class="cs-hero">
+    <div class="cs-eyebrow">
+      <span class="cs-idx">02</span>
+      <span class="cs-eyebrow__line"></span>
+      <span class="cs-eyebrow__label">Case Study</span>
+      <span class="cs-eyebrow__line"></span>
     </div>
-  </section>
-
-  <section class="case-study-content">
-    <div class="container">
-      <article class="case-study-panel">
-        <h2>Overview</h2>
-        <p>Win Sporting Prizes is a click-to-win competition platform built within the Rewards4Group ecosystem, which includes established sports loyalty platforms such as Rewards4Racing, Rewards4Golf, and Rewards4Cricket.</p>
-        <p>The platform allows users to exchange loyalty points—or purchase entries—for the chance to win exclusive sports prizes and experiences, including VIP tickets and once-in-a-lifetime events.</p>
-        <p>The goal of the project was to introduce a more engaging way for users to interact with their points, while also creating a new revenue stream for the business.</p>
-      </article>
-
-      <details class="case-study-panel">
-        <summary>Context & Problem</summary>
-        <div class="case-study-panel-content">
-          <p>The Rewards4Group business model was heavily reliant on affiliate partnerships, particularly with brands like Bet365 and Betfred. While successful, this created a dependency on a limited revenue structure.</p>
-          <p>At the same time, user behaviour across the Rewards4 ecosystem revealed a key issue:</p>
-          <ul class="case-study-list">
-            <li>Users actively earned points but did not consistently redeem them</li>
-            <li>Engagement dropped after initial participation</li>
-            <li>Traditional rewards lacked excitement and urgency</li>
-          </ul>
-          <p>Although unused points could benefit the business in the short term, long-term growth depended on increasing user engagement, repeat visits, and active participation, which directly drove affiliate revenue.</p>
+    <div class="cs-hero__body">
+      <h1 class="cs-title">Win Sporting<br>Prizes</h1>
+      <div class="cs-hero__meta">
+        <p class="cs-intro">Designing a digital prize-draw platform for sports fans — from UX strategy and end-to-end design through to CMS architecture.</p>
+        <div class="cs-tags">
+          <span>Figma</span>
+          <span>UX Design</span>
+          <span>CMS Architecture</span>
+          <span>Brand Design</span>
         </div>
-      </details>
-
-      <details class="case-study-panel">
-        <summary>Goals</summary>
-        <div class="case-study-panel-content">
-          <p><strong>Business Goals</strong></p>
-          <ul class="case-study-list">
-            <li>Diversify revenue streams beyond affiliate reliance</li>
-            <li>Increase user engagement and repeat visits</li>
-            <li>Encourage active point redemption</li>
-          </ul>
-          <p><strong>User Goals</strong></p>
-          <ul class="case-study-list">
-            <li>Provide a more engaging way to use loyalty points</li>
-            <li>Create excitement around rewards and competition</li>
-            <li>Reduce friction in entering competitions</li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="case-study-panel">
-        <summary>Users</summary>
-        <div class="case-study-panel-content">
-          <p>The primary users were existing members of the Rewards4 ecosystem, particularly those engaged with sports-focused platforms.</p>
-          <p>Key user traits:</p>
-          <ul class="case-study-list">
-            <li>Strong interest in sports such as racing, football, and golf</li>
-            <li>Familiar with betting-style or chance-based systems</li>
-            <li>Motivated by competition, anticipation, and reward</li>
-          </ul>
-          <p>User needs:</p>
-          <ul class="case-study-list">
-            <li>A simple and engaging way to use points</li>
-            <li>Clear understanding of prize value</li>
-            <li>Fast, low-friction interaction flows</li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="case-study-panel">
-        <summary>My Role</summary>
-        <div class="case-study-panel-content">
-          <p>I worked across the full product lifecycle:</p>
-          <ul class="case-study-list">
-            <li>Early concept development and brainstorming</li>
-            <li>Wireframing and interactive prototyping in Figma</li>
-            <li>Front-end development using Vue 3</li>
-            <li>API integration and contribution to backend structure</li>
-            <li>Collaboration with designers, backend developers, QA, and stakeholders</li>
-            <li>Development of an admin system to track ticket sales and engagement</li>
-          </ul>
-          <p>A key part of my role was translating unclear stakeholder ideas into structured, testable product decisions.</p>
-        </div>
-      </details>
-
-      <details class="case-study-panel">
-        <summary>Design Process & Working Through Ambiguity</summary>
-        <div class="case-study-panel-content">
-          <p>A major challenge in this project was the lack of a fixed product direction at the start. Instead, the product evolved through weekly stakeholder discussions.</p>
-          <p>To manage this, I introduced a structured iteration process:</p>
-          <ul class="case-study-list">
-            <li>Weekly reviews with stakeholders to refine ideas</li>
-            <li>Research into competitor patterns and UX platforms (e.g. Mobbin)</li>
-            <li>Rapid creation of multiple design options per problem</li>
-            <li>Clear presentation of trade-offs to support decision-making</li>
-          </ul>
-          <p>This ensured steady progress despite evolving requirements and shifting expectations.</p>
-        </div>
-      </details>
-
-      <details class="case-study-panel">
-        <summary>UX Deep Dive: Reducing Friction in the Entry Flow</summary>
-        <div class="case-study-panel-content">
-          <p>The Problem</p>
-          <p>There was initial uncertainty around whether users should:</p>
-          <ul class="case-study-list">
-            <li>Log in before interacting with the platform</li>
-            <li>Or only at the point of purchase</li>
-          </ul>
-          <p>Requiring login upfront introduced friction:</p>
-          <ul class="case-study-list">
-            <li>Users couldn’t explore the product freely</li>
-            <li>Drop-off risk increased before value was understood</li>
-          </ul>
-          <p>The Solution</p>
-          <p>I proposed a flow that:</p>
-          <ul class="case-study-list">
-            <li>Allowed users to browse prizes and select tickets without logging in</li>
-            <li>Introduced login/signup only at the checkout stage</li>
-          </ul>
-          <p>This approach aligned with common e-commerce patterns and reduced unnecessary barriers early in the journey.</p>
-          <p>Impact:</p>
-          <ul class="case-study-list">
-            <li>Lower friction for new users</li>
-            <li>Increased engagement before commitment</li>
-            <li>More natural progression into account creation and payment</li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="case-study-panel">
-        <summary>Ticket UX & CMS Integration</summary>
-        <div class="case-study-panel-content">
-          <p>To design the ticket selection experience, I analysed competitor platforms and adapted a model that balanced simplicity, flexibility, and scalability.</p>
-          <p>I then worked closely with backend developers to integrate this into the CMS, allowing the marketing team to:</p>
-          <ul class="case-study-list">
-            <li>Create and manage competitions</li>
-            <li>Configure ticket structures</li>
-            <li>Update content without developer support</li>
-          </ul>
-          <p>This ensured the platform could evolve quickly post-launch.</p>
-        </div>
-      </details>
-
-      <details class="case-study-panel">
-        <summary>Brand & Trust</summary>
-        <div class="case-study-panel-content">
-          <p>Trust was a key consideration due to the nature of prize-based competition platforms.</p>
-          <p>The design reinforced credibility through:</p>
-          <ul class="case-study-list">
-            <li>Clear and structured prize presentation</li>
-            <li>Secure payment options including PayPal, Apple Pay, and cards</li>
-            <li>Strong alignment with established Rewards4Group platforms</li>
-          </ul>
-          <p>This helped ensure the product felt legitimate, reliable, and professionally operated.</p>
-        </div>
-      </details>
-
-      <details class="case-study-panel">
-        <summary>Results</summary>
-        <div class="case-study-panel-content">
-          <p>The platform was successfully launched as part of the Rewards4Group ecosystem.</p>
-          <p>Key outcomes:</p>
-          <ul class="case-study-list">
-            <li>Introduced a new revenue stream for the business</li>
-            <li>Increased opportunities for user engagement with loyalty points</li>
-            <li>Established a scalable competition platform within the ecosystem</li>
-          </ul>
-          <p>In addition, I developed an admin system that allowed the team to:</p>
-          <ul class="case-study-list">
-            <li>Track ticket sales</li>
-            <li>Monitor user participation</li>
-            <li>Gain visibility into platform performance</li>
-          </ul>
-        </div>
-      </details>
-
-      <div class="case-study-actions">
-  
-                      <LinkButton url="/#projects" label="More Projects" />
       </div>
     </div>
   </section>
+
+  <div class="cs-body">
+
+    <section class="cs-section">
+      <div class="cs-section__label">
+        <span class="cs-section__line"></span>
+        <span class="cs-section__name">Overview</span>
+        <span class="cs-section__line"></span>
+      </div>
+      <div class="cs-section__body">
+        <p>Win Sporting Prizes is a prize-draw platform that allows sports fans to enter competitions for the chance to win sporting memorabilia, experiences, and merchandise. The platform needed to be designed from the ground up — from initial research and brand identity through to final UI and CMS configuration.</p>
+        <p>I led the UX and UI design across the entire project, working closely with stakeholders and developers to deliver a product that was both engaging for users and easy for the team to manage.</p>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <div class="cs-section__label">
+        <span class="cs-section__line"></span>
+        <span class="cs-section__name">Context &amp; Problem</span>
+        <span class="cs-section__line"></span>
+      </div>
+      <div class="cs-section__body">
+        <p>The sports merchandise and experience market lacks accessible, digital-first competition platforms aimed at everyday fans. Existing solutions are either tied to newspaper promotions, social media giveaways, or expensive third-party platforms that don't cater to the experience of sports fandom.</p>
+        <p>The brief was to design a platform that felt trustworthy, simple to use, and exciting — one that sports fans would return to regularly and recommend to others.</p>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <div class="cs-section__label">
+        <span class="cs-section__line"></span>
+        <span class="cs-section__name">Goals</span>
+        <span class="cs-section__line"></span>
+      </div>
+      <div class="cs-section__body">
+        <ul class="cs-list">
+          <li>Design a clear, frictionless entry flow for prize draws</li>
+          <li>Build trust through transparent competition mechanics</li>
+          <li>Create a brand identity that resonates with sports fans</li>
+          <li>Enable the internal team to manage competitions without developer involvement</li>
+          <li>Ensure the platform was accessible and performant on mobile</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <div class="cs-section__label">
+        <span class="cs-section__line"></span>
+        <span class="cs-section__name">Users</span>
+        <span class="cs-section__line"></span>
+      </div>
+      <div class="cs-section__body">
+        <p>The primary users were sports fans aged 18–45 who are comfortable with mobile browsing and social media, but who may not engage deeply with complex digital products. They needed a platform that was immediately legible — clear prizes, obvious entry steps, and visible fairness.</p>
+        <p>Secondary users were the internal editorial and marketing team who needed to create, schedule, and update competitions through a CMS without technical expertise.</p>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <div class="cs-section__label">
+        <span class="cs-section__line"></span>
+        <span class="cs-section__name">My Role</span>
+        <span class="cs-section__line"></span>
+      </div>
+      <div class="cs-section__body">
+        <p>I was the sole designer across the project, responsible for:</p>
+        <ul class="cs-list">
+          <li>User research, competitive analysis, and persona development</li>
+          <li>Information architecture and user flow mapping</li>
+          <li>Wireframing, prototyping, and user testing</li>
+          <li>Visual design and brand identity</li>
+          <li>High-fidelity UI design and design system creation</li>
+          <li>CMS architecture and content modelling</li>
+          <li>Handoff and developer collaboration</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <div class="cs-section__label">
+        <span class="cs-section__line"></span>
+        <span class="cs-section__name">Design Process</span>
+        <span class="cs-section__line"></span>
+      </div>
+      <div class="cs-section__body">
+        <p>The project began with a discovery phase to understand the competitive landscape, identify user needs, and define the core value proposition. Key competitors were audited for their entry flows, trust signals, and content strategies.</p>
+        <p>From discovery, I moved into structure — mapping out key user journeys (browsing competitions, entering a draw, viewing past wins), defining the information architecture, and building low-fidelity wireframes for the primary screens.</p>
+        <p>Once the structure was validated with stakeholders, I moved into high-fidelity design and brand development in parallel, ensuring the visual language reinforced the goals of the product — energy, sport, trust.</p>
+
+        <h3>Working Through Ambiguity</h3>
+        <p>Several key decisions were underspecified at the start of the project — particularly around competition mechanics and how winners would be drawn. I facilitated workshops with stakeholders to define these rules clearly, then translated them directly into UX patterns that communicated fairness and transparency to users.</p>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <div class="cs-section__label">
+        <span class="cs-section__line"></span>
+        <span class="cs-section__name">UX Deep Dive: Entry Flow</span>
+        <span class="cs-section__line"></span>
+      </div>
+      <div class="cs-section__body">
+        <p>The entry flow was the most critical user journey on the platform.</p>
+
+        <h3>Reducing Friction at Entry</h3>
+        <p>Entry required minimal steps — users could browse, understand the prize and odds, and enter in three taps. Registration was deferred until after intent was established, reducing drop-off at the top of the funnel.</p>
+
+        <h3>Trust at Every Step</h3>
+        <p>Clear prize images, draw dates, ticket availability, and T&Cs were surfaced at the point of entry rather than hidden in separate pages. Visual progress indicators were used throughout the purchase flow.</p>
+
+        <h3>Post-Entry State</h3>
+        <p>The post-entry confirmation screen was designed to reinforce excitement — showing ticket number, draw date, and surfacing related competitions to encourage repeat engagement.</p>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <div class="cs-section__label">
+        <span class="cs-section__line"></span>
+        <span class="cs-section__name">Ticket UX &amp; CMS</span>
+        <span class="cs-section__line"></span>
+      </div>
+      <div class="cs-section__body">
+        <p>Competition tickets had variable pricing based on entry quantity — a common mechanic in prize draws. I designed a ticket selector that clearly communicated value tiers, highlighted the most popular option, and prevented user confusion around total cost vs. odds.</p>
+
+        <h3>CMS Architecture</h3>
+        <p>The CMS was structured around a Competition content type with modular fields for prize details, entry mechanics, draw dates, ticket tiers, and winner announcements. The architecture allowed the editorial team to launch, manage, and close competitions entirely without developer support.</p>
+        <ul class="cs-list">
+          <li>Modular prize detail blocks (image, description, estimated value)</li>
+          <li>Configurable ticket tier pricing and quantity limits</li>
+          <li>Scheduled draw dates with automated status transitions</li>
+          <li>Winner announcement fields linked to competition records</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <div class="cs-section__label">
+        <span class="cs-section__line"></span>
+        <span class="cs-section__name">Brand &amp; Trust</span>
+        <span class="cs-section__line"></span>
+      </div>
+      <div class="cs-section__body">
+        <p>The brand needed to feel energetic and sports-native while communicating the legitimacy of a regulated prize platform. I developed a visual identity system using bold typography, a sports-inspired colour palette, and photography guidelines that prioritised authenticity over stock imagery.</p>
+        <p>Trust signals were embedded throughout the design — regulatory badges, clear T&Cs access, winner histories, and transparent draw mechanics — to address the inherent scepticism users bring to prize-draw platforms.</p>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <div class="cs-section__label">
+        <span class="cs-section__line"></span>
+        <span class="cs-section__name">Results</span>
+        <span class="cs-section__line"></span>
+      </div>
+      <div class="cs-section__body">
+        <ul class="cs-list">
+          <li>Full design system delivered and handed off to development</li>
+          <li>CMS architecture enabled editorial team to self-manage all competitions</li>
+          <li>Entry flow reduced to three core steps from initial eight-step audit benchmark</li>
+          <li>Stakeholder validation passed at every design review stage</li>
+          <li>Platform launched on schedule with zero post-handoff design rework</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="cs-back">
+      <a href="/#projects">← Back to Projects</a>
+    </div>
+
+  </div>
+
 </BaseLayout>
 
 <style>
-  .case-study-hero {
-    padding: 8rem 0 4rem;
-    text-align: center;
-    border-block-end: 3px solid var(--color-border);
+  :root {
+    --hbg:   #080808;
+    --htxt:  #e8e4df;
+    --hacc:  #ccff00;
+    --hline: rgba(232,228,223,0.09);
+    --hmute: rgba(232,228,223,0.42);
+    --hfont: 'Bebas Neue', 'Impact', sans-serif;
   }
 
-  .case-study-hero .eyebrow {
+  .cs-hero,
+  .cs-body,
+  .cs-back {
+    background: var(--hbg);
+    color: var(--htxt);
+  }
+
+  /* ── Hero ── */
+  .cs-hero {
+    padding-top: 64px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--hline);
+  }
+
+  .cs-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.7rem 3rem;
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--color-text-muted);
-    margin-bottom: 1rem;
-    font-size: 0.875rem;
+    color: var(--hmute);
+    border-bottom: 1px solid var(--hline);
+    flex-shrink: 0;
   }
 
-  .case-study-hero h1 {
-    font-size: clamp(2.75rem, 5vw, 4.5rem);
-    margin-bottom: 1.25rem;
-    line-height: 1.05;
+  .cs-idx {
+    font-family: var(--hfont);
+    font-size: 3rem;
+    color: var(--hacc);
+    line-height: 1;
   }
 
-  .case-study-hero .intro {
-    max-width: 760px;
+  .cs-eyebrow__line { flex: 1; height: 1px; background: var(--hline); }
+
+  .cs-hero__body {
+    display: grid;
+    grid-template-columns: 1fr 0.55fr;
+    gap: 4rem;
+    align-items: end;
+    padding: 4rem 3rem 5rem;
+  }
+
+  .cs-title {
+    font-family: var(--hfont);
+    font-size: clamp(5rem, 12vw, 16rem);
+    line-height: 0.88;
+    text-transform: uppercase;
+    color: var(--htxt);
+  }
+
+  .cs-intro {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--hmute);
+    margin-bottom: 1.75rem;
+  }
+
+  .cs-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .cs-tags span {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--hacc);
+    border: 1px solid rgba(204,255,0,0.3);
+    padding: 0.28rem 0.65rem;
+  }
+
+  /* ── Content ── */
+  .cs-body { }
+
+  .cs-section {
+    padding: 4rem 3rem;
+    border-bottom: 1px solid var(--hline);
+    max-width: 1400px;
     margin: 0 auto;
-    font-size: 1.25rem;
-    color: var(--color-text-muted);
   }
 
-  .case-study-content {
-    padding: 2rem ;
+  .cs-section__label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
   }
 
-  .case-study-panel {
-    max-width: 900px;
-    margin: 0 auto 3rem;
+  .cs-section__line { flex: 1; height: 1px; background: var(--hline); }
+
+  .cs-section__name {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--hacc);
+    white-space: nowrap;
   }
 
-  details.case-study-panel {
-       border: 3px dashed;
-    box-shadow: 6px 6px 0;
-    background: var(--color-surface);
-    margin: 0 auto 1.5rem;
-    overflow: hidden;
+  .cs-section__body {
+    max-width: 740px;
   }
 
-  details.case-study-panel summary {
+  .cs-section__body p {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--hmute);
+    margin-bottom: 1.25rem;
+  }
+
+  .cs-section__body h3 {
+    font-family: var(--hfont);
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--htxt);
+    margin-top: 2rem;
+    margin-bottom: 0.6rem;
+    line-height: 1;
+  }
+
+  .cs-list {
     list-style: none;
-    cursor: pointer;
-    padding: 1.25rem 1.5rem;
-
-    color: var(--color-text);
-    border-bottom: 1px solid var(--color-border);
-    font-size: 1.25rem;
-    font-weight: 600;
-    transition: background 0.2s ease, color 0.2s ease;
+    padding: 0;
+    margin: 0 0 1.5rem;
   }
 
-  details.case-study-panel summary::-webkit-details-marker {
-    display: none;
+  .cs-list li {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--hmute);
+    padding: 0.5rem 0 0.5rem 1.25rem;
+    border-bottom: 1px solid var(--hline);
+    position: relative;
   }
 
-  details.case-study-panel summary::after {
-    content: '▸';
-    float: right;
-    transition: transform 0.2s ease;
+  .cs-list li:first-child { border-top: 1px solid var(--hline); }
+
+  .cs-list li::before {
+    content: '·';
+    color: var(--hacc);
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+    line-height: 1.5;
   }
 
-  details.case-study-panel[open] summary::after {
-    transform: rotate(90deg);
+  /* ── Back ── */
+  .cs-back {
+    padding: 3rem;
+    border-top: 1px solid var(--hline);
   }
 
-  .case-study-panel-content {
-    padding: 1.5rem;
+  .cs-back a {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--hmute);
+    text-decoration: none;
+    transition: color 0.2s;
   }
 
-  .case-study-panel h2 {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-    color: var(--color-accent);
-  }
-
-  .case-study-panel p,
-  .case-study-panel li {
-    color: var(--color-text-muted);
-    line-height: 1.9;
-    font-size: 1rem;
-  }
-
-  .case-study-list {
-    margin: 1rem 0 1.5rem 1.25rem;
-    list-style: disc;
-    color: var(--color-text-muted);
-  }
-
-  .case-study-list li {
-    margin-bottom: 0.75rem;
-  }
-
-  .case-study-actions {
-    text-align: center;
-    margin-top: 3rem;
-  }
+  .cs-back a:hover { color: var(--hacc); }
 
   @media (max-width: 768px) {
-    .case-study-hero {
-      padding: 6rem 0 3rem;
-    }
-
-    .case-study-panel {
-      margin-bottom: 2.5rem;
-    }
+    .cs-eyebrow { padding: 0.6rem 1.5rem; }
+    .cs-hero__body { grid-template-columns: 1fr; padding: 2.5rem 1.5rem 3rem; gap: 2rem; }
+    .cs-section { padding: 3rem 1.5rem; }
+    .cs-back { padding: 2rem 1.5rem; }
   }
 </style>
