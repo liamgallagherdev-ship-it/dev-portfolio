@@ -244,7 +244,7 @@ const { title, description, path, ogImage } = Astro.props;
     justify-content: center;
     height: 64px;
     padding: 0 1.1rem;
-    background: #ccff00;
+    background: var(--hacc);
     color: #080808;
     font-family: 'Bebas Neue', 'Impact', sans-serif;
     font-size: 1.4rem;
@@ -281,14 +281,14 @@ const { title, description, path, ogImage } = Astro.props;
     font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #ccff00;
+    color: var(--hacc);
   }
 
   .nav-status__dot {
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #ccff00;
+    background: var(--hacc);
     animation: nav-pulse 2.4s ease-in-out infinite;
   }
 
@@ -337,7 +337,7 @@ const { title, description, path, ogImage } = Astro.props;
   .rail b { color: #e8e4df; font-weight: 700; }
 
   .rail-live {
-    color: #ccff00;
+    color: var(--hacc);
     margin-left: auto;
   }
 
@@ -346,7 +346,7 @@ const { title, description, path, ogImage } = Astro.props;
     left: 0; top: -1px;
     height: 2px;
     width: 0%;
-    background: #ccff00;
+    background: var(--hacc);
     transition: width 0.1s linear;
   }
 

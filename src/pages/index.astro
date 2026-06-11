@@ -295,6 +295,8 @@ import LinkButton from '../components/LinkButton.vue';
       var p = max > 0 ? Math.round(window.scrollY / max * 100) : 0;
       rScroll.textContent = p + '%';
       bar.style.width = p + '%';
+      var hue = 72 + (max > 0 ? (window.scrollY / max) * 360 : 0);
+      document.documentElement.style.setProperty('--hacc-h', hue);
     }
     function onResize() { rView.textContent = window.innerWidth + '×' + window.innerHeight; }
     function tick() {
@@ -340,10 +342,17 @@ import LinkButton from '../components/LinkButton.vue';
 
 
   /* ── Hero design tokens ─────────────────────────────────────────── */
+  @property --hacc-h {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 72;
+  }
+
   :root {
     --hbg:   #080808;
     --htxt:  #e8e4df;
-    --hacc:  #ccff00;
+    --hacc-h: 72;
+    --hacc:  hsl(var(--hacc-h) 100% 50%);
     --hline: rgba(232,228,223,0.09);
     --hmute: rgba(232,228,223,0.42);
     --hfont: 'Bebas Neue', 'Impact', sans-serif;
@@ -353,12 +362,6 @@ import LinkButton from '../components/LinkButton.vue';
   .page-bg {
     --pbg-bg1: rgb(8, 8, 8);
     --pbg-bg2: rgb(10, 11, 7);
-    --pbg-c1: 120, 160, 0;
-    --pbg-c2: 60, 90, 0;
-    --pbg-c3: 35, 52, 0;
-    --pbg-c4: 95, 135, 0;
-    --pbg-c5: 14, 20, 2;
-    --pbg-ci: 110, 150, 0;
     --pbg-size: 80%;
     --pbg-blend: hard-light;
 
@@ -392,7 +395,7 @@ import LinkButton from '../components/LinkButton.vue';
   }
 
   .pg1 {
-    background: radial-gradient(circle at center, rgba(var(--pbg-c1), 0.35) 0, rgba(var(--pbg-c1), 0) 50%) no-repeat;
+    background: radial-gradient(circle at center, hsla(var(--hacc-h) 100% 30% / 0.35) 0, hsla(var(--hacc-h) 100% 30% / 0) 50%) no-repeat;
     width: var(--pbg-size); height: var(--pbg-size);
     top: calc(50% - var(--pbg-size) / 2);
     left: calc(50% - var(--pbg-size) / 2);
@@ -401,7 +404,7 @@ import LinkButton from '../components/LinkButton.vue';
   }
 
   .pg2 {
-    background: radial-gradient(circle at center, rgba(var(--pbg-c2), 0.35) 0, rgba(var(--pbg-c2), 0) 50%) no-repeat;
+    background: radial-gradient(circle at center, hsla(var(--hacc-h) 90% 18% / 0.35) 0, hsla(var(--hacc-h) 90% 18% / 0) 50%) no-repeat;
     width: var(--pbg-size); height: var(--pbg-size);
     top: calc(50% - var(--pbg-size) / 2);
     left: calc(50% - var(--pbg-size) / 2);
@@ -410,7 +413,7 @@ import LinkButton from '../components/LinkButton.vue';
   }
 
   .pg3 {
-    background: radial-gradient(circle at center, rgba(var(--pbg-c3), 0.35) 0, rgba(var(--pbg-c3), 0) 50%) no-repeat;
+    background: radial-gradient(circle at center, hsla(var(--hacc-h) 85% 10% / 0.35) 0, hsla(var(--hacc-h) 85% 10% / 0) 50%) no-repeat;
     width: var(--pbg-size); height: var(--pbg-size);
     top: calc(50% - var(--pbg-size) / 2 + 200px);
     left: calc(50% - var(--pbg-size) / 2 - 500px);
@@ -419,7 +422,7 @@ import LinkButton from '../components/LinkButton.vue';
   }
 
   .pg4 {
-    background: radial-gradient(circle at center, rgba(var(--pbg-c4), 0.35) 0, rgba(var(--pbg-c4), 0) 50%) no-repeat;
+    background: radial-gradient(circle at center, hsla(var(--hacc-h) 95% 26% / 0.35) 0, hsla(var(--hacc-h) 95% 26% / 0) 50%) no-repeat;
     width: var(--pbg-size); height: var(--pbg-size);
     top: calc(50% - var(--pbg-size) / 2);
     left: calc(50% - var(--pbg-size) / 2);
@@ -429,7 +432,7 @@ import LinkButton from '../components/LinkButton.vue';
   }
 
   .pg5 {
-    background: radial-gradient(circle at center, rgba(var(--pbg-c5), 0.4) 0, rgba(var(--pbg-c5), 0) 50%) no-repeat;
+    background: radial-gradient(circle at center, hsla(var(--hacc-h) 70% 4% / 0.4) 0, hsla(var(--hacc-h) 70% 4% / 0) 50%) no-repeat;
     width: calc(var(--pbg-size) * 2); height: calc(var(--pbg-size) * 2);
     top: calc(50% - var(--pbg-size));
     left: calc(50% - var(--pbg-size));
@@ -438,7 +441,7 @@ import LinkButton from '../components/LinkButton.vue';
   }
 
   .pg-cursor {
-    background: radial-gradient(circle at center, rgba(var(--pbg-ci), 0.28) 0, rgba(var(--pbg-ci), 0) 50%) no-repeat;
+    background: radial-gradient(circle at center, hsla(var(--hacc-h) 100% 28% / 0.28) 0, hsla(var(--hacc-h) 100% 28% / 0) 50%) no-repeat;
     width: 100%; height: 100%;
     top: -50%; left: -50%;
     opacity: 0.22;
