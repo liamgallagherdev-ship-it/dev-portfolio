@@ -1,0 +1,92 @@
+---
+/**
+ * TODO before shipping:
+ *   1. Create /public/og-image.png — 1200×630. Name + role + your accent colour.
+ *      This is what LinkedIn/Slack/iMessage previews show. Worth 20 minutes in Figma.
+ *   2. Update the GitHub URL after you rename the account.
+ */
+
+interface Props {
+  title?: string;
+  description?: string;
+  path?: string;
+  ogImage?: string;
+}
+
+const SITE = "https://liam-gallagher.dev";
+
+const {
+  title = "Liam Gallagher — Frontend Developer & UI/UX Designer",
+  description = "Frontend developer and UI/UX designer specialising in Vue, TypeScript and Astro. I build fast, accessible, high-performance interfaces. Based in Manchester, UK — available worldwide.",
+  path = "/",
+  ogImage = `${SITE}/og-image.png`,
+} = Astro.props;
+
+const canonical = `${SITE}${path}`;
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Liam Gallagher",
+  url: SITE,
+  image: `${SITE}/images/logos/Avatar-c.png`,
+  jobTitle: "Frontend Developer & UI/UX Designer",
+  description:
+    "Frontend developer and UI/UX designer specialising in Vue.js, TypeScript and Astro.",
+  email: "mailto:liam.gallagher.dev@gmail.com",
+  knowsAbout: [
+    "Vue.js",
+    "TypeScript",
+    "Astro",
+    "UI/UX Design",
+    "Web Accessibility",
+    "Web Performance",
+  ],
+  homeLocation: {
+    "@type": "Place",
+    name: "Manchester, UK",
+  },
+  sameAs: [
+    "https://www.linkedin.com/in/liam-gallagher-17020b347/",
+    "https://github.com/liamgallagherdev-ship-it", // TODO: update after rename
+  ],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Liam Gallagher — Frontend Developer",
+  url: SITE,
+  author: { "@type": "Person", name: "Liam Gallagher" },
+};
+---
+
+<!-- Primary -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta name="author" content="Liam Gallagher" />
+
+<!-- Open Graph (LinkedIn, Slack, iMessage, Facebook) -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Liam Gallagher — Frontend Developer" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Liam Gallagher — Frontend Developer & UI/UX Designer" />
+<meta property="og:locale" content="en_GB" />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<!-- Structured data: helps Google disambiguate you from the other Liam Gallagher -->
+<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+{path === "/" && (
+  <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+)}

@@ -1,10 +1,14 @@
 ---
+import SeoHead from '../components/SeoHead.astro';
+
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
+  path?: string;
+  ogImage?: string;
 }
 
-const { title, description = "Frontend Developer Portfolio" } = Astro.props;
+const { title, description, path, ogImage } = Astro.props;
 ---
 
 <!doctype html>
@@ -12,10 +16,9 @@ const { title, description = "Frontend Developer Portfolio" } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <SeoHead title={title} description={description} path={path} ogImage={ogImage} />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Shade&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
