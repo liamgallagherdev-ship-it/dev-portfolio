@@ -835,7 +835,7 @@ import LinkButton from '../components/LinkButton.vue';
     .skills-inner { grid-template-columns: 1fr; gap: 0; }
     .skills-table { grid-column: 1; }
     .skills-row { padding: 1.25rem 0; }
-    .skills-row__stack { font-size: clamp(1.6rem, 7vw, 2.5rem); }
+    .skills-row__stack { font-size: 2.5rem; }
   }
 
 
@@ -1040,6 +1040,16 @@ import LinkButton from '../components/LinkButton.vue';
     background: var(--htxt);
     color: var(--hbg);
     transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .about,
+    .skills,
+    .projects,
+    .contact {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
   }
 
 
