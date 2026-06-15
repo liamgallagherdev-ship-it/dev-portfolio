@@ -21,7 +21,8 @@ const { title, description, path, ogImage } = Astro.props;
     <SeoHead title={title} description={description} path={path} ogImage={ogImage} />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Shade&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"></noscript>
   </head>
   <body>
     <div id="theme-curtain" aria-hidden="true"></div>
@@ -154,60 +155,6 @@ const { title, description, path, ogImage } = Astro.props;
     --color-border: #e5dcd3;
   }
 
-  
-.pixelify {
-  font-family: "Pixelify Sans", sans-serif;
-  font-optical-sizing: auto;
- 
-}
-
-.press-start-2p-regular {
-  font-family: "Press Start 2P", system-ui;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.vt323-regular {
-  font-family: "VT323", monospace;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.pixelify {
-  font-family: "Pixelify Sans", cursive;
-  font-weight: 700;
-}
-
-
-.courier-prime-regular {
-  font-family: "Courier Prime", monospace;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.courier-prime-bold {
-  font-family: "Courier Prime", monospace;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.courier-prime-regular-italic {
-  font-family: "Courier Prime", monospace;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.courier-prime-bold-italic {
-  font-family: "Courier Prime", monospace;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.bungee-shade-regular {
-  font-family: "Bungee Shade", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
   a {
     color: inherit;
     text-decoration: none;
@@ -334,7 +281,7 @@ const { title, description, path, ogImage } = Astro.props;
     white-space: nowrap;
   }
 
-  .rail b { color: #e8e4df; font-weight: 700; }
+  .rail b { color: #e8e4df; font-weight: 700; min-width: 300px;}
 
   .rail-live {
     color: var(--hacc);

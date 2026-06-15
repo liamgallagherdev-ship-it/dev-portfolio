@@ -1,7 +1,6 @@
 
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import LinkButton from '../components/LinkButton.vue';
 ---
 
 <BaseLayout path="/">
@@ -32,7 +31,6 @@ import LinkButton from '../components/LinkButton.vue';
       <div class="pg3"></div>
       <div class="pg4"></div>
       <div class="pg5"></div>
-      <div class="pg-cursor" id="pg-cursor"></div>
     </div>
   </div>
 
@@ -263,21 +261,6 @@ import LinkButton from '../components/LinkButton.vue';
 </BaseLayout>
 
 <script>
-  (function () {
-    const cursor = document.getElementById('pg-cursor');
-    if (!cursor) return;
-    let cx = 0, cy = 0, tx = 0, ty = 0;
-    const tick = () => {
-      cx += (tx - cx) / 20;
-      cy += (ty - cy) / 20;
-      cursor.style.transform = `translate(${Math.round(cx)}px, ${Math.round(cy)}px)`;
-      requestAnimationFrame(tick);
-    };
-    window.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
-    tick();
-  })();
-
-
   // Bottom rail
   (function () {
     var rScroll  = document.getElementById('rScroll');
@@ -333,19 +316,11 @@ import LinkButton from '../components/LinkButton.vue';
 </script>
 
 <style>
-.card-cta {
-  font-size: 0.8rem;
-  color: var(--color-accent);
-  font-weight: 600;
-}
-
-
-
   /* ── Hero design tokens ─────────────────────────────────────────── */
   @property --hacc-h {
     syntax: '<number>';
     inherits: true;
-    initial-value: 72;
+    initial-value: 100;
   }
 
   :root {
@@ -389,7 +364,7 @@ import LinkButton from '../components/LinkButton.vue';
     width: 100%; height: 100%;
   }
 
-  .pg1, .pg2, .pg3, .pg4, .pg5, .pg-cursor {
+  .pg1, .pg2, .pg3, .pg4, .pg5 {
     position: absolute;
     mix-blend-mode: var(--pbg-blend);
   }
@@ -440,13 +415,6 @@ import LinkButton from '../components/LinkButton.vue';
     animation: pgMoveInCircle 20s ease infinite;
   }
 
-  .pg-cursor {
-    background: radial-gradient(circle at center, hsla(var(--hacc-h) 100% 28% / 0.28) 0, hsla(var(--hacc-h) 100% 28% / 0) 50%) no-repeat;
-    width: 100%; height: 100%;
-    top: -50%; left: -50%;
-    opacity: 0.22;
-  }
-
   @keyframes pgMoveInCircle {
     0%   { transform: rotate(0deg); }
     50%  { transform: rotate(180deg); }
@@ -465,6 +433,12 @@ import LinkButton from '../components/LinkButton.vue';
 
   @media (prefers-reduced-motion: reduce) {
     .page-bg { display: none; }
+  }
+
+  @media (max-width: 768px) {
+    .page-bg { filter: none; }
+    .page-bg__noise { display: none; }
+    .page-bg__gradients { filter: none; }
   }
 
   /* ── Hero ───────────────────────────────────────────────────────── */
@@ -507,12 +481,11 @@ import LinkButton from '../components/LinkButton.vue';
 
   .hero-ln {
     display: block;
-    overflow: hidden;
   }
 
   .hero-ln span {
     display: inline-block;
-    transform: translateY(110%);
+    transform: translateY(28px);
     animation: heroRise 0.7s cubic-bezier(.2,.7,.2,1) forwards;
   }
 
@@ -810,8 +783,6 @@ import LinkButton from '../components/LinkButton.vue';
   }
   .skills-row__stack--start { align-items: flex-start; }
 
-  .sd { color: var(--hacc); margin: 0 0.1em; }
-
   /* ── Skills scroll reveal ───────────────────────────────────────── */
   .skills-row__header .skills-row__line,
   .skills-row__header .skills-row__cat {
@@ -1083,160 +1054,4 @@ import LinkButton from '../components/LinkButton.vue';
 
 
 
-  /* ── Project preview / bento ────────────────────────────────────── */
-  .projects-preview-col {
-    grid-column: 2;
-    position: relative;
-    align-self: center;
-  }
-
-  .proj-preview {
-    width: 100%;
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    opacity: 0;
-    transition: opacity 0.35s ease;
-  }
-
-  .proj-preview--visible { opacity: 1; }
-
-  /* Bento grid */
-  .proj-bento {
-    display: grid;
-    grid-template-columns: 1.5fr 0.65fr;
-    grid-template-rows: 1.6fr 1fr;
-    gap: 0.4rem;
-    aspect-ratio: 4 / 3;
-  }
-
-  .proj-bento__main {
-    grid-column: 1;
-    grid-row: 1 / 3;
-    position: relative;
-    overflow: hidden;
-    background: #0d0d0d;
-    border: 1px solid var(--hline);
-  }
-
-  .proj-bento__cell {
-    border: 1px solid var(--hline);
-    background: rgba(232,228,223,0.03);
-    padding: 1.1rem 1.25rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden;
-  }
-
-  .proj-bento__type { grid-column: 2; grid-row: 1; }
-  .proj-bento__stack-cell { grid-column: 2; grid-row: 2; }
-
-  .proj-bento__cell-label {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.5rem;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--hmute);
-    display: block;
-    margin-bottom: 0.6rem;
-  }
-
-  .proj-bento__cell-value {
-    font-family: var(--hfont);
-    font-size: clamp(1rem, 1.6vw, 1.6rem);
-    text-transform: uppercase;
-    color: var(--hacc);
-    line-height: 1;
-  }
-
-  .proj-bento__stack-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.3rem;
-  }
-
-  .proj-bento__stack-tags span {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.5rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--hmute);
-    border: 1px solid var(--hline);
-    padding: 0.2rem 0.5rem;
-  }
-
-  /* Screenshot image */
-  .proj-preview__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    display: block;
-    transition: opacity 0.22s ease;
-  }
-
-  /* Title + CTA overlay on screenshot */
-  .proj-bento__overlay {
-    position: absolute;
-    inset: auto 0 0 0;
-    padding: 3rem 1.25rem 1rem;
-    background: linear-gradient(to top, rgba(8,8,8,0.9) 0%, transparent 100%);
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 0.75rem;
-    z-index: 2;
-  }
-
-  .proj-bento__overlay-title {
-    font-family: var(--hfont);
-    font-size: clamp(0.9rem, 1.4vw, 1.5rem);
-    text-transform: uppercase;
-    color: var(--htxt);
-    line-height: 1.1;
-  }
-
-  .proj-bento__overlay-cta {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.55rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--hacc);
-    white-space: nowrap;
-    flex-shrink: 0;
-    transition: letter-spacing 0.2s;
-  }
-
-  .proj-preview:hover .proj-bento__overlay-cta { letter-spacing: 0.26em; }
-
-  @media (max-width: 768px) {
-    .btn { width: 100%; text-align: center; }
-    .section-title { font-size: 1.5rem; }
-    section { padding: 4.5rem 0; }
-
-    /* hero mobile */
-    .hero { padding-top: 56px; }
-    .hero-body {
-      grid-template-columns: 1fr;
-      padding: 1.5rem;
-      gap: 1.5rem;
-    }
-    .hero-right-col { display: none; }
-    .hero-name__line { font-size: clamp(4rem, 20vw, 10rem); }
-    .hero-name__line--first { letter-spacing: 0.15em; }
-    .hero-strip { padding: 0.6rem 1.5rem; }
-    .hero-strip--bottom { padding: 1.25rem 1.5rem; gap: 1.25rem; }
-    .hero-strip__col--center { display: none; }
-    .hero-num { display: none; }
-  }
-
-
-
-  
-
-  
 </style>
