@@ -19,10 +19,9 @@ const { title, description, path, ogImage } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <SeoHead title={title} description={description} path={path} ogImage={ogImage} />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"></noscript>
+<link rel="preload" href="/fonts/bebas-neue-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/courier-prime-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/courier-prime-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   </head>
   <body>
     <div id="theme-curtain" aria-hidden="true"></div>
@@ -109,6 +108,46 @@ const { title, description, path, ogImage } = Astro.props;
 </html>
 
 <style is:global>
+  @font-face {
+    font-family: 'Bebas Neue';
+    src: url('/fonts/bebas-neue-latin-400-normal.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: block;
+  }
+
+  @font-face {
+    font-family: 'Courier Prime';
+    src: url('/fonts/courier-prime-latin-400-normal.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Courier Prime';
+    src: url('/fonts/courier-prime-latin-700-normal.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Courier Prime';
+    src: url('/fonts/courier-prime-latin-400-italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Courier Prime';
+    src: url('/fonts/courier-prime-latin-700-italic.woff2') format('woff2');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+  }
+
   :root {
     --color-bg: #080808;
 ;
