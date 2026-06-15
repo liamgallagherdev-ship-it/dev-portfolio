@@ -329,7 +329,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     --hacc-h: 72;
     --hacc:  hsl(var(--hacc-h) 100% 50%);
     --hline: rgba(232,228,223,0.09);
-    --hmute: rgba(232,228,223,0.42);
+    --hmute: rgba(232,228,223,0.60);
     --hfont: 'Bebas Neue', 'Impact', sans-serif;
   }
 
@@ -466,14 +466,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     flex-wrap: wrap;
     gap: 6px 18px;
     color: var(--hmute);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+       margin-left: 5px;
   }
 
   .hero-eyebrow__live { color: var(--hacc); }
 
   .hero-h1 {
     font-family: var(--hfont);
-    font-size: clamp(3.4rem, 13vw, 11.5rem);
+    font-size: clamp(2.5rem, 13vw, 11.5rem);
     line-height: 0.95;
     text-transform: uppercase;
     color: var(--htxt);
@@ -792,7 +793,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .skills-row__stack span {
-    color: rgba(232, 228, 223, 0.14);
+    color: var(--hmute);
     transition: color 0.55s ease;
   }
 
@@ -1033,7 +1034,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     .projects,
     .contact {
       padding-top: 2.5rem;
-      padding-bottom: .5rem;
+      padding-bottom: 2.5rem;
     }
     .about-label,
     .skills-label,
