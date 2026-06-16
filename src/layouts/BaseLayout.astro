@@ -284,6 +284,9 @@ const { title, description, path, ogImage } = Astro.props;
     50% { opacity: 0.25; }
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    .nav-status__dot { animation: none; }
+  }
 
   main {
     min-height: 100vh;
